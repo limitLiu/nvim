@@ -1,57 +1,70 @@
-local wk = require('which-key')
+local wk = require "which-key"
 local mapping = {
   [";;"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
   a = {
-    name = 'Search',
-    b = { '<cmd>Telescope buffers<CR>', 'Search Buffer' },
-    g = { '<cmd>Telescope live_grep<CR>', 'Search Keyword' },
+    name = "Search",
+    b = { "<cmd>Telescope buffers<CR>", "Search Buffer" },
+    g = { "<cmd>Telescope live_grep<CR>", "Search Keyword" },
   },
   b = {
-    name = 'Buffer',
-    d = { ':bd<CR>', 'Delete Buffer' },
-    k = { ':bw<CR>', 'Kill Buffer' }
+    name = "Buffer",
+    d = { ":bd<CR>", "Delete Buffer" },
+    k = { ":bw<CR>", "Kill Buffer" },
+  },
+  d = {
+    name = "Debugger",
+    s = { "Start" },
+    q = { "Quit" },
+    c = { "Continue" },
+    p = { "Set BreakPoint" },
+    P = { "Clear All BreakPoints" },
+    j = { "Step Over" },
+    o = { "Step Out" },
+    i = { "Step Into" },
+    h = { "Help" },
   },
   f = {
-    name = 'File',
-    s = { ':update<CR>', 'Save' },
-    t = { ':NvimTreeToggle<CR>', 'Toggle Tree' },
-    r = { ':NvimTreeRefresh<CR>', 'Tree Refresh' },
-    d = { ':NvimTreeFindFile<CR>', 'Find Current File' },
+    name = "File",
+    s = { ":update<CR>", "Save" },
+    t = { ":NvimTreeToggle<CR>", "Toggle Tree" },
+    r = { ":NvimTreeRefresh<CR>", "Tree Refresh" },
+    d = { ":NvimTreeFindFile<CR>", "Find Current File" },
   },
   l = {
-    name = 'LSP',
-    r = { '<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename' },
-    c = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code Action' },
-    f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Formatting' },
+    name = "LSP",
+    r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+    -- c = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code Action' },
+    c = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
+    -- f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Formatting' },
   },
   s = {
-    name = 'Search',
-    c = { ':nohlsearch<CR>', 'Clear Highlight Result' },
+    name = "Search",
+    c = { ":nohlsearch<CR>", "Clear Highlight Result" },
   },
   t = {
-    name = 'Terminal',
-    t = { ':ToggleTerm<CR>', 'Open Terminal'},
-    g = { '<cmd>lua _lazygit_toggle()<CR>', 'Open lazygit'}
+    name = "Terminal",
+    t = { ":ToggleTerm<CR>", "Open Terminal" },
+    g = { "<cmd>lua _lazygit_toggle()<CR>", "Open lazygit" },
   },
   w = {
-    name = 'Window',
-    h = { ':vsp<CR>', 'Split Horizontal Window' },
-    v = { ':sp<CR>', 'Split Vertical Window' },
-    c = { '<C-w>c', 'Close Current Window' },
-    o = { '<C-w>o', 'Close Other Windows' },
-    ['='] = { '<C-w>=', 'Same Width Split Window' }
-  }
+    name = "Window",
+    h = { ":vsp<CR>", "Split Horizontal Window" },
+    v = { ":sp<CR>", "Split Vertical Window" },
+    c = { "<C-w>c", "Close Current Window" },
+    o = { "<C-w>o", "Close Other Windows" },
+    ["="] = { "<C-w>=", "Same Width Split Window" },
+  },
 }
 
 local localMapping = {
-  p = { ':BufferLineCyclePrev<CR>', 'Previous Buffer' },
-  n = { ':BufferLineCycleNext<CR>', 'Next Buffer' },
-  o = { '<cmd>Telescope find_files<CR>', 'Open File' },
-  ['='] = { ':Format<CR>', 'Exec Formatter'},
+  p = { ":BufferLineCyclePrev<CR>", "Previous Buffer" },
+  n = { ":BufferLineCycleNext<CR>", "Next Buffer" },
+  o = { "<cmd>Telescope find_files<CR>", "Open File" },
+  ["="] = { "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", "Formatting" },
 }
 
-wk.register(mapping, { prefix = '<leader>' })
-wk.register(localMapping, { prefix = '<localleader>' })
+wk.register(mapping, { prefix = "<leader>" })
+wk.register(localMapping, { prefix = "<localleader>" })
 
 wk.setup {
   icons = {

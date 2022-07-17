@@ -1,44 +1,22 @@
-local installer = require("nvim-lsp-installer")
-
-local servers = {
-  sumneko_lua = require("lsp.lua"),
-  rust_analyzer = require("lsp.rust"),
-  tsserver = {},
-  clangd = {},
-  rescriptls = require("lsp.rescript"),
-  sourcekit = {},
-  hls = {},
+require("nvim-lsp-installer").setup {
+  automatic_installation = true,
 }
 
-for name, _ in pairs(servers) do
-  local server_is_found, server = installer.get_server(name)
-  if server_is_found then
-    if not server:is_installed() then
-      print("Installing " .. name)
-      server:install()
+local lsp_config = require "lspconfig"
+
+local servers = {
+  sumneko_lua = require "lsp.languages.lua",
+  rust_analyzer = require "lsp.languages.rust",
+  clangd = require "lsp.languages.clang",
+  -- hls = {},
+}
+
+for key, config in pairs(servers) do
+  if config ~= nil and type(config) == "table" then
+    if config.on_setup then
+      config.on_setup(lsp_config[key])
     end
+  else
+    lsp_config[key].setup {}
   end
 end
-
-installer.on_server_ready(function(serve)
-  local opts = servers[serve.name]
-  if opts then
-    opts.on_attach = function(_, bufnr)
-      local function buf_set_keymap(...)
-        vim.api.nvim_buf_set_keymap(bufnr, ...)
-      end
-      require("keybinding").map_lsp(buf_set_keymap)
-    end
-    opts.flags = {
-      debounce_text_changes = 150,
-    }
-    if serve.name == "rust_analyzer" then
-      require("rust-tools").setup({
-        server = vim.tbl_deep_extend("force", serve:get_default_options(), opts),
-      })
-      serve:attach_buffers()
-    else
-      serve:setup(opts)
-    end
-  end
-end)

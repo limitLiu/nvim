@@ -31,10 +31,10 @@ vim.o.wrap = false
 vim.wo.wrap = false
 vim.o.whichwrap = 'b,s,<,>,[,]'
 vim.o.hidden = true
-vim.o.mouse = 'a'
-vim.o.backup = false
-vim.o.writebackup = false
-vim.o.swapfile = false
+-- vim.o.mouse = 'a'
+-- vim.o.backup = false
+-- vim.o.writebackup = false
+-- vim.o.swapfile = false
 vim.o.updatetime = 300
 vim.o.timeoutlen = 300
 vim.o.splitbelow = true
@@ -49,4 +49,12 @@ vim.o.wildmenu = true
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.pumheight = 10
 vim.o.showtabline = 2
+
+local prefix = vim.fn.expand("/tmp")
+vim.opt.undodir = { prefix .. "/nvim/.undo//" }
+vim.opt.backupdir = { prefix .. "/nvim/.backup//" }
+vim.opt.directory = { prefix .. "/nvim/.swp//" }
+
+
+vim.o.clipboard = "unnamed,unnamedplus"
 vim.cmd "au TextYankPost * lua vim.highlight.on_yank {on_visual = true}"

@@ -1,1 +1,1 @@
-require('Comment').setup(require('keybinding').comment)
+require('Comment').setup(require('common.keybindings').comment)

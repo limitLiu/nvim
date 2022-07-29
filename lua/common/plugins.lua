@@ -24,6 +24,7 @@ require("packer").startup {
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
     use { "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" }
+    use "jose-elias-alvarez/nvim-lsp-ts-utils"
 
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-buffer"
@@ -47,12 +48,7 @@ require("packer").startup {
     use "windwp/nvim-autopairs"
     use "tpope/vim-surround"
     use "lukas-reineke/indent-blankline.nvim"
-    use {
-      "lewis6991/gitsigns.nvim",
-      requires = {
-        "nvim-lua/plenary.nvim",
-      },
-    }
+    use "lewis6991/gitsigns.nvim"
     use "norcalli/nvim-colorizer.lua"
     use "arkav/lualine-lsp-progress"
     -- use 'mhartington/formatter.nvim'
@@ -76,6 +72,8 @@ require("packer").startup {
     use "theHamsta/nvim-dap-virtual-text"
     use "rcarriga/nvim-dap-ui"
     use "puremourning/vimspector"
+    use "p00f/clangd_extensions.nvim"
+    use "b0o/SchemaStore.nvim"
   end,
   config = {
     display = {

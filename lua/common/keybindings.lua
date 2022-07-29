@@ -55,6 +55,12 @@ PLUGIN_KEYS.map_lsp = function(buf)
   buf("n", "<localleader>d", "<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<CR>", opt)
 end
 
+PLUGIN_KEYS.map_ts_util = function(buf)
+  buf("n", "<leader>gs", "<cmd>TSLspOrganize<CR>", opt)
+  buf("n", "<leader>gr", "<cmd>TSLspRenameFile<CR>", opt)
+  buf("n", "<leader>gi", "<cmd>TSLspImportAll<CR>", opt)
+end
+
 PLUGIN_KEYS.cmp = function(c)
   local feed_key = function(key, mode)
     local keys = vim.api.nvim_replace_termcodes(key, true, true, true) or ""

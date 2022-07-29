@@ -60,6 +60,7 @@ local localMapping = {
   p = { ":BufferLineCyclePrev<CR>", "Previous Buffer" },
   n = { ":BufferLineCycleNext<CR>", "Next Buffer" },
   o = { "<cmd>Telescope find_files<CR>", "Open File" },
+  d = { "Show Diagnostic" },
   ["="] = { "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", "Formatting" },
 }
 

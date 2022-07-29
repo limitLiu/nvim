@@ -34,7 +34,7 @@ local opts = {
 
 return {
   on_setup = function(server)
-    local options = require("lua-dev").setup({ lspconfig = opts })
+    local options = require("lua-dev").setup { lspconfig = opts }
     if options then
       server.setup(options)
     end

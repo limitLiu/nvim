@@ -15,8 +15,8 @@ map("i", "<C-e>", "<End>", opt)
 map("i", "<C-a>", "<Home>", opt)
 
 map("v", "v", "<Esc>", opt)
-map("v", "[", "<gv", opt)
-map("v", "]", ">gv", opt)
+-- map("v", "[", "<gv", opt)
+-- map("v", "]", ">gv", opt)
 
 map("n", "<C-u>", "9k", opt)
 map("n", "<C-d>", "9j", opt)

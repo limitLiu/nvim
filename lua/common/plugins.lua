@@ -23,7 +23,11 @@ require("packer").startup {
 
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
-    use { "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" }
+    use {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+    }
     use "jose-elias-alvarez/nvim-lsp-ts-utils"
 
     use "hrsh7th/cmp-nvim-lsp"
@@ -74,6 +78,8 @@ require("packer").startup {
     use "puremourning/vimspector"
     use "p00f/clangd_extensions.nvim"
     use "b0o/SchemaStore.nvim"
+    use "lewis6991/impatient.nvim"
+    use "tanvirtin/monokai.nvim"
   end,
   config = {
     display = {

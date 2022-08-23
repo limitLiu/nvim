@@ -7,6 +7,8 @@ if null_ls then
     debug = false,
     sources = {
       formatting.stylua,
+      formatting.rustfmt,
+      formatting.clang_format,
       formatting.prettier.with {
         filetypes = {
           "javascript",

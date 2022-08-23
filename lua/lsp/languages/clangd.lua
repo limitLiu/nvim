@@ -13,6 +13,8 @@ local opts = {
   end,
 }
 
+opts.capabilities.offsetEncoding = { "utf-16" }
+
 return {
   on_setup = function(server)
     server.setup(opts)

@@ -1,21 +1,20 @@
-require("nvim-lsp-installer").setup {
-  automatic_installation = true,
-}
+require("mason").setup {}
+require("mason-lspconfig").setup {}
 
 local lsp_config = require "lspconfig"
 
 local servers = {
   sumneko_lua = require "lsp.languages.lua",
   rust_analyzer = require "lsp.languages.rust",
-  clangd = require "lsp.languages.clang",
+  clangd = require "lsp.languages.clangd",
   jdtls = require "lsp.languages.java",
-  hls = require "lsp.languages.haskell",
   gopls = require "lsp.languages.go",
   html = require "lsp.languages.html",
   cssls = require "lsp.languages.css",
   emmet_ls = require "lsp.languages.emmet",
   jsonls = require "lsp.languages.json",
   tsserver = require "lsp.languages.ts",
+  hls = require "lsp.languages.haskell",
 }
 
 for key, config in pairs(servers) do

@@ -5,10 +5,9 @@ require("packer").startup {
       "ellisonleao/gruvbox.nvim",
       requires = { "rktjmp/lush.nvim" },
     }
-    use "ful1e5/onedark.nvim"
+    use "sainnhe/everforest"
 
     use "folke/which-key.nvim"
-    use "sainnhe/everforest"
 
     use {
       "kyazdani42/nvim-tree.lua",
@@ -79,7 +78,7 @@ require("packer").startup {
     use "p00f/clangd_extensions.nvim"
     use "b0o/SchemaStore.nvim"
     use "lewis6991/impatient.nvim"
-    use "tanvirtin/monokai.nvim"
+    use "ThemerCorp/themer.lua"
   end,
   config = {
     display = {

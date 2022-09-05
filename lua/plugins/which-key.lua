@@ -1,6 +1,5 @@
 local wk = require "which-key"
 local mapping = {
-  [";;"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
   a = {
     name = "Search",
     b = { "<cmd>Telescope buffers<CR>", "Search Buffer" },

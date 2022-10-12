@@ -6,6 +6,7 @@ if null_ls then
   null_ls.setup {
     debug = false,
     sources = {
+      formatting.phpcsfixer,
       formatting.stylua,
       formatting.rustfmt,
       formatting.clang_format,

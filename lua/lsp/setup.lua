@@ -15,6 +15,8 @@ local servers = {
   jsonls = require "lsp.languages.json",
   tsserver = require "lsp.languages.ts",
   hls = require "lsp.languages.haskell",
+  phpactor = require "lsp.languages.php",
+  kotlin_language_server = require "lsp.languages.kotlin",
 }
 
 for key, config in pairs(servers) do

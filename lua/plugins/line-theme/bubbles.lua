@@ -22,13 +22,13 @@ local colors = {
 
 local conditions = {
   buffer_not_empty = function()
-    return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
+    return vim.fn.empty(vim.fn.expand "%:t") ~= 1
   end,
   hide_in_width = function()
     return vim.fn.winwidth(0) > 80
   end,
   check_git_workspace = function()
-    local filepath = vim.fn.expand("%:p:h")
+    local filepath = vim.fn.expand "%:p:h"
     local gitdir = vim.fn.finddir(".git", filepath .. ";")
     return gitdir and #gitdir > 0 and #gitdir < #filepath
   end,
@@ -98,11 +98,22 @@ local function ins_left(component)
   table.insert(config.sections.lualine_c, component)
 end
 
+ins_left {
+  "diagnostics",
+  sources = { "nvim_diagnostic" },
+  symbols = { error = " ", warn = " ", info = " " },
+  diagnostics_color = {
+    color_error = { fg = colors.red },
+    color_warn = { fg = colors.yellow },
+    color_info = { fg = colors.cyan },
+  },
+}
+
 local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
-ins_right({
+--[[ ins_right {
   "lsp_progress",
   colors = {
     percentage = colors.cyan,
@@ -120,12 +131,13 @@ ins_right({
     lsp_client_name = { pre = "[", post = "]" },
     spinner = { pre = "", post = "" },
   },
-  display_components = { "spinner", { "title", "percentage" } },
-  timer = { progress_enddelay = 500, spinner = 1000, lsp_client_name_enddelay = 1000 },
+  -- display_components = { "spinner", { "title", "percentage" } },
+  display_components = { "spinner", {} },
+  timer = { progress_enddelay = 1000, spinner = 1000, lsp_client_name_enddelay = 1000 },
   spinner_symbols = { "🌑 ", "🌒 ", "🌓 ", "🌔 ", "🌕 ", "🌖 ", "🌗 ", "🌘 " },
-})
+} ]]
 
-ins_left({
+ins_right {
   "diff",
   -- Is it me or the symbol for modified us really weird
   symbols = { added = " ", modified = "柳 ", removed = " " },
@@ -135,6 +147,6 @@ ins_left({
     removed = { fg = colors.red },
   },
   cond = conditions.hide_in_width,
-})
+}
 
 require("lualine").setup(config)

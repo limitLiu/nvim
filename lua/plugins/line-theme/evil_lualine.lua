@@ -193,8 +193,9 @@ ins_right {
     lsp_client_name = { pre = "[", post = "]" },
     spinner = { pre = "", post = "" },
   },
-  display_components = { "spinner", { "title", "percentage" } },
-  timer = { progress_enddelay = 500, spinner = 1000, lsp_client_name_enddelay = 1000 },
+  -- display_components = { "spinner", { "title", "percentage" } },
+  display_components = { "spinner", {} },
+  timer = { progress_enddelay = 1000, spinner = 1000, lsp_client_name_enddelay = 1000 },
   spinner_symbols = { "🌑 ", "🌒 ", "🌓 ", "🌔 ", "🌕 ", "🌖 ", "🌗 ", "🌘 " },
 }
 

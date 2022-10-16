@@ -1,15 +1,11 @@
+local common = require "lsp.languages.common"
+
 local opts = {
-  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-  flags = {
-    debounce_text_changes = 150,
-  },
+  capabilities = common.capabilities,
+  flags = common.flags,
   on_attach = function(client, buf)
-    client.server_capabilities.document_formatting = false
-    client.server_capabilities.document_range_formatting = false
-    local function buf_set_map(...)
-      vim.api.nvim_buf_set_keymap(buf, ...)
-    end
-    require("common.keybindings").map_lsp(buf_set_map)
+    common.disableFormat(client)
+    common.keybinding(buf)
   end,
   settings = {
     ["rust-analyzer"] = {

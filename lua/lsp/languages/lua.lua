@@ -1,6 +1,9 @@
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
+
+local common = require "lsp.languages.common"
+
 local opts = {
   settings = {
     Lua = {
@@ -13,30 +16,23 @@ local opts = {
       },
       workspace = {
         library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
       },
       telemery = {
         enable = false,
       },
     },
   },
-  flags = {
-    debounce_text_changes = 150,
-  },
+  flags = common.flags,
   on_attach = function(client, buf)
-    client.server_capabilities.document_formatting = false
-    client.server_capabilities.document_range_formatting = false
-    local function buf_set_map(...)
-      vim.api.nvim_buf_set_keymap(buf, ...)
-    end
-    require("common.keybindings").map_lsp(buf_set_map)
+    common.disableFormat(client)
+    common.keybinding(buf)
   end,
 }
 
 return {
   on_setup = function(server)
-    local options = require("lua-dev").setup { lspconfig = opts }
-    if options then
-      server.setup(options)
-    end
+    require("neodev").setup {}
+    server.setup(opts)
   end,
 }

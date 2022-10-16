@@ -1,3 +1,4 @@
+local common = require "lsp.languages.common"
 local ts_utils = requirePlugin "nvim-lsp-ts-utils"
 local keybindings = requirePlugin "common.keybindings"
 
@@ -5,17 +6,11 @@ local opts = {}
 
 if ts_utils and keybindings then
   opts = {
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    flags = {
-      debounce_text_changes = 150,
-    },
+    capabilities = common.capabilities,
+    flags = common.flags,
     on_attach = function(client, buf)
-      client.server_capabilities.document_formatting = false
-      client.server_capabilities.document_range_formatting = false
-      local function buf_set_map(...)
-        vim.api.nvim_buf_set_keymap(buf, ...)
-      end
-      keybindings.map_lsp(buf_set_map)
+      common.disableFormat(client)
+      common.keybinding(buf)
       ts_utils.setup {
         debug = false,
         disable_commands = false,
@@ -45,7 +40,7 @@ if ts_utils and keybindings then
         watch_dir = nil,
       }
       ts_utils.setup_client(client)
-      keybindings.map_ts_util(buf_set_map)
+      common.tsKeybinding(buf, keybindings)
     end,
   }
 end

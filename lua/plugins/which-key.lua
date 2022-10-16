@@ -55,12 +55,17 @@ local mapping = {
   },
 }
 
+local format = { "<cmd>lua vim.lsp.buf.format()<CR>", "Formatting" }
+if vim.fn.has('nvim-0.7') == 1 then
+  format = { "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", "Formatting" }
+end
+
 local localMapping = {
   p = { ":BufferLineCyclePrev<CR>", "Previous Buffer" },
   n = { ":BufferLineCycleNext<CR>", "Next Buffer" },
   o = { "<cmd>Telescope find_files<CR>", "Open File" },
   d = { "Show Diagnostic" },
-  ["="] = { "<cmd>lua vim.lsp.buf.format()<CR>", "Formatting" },
+  ["="] = format,
 }
 
 wk.register(mapping, { prefix = "<leader>" })

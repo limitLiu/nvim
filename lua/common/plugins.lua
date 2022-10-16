@@ -66,7 +66,7 @@ require("packer").startup {
       },
     }
     use "ahmedkhalf/project.nvim"
-    use "folke/lua-dev.nvim"
+    use "folke/neodev.nvim"
     use "glepnir/lspsaga.nvim"
 
     use "jose-elias-alvarez/null-ls.nvim"

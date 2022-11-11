@@ -15,13 +15,8 @@ M.tsKeybinding = function(buf, keybindings)
 end
 
 M.disableFormat = function(client)
-  if vim.fn.has "nvim-0.7" == 1 then
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-  else
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
-  end
+  client.server_capabilities.documentFormattingProvider = false
+  client.server_capabilities.documentRangeFormattingProvider = false
 end
 
 M.capabilities = require("cmp_nvim_lsp").default_capabilities()

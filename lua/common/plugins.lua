@@ -55,7 +55,8 @@ require("packer").startup {
     use "norcalli/nvim-colorizer.lua"
     use "arkav/lualine-lsp-progress"
     -- use 'mhartington/formatter.nvim'
-    -- use 'rescript-lang/vim-rescript'
+    use 'rescript-lang/vim-rescript'
+    use 'nkrkv/nvim-treesitter-rescript'
 
     use "matze/vim-move"
     use {

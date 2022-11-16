@@ -10,6 +10,7 @@ if null_ls then
       formatting.stylua,
       formatting.rustfmt,
       formatting.clang_format,
+      formatting.ocamlformat,
       formatting.prettier.with {
         filetypes = {
           "javascript",

@@ -55,10 +55,7 @@ local mapping = {
   },
 }
 
-local format = { "<cmd>lua vim.lsp.buf.format()<CR>", "Formatting" }
-if vim.fn.has('nvim-0.7') == 1 then
-  format = { "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", "Formatting" }
-end
+local format = { "<cmd>lua vim.lsp.buf.format{ async = true }<CR>", "Formatting" }
 
 local localMapping = {
   p = { ":BufferLineCyclePrev<CR>", "Previous Buffer" },

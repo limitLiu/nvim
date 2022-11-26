@@ -55,8 +55,8 @@ require("packer").startup {
     use "norcalli/nvim-colorizer.lua"
     use "arkav/lualine-lsp-progress"
     -- use 'mhartington/formatter.nvim'
-    use 'rescript-lang/vim-rescript'
-    use 'nkrkv/nvim-treesitter-rescript'
+    use "rescript-lang/vim-rescript"
+    use "nkrkv/nvim-treesitter-rescript"
 
     use "matze/vim-move"
     use {
@@ -68,7 +68,10 @@ require("packer").startup {
     }
     use "ahmedkhalf/project.nvim"
     use "folke/neodev.nvim"
-    use "glepnir/lspsaga.nvim"
+    use {
+      "glepnir/lspsaga.nvim",
+      branch = "version_2.3",
+    }
 
     use "jose-elias-alvarez/null-ls.nvim"
 

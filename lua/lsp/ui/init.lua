@@ -1,3 +1,5 @@
+require "lsp.ui.lspsaga"
+
 vim.diagnostic.config {
   virtual_text = true,
   signs = true,
@@ -29,11 +31,6 @@ if lspkind then
       end,
     },
   }
-end
-
-local lspsage = requirePlugin "lspsaga"
-if lspsage then
-  lspsage.init_lsp_saga()
 end
 
 return M

@@ -9,10 +9,15 @@ if telescope then
         "rg",
         "--color=never",
         "--no-heading",
-        "--with-filename",
+        -- "--with-filename",
         "--line-number",
         "--column",
         "--smart-case",
+      },
+      pickers = {
+        find_files = {
+          theme = "cursor",
+        },
       },
       prompt_prefix = " ",
       selection_caret = "  ",

@@ -36,6 +36,13 @@ local mapping = {
     c = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
     -- f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Formatting' },
   },
+  p = {
+    name = "Projects",
+    t = {
+      "<cmd>Telescope projects<CR>",
+      "Show Recent Projects",
+    },
+  },
   s = {
     name = "Search",
     c = { ":nohlsearch<CR>", "Clear Highlight Result" },
@@ -62,6 +69,7 @@ local localMapping = {
   n = { ":BufferLineCycleNext<CR>", "Next Buffer" },
   o = { "<cmd>Telescope find_files<CR>", "Open File" },
   d = { "Show Diagnostic" },
+  e = { "<cmd>Telescope buffers<CR>", "Show Buffers" },
   ["="] = format,
 }
 

@@ -60,4 +60,3 @@ vim.opt.backupdir = { prefix .. "/nvim/.backup//" }
 vim.opt.directory = { prefix .. "/nvim/.swp//" }
 
 vim.o.clipboard = "unnamed,unnamedplus"
-vim.cmd "au TextYankPost * lua vim.highlight.on_yank {on_visual = true}"

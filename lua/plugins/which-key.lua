@@ -68,7 +68,11 @@ local localMapping = {
   p = { ":BufferLineCyclePrev<CR>", "Previous Buffer" },
   n = { ":BufferLineCycleNext<CR>", "Next Buffer" },
   o = { "<cmd>Telescope find_files<CR>", "Open File" },
-  d = { "Show Diagnostic" },
+  d = { "Show Cursor Diagnostic" },
+  l = {
+    name = "Diagnostic",
+    d = { "Show Line Diagnostic" },
+  },
   e = { "<cmd>Telescope buffers<CR>", "Show Buffers" },
   ["="] = format,
 }

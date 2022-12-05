@@ -1,65 +1,65 @@
 -- [JSON Parser with JavaScript](https://lihautan.com/json-parser-with-javascript)
 
 local M = {}
+local Private = {}
 
 local index = 1
 local json = ""
-local init = false
 
-function M:readChar(str, i)
+function Private:readChar(str, i)
   return string.sub(str, i, i)
 end
 
-function M:read()
-  return M:readChar(json, index)
+function Private:read()
+  return Private:readChar(json, index)
 end
 
-function M:peek(str, i, j)
+function Private:peek(str, i, j)
   if not j then
     j = 1
   end
-  return M:readChar(str, i + j)
+  return Private:readChar(str, i + j)
 end
 
-function M:advance(i)
+function Private:advance(i)
   if not i then
     i = 1
   end
   index = index + i
 end
 
-function M:skipWhitespace()
+function Private:skipWhitespace()
   while
-    M:read() == " "
-    or M:read() == "\n"
-    or M:read() == "\t"
-    or M:read() == "\r"
+    Private:read() == " "
+    or Private:read() == "\n"
+    or Private:read() == "\t"
+    or Private:read() == "\r"
   do
-    M:advance()
+    Private:advance()
   end
 end
 
-function M:skipComma()
-  if M:read() ~= "," then
+function Private:skipComma()
+  if Private:read() ~= "," then
     error "Expected ,"
   end
-  M:advance()
+  Private:advance()
 end
 
-function M:skipColon()
-  if M:read() ~= ":" then
+function Private:skipColon()
+  if Private:read() ~= ":" then
     error "Expected :"
   end
-  M:advance()
+  Private:advance()
 end
 
-function M:isHex(c)
+function Private:isHex(c)
   local is0To9 = c >= "0" and c <= "9"
   local is_a_to_f = string.lower(c) >= "a" and string.lower(c) <= "f"
   return is0To9 or is_a_to_f
 end
 
-function M:parseString()
+function Private:parseString()
   local isSpecialChar = function(ch)
     return ch == '"'
       or ch == "\\"
@@ -71,68 +71,68 @@ function M:parseString()
       or ch == "t"
   end
 
-  if M:read() == '"' then
-    M:advance()
+  if Private:read() == '"' then
+    Private:advance()
     local result
-    while M:read() ~= '"' do
-      if M:read() == "\\" then
-        local c = M:peek(json, index)
+    while Private:read() ~= '"' do
+      if Private:read() == "\\" then
+        local c = Private:peek(json, index)
         if isSpecialChar(c) then
           result = (result or "") .. c
-          M:advance()
+          Private:advance()
         elseif c == "u" then
           if
-            M:isHex(M:peek(json, index, 2))
-            and M:isHex(M:peek(json, index, 3))
-            and M:isHex(M:peek(json, index, 4))
-            and M:isHex(M:peek(json, index, 5))
+            Private:isHex(Private:peek(json, index, 2))
+            and Private:isHex(Private:peek(json, index, 3))
+            and Private:isHex(Private:peek(json, index, 4))
+            and Private:isHex(Private:peek(json, index, 5))
           then
             result = (result or "") .. string.sub(json, index + 2, index + 5)
-            M:advance(5)
+            Private:advance(5)
           end
         end
       else
-        result = (result or "") .. M:read()
+        result = (result or "") .. Private:read()
       end
-      M:advance()
+      Private:advance()
     end
     if tonumber(result) ~= nil then
       result = tonumber(result)
     end
-    M:advance()
+    Private:advance()
     return result
   end
   return nil
 end
 
-function M:parseNumeric()
+function Private:parseNumeric()
   local start = index
 
   local readNumeric = function()
-    while M:read() >= "0" and M:read() <= "9" do
-      M:advance()
+    while Private:read() >= "0" and Private:read() <= "9" do
+      Private:advance()
     end
   end
 
-  if M:read() == "-" then
-    M:advance()
+  if Private:read() == "-" then
+    Private:advance()
   end
-  if M:read() == "0" then
-    M:advance()
-  elseif M:read() >= "1" and M:read() <= "9" then
-    M:advance()
+  if Private:read() == "0" then
+    Private:advance()
+  elseif Private:read() >= "1" and Private:read() <= "9" then
+    Private:advance()
     readNumeric()
   end
 
-  if M:read() == "." then
-    M:advance()
+  if Private:read() == "." then
+    Private:advance()
     readNumeric()
   end
 
-  if M:read() == "e" or M:read() == "E" then
-    M:advance()
-    if M:read() == "-" or M:read() == "+" then
-      M:advance()
+  if Private:read() == "e" or Private:read() == "E" then
+    Private:advance()
+    if Private:read() == "-" or Private:read() == "+" then
+      Private:advance()
     end
     readNumeric()
   end
@@ -144,73 +144,73 @@ function M:parseNumeric()
   return nil
 end
 
-function M:parseKw(name, value)
+function Private:parseKw(name, value)
   if string.sub(json, index, index + #name - 1) == name then
     index = index + #name
     return value
   end
 end
 
-function M:parseObject()
-  if M:read() == "{" then
-    M:advance()
-    M:skipWhitespace()
+function Private:parseObject()
+  if Private:read() == "{" then
+    Private:advance()
+    Private:skipWhitespace()
     local result = {}
     local tail = false
 
-    while M:read() ~= "}" do
+    while Private:read() ~= "}" do
       if tail then
-        M:skipComma()
-        M:skipWhitespace()
+        Private:skipComma()
+        Private:skipWhitespace()
       end
 
-      local key = M:parseString()
-      M:skipWhitespace()
-      M:skipColon()
-      local value = M:parseValue()
+      local key = Private:parseString()
+      Private:skipWhitespace()
+      Private:skipColon()
+      local value = Private:parseValue()
       if key then
         result[key] = value
       end
       tail = true
     end
-    M:advance()
+    Private:advance()
     return result
   end
   return nil
 end
 
-function M:parseArray()
-  if M:read() == "[" then
-    M:advance()
-    M:skipWhitespace()
+function Private:parseArray()
+  if Private:read() == "[" then
+    Private:advance()
+    Private:skipWhitespace()
     local result = {}
-    init = true
+    local tail = false
 
-    while M:read() ~= "]" do
-      if not init then
-        M:skipComma()
+    while Private:read() ~= "]" do
+      if tail then
+        Private:skipComma()
       end
 
-      local value = M:parseValue()
+      local value = Private:parseValue()
       table.insert(result, value)
-      init = false
+      tail = true
     end
-    M:advance()
+    Private:advance()
     return result
   end
   return nil
 end
 
-function M:parseValue()
-  M:skipWhitespace()
+function Private:parseValue()
+  Private:skipWhitespace()
   local value
-  local str = M:parseString()
-  local num = M:parseNumeric()
-  local obj = M:parseObject()
-  local arr = M:parseArray()
-  local yes = M:parseKw("true", true)
-  local no = M:parseKw("false", false)
-  local null = M:parseKw("null", nil)
+  local str = Private:parseString()
+  local num = Private:parseNumeric()
+  local obj = Private:parseObject()
+  local arr = Private:parseArray()
+  local yes = Private:parseKw("true", true)
+  local no = Private:parseKw("false", false)
+  local null = Private:parseKw("null", nil)
 
   if str ~= nil then
     value = str
@@ -228,16 +228,16 @@ function M:parseValue()
     value = null
   end
 
-  M:skipWhitespace()
+  Private:skipWhitespace()
   return value
 end
 
-M.parse = function(input)
+function M:parse(input)
   local file = io.open(input, "r")
   if file then
     json = file:read "*a"
     file:close()
-    local value = M:parseValue()
+    local value = Private:parseValue()
     if value then
       return true, value
     end

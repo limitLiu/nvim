@@ -15,7 +15,8 @@ end
 
 if themer then
   local parser = require "utils.parser"
-  local ok, json = parser:parse "./config.json"
+  local ok, json =
+    parser:parse(vim.api.nvim_list_runtime_paths()[1] .. "/config.json")
   if ok then
     tui_color(themer, json)
   end

@@ -11,7 +11,7 @@ if cmp and ui then
     },
     sources = cmp.config.sources({
       { name = "nvim_lsp" },
-      { name = "cmp_tabnine" },
+      -- { name = "cmp_tabnine" },
       { name = "vsnip" },
     }, { { name = "buffer" }, { name = "path" } }),
 

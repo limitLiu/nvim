@@ -12,6 +12,7 @@ if null_ls then
       formatting.clang_format,
       formatting.ocamlformat,
       formatting.rescript,
+      formatting.ktlint,
       formatting.prettier.with {
         filetypes = {
           "javascript",

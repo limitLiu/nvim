@@ -12,7 +12,7 @@ map("i", "jj", "<Esc>", opt)
 map("i", "<C-f>", "<Right>", opt)
 map("i", "<C-b>", "<Left>", opt)
 map("i", "<C-e>", "<End>", opt)
-map("i", "<C-a>", "<Home>", opt)
+map("i", "<C-a>", "<C-o>I", opt)
 
 map("v", "v", "<Esc>", opt)
 -- map("v", "[", "<gv", opt)
@@ -20,6 +20,8 @@ map("v", "v", "<Esc>", opt)
 
 map("n", "<C-u>", "9k", opt)
 map("n", "<C-d>", "9j", opt)
+map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opt)
+map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", opt)
 
 local PLUGIN_KEYS = {}
 
@@ -46,14 +48,24 @@ PLUGIN_KEYS.map_lsp = function(buf)
   -- buf("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
   buf("n", "K", "<cmd>Lspsaga hover_doc<CR>", opt)
   -- buf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
-  buf("n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions({ initial_mode = 'normal', })<CR>", opt)
+  buf(
+    "n",
+    "gd",
+    "<cmd>lua require'telescope.builtin'.lsp_definitions({ initial_mode = 'normal', })<CR>",
+    opt
+  )
   buf("n", "gi", "<cmd>LSoutlineToggle<CR>", opt)
   buf("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", opt)
   -- buf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
   -- buf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
   -- buf("n", "gr", "<cmd>lua require'telescope.builtin'.lsp_references({ initial_mode = 'normal' })<CR>", opt)
   buf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
-  buf("n", "<localleader>ld", "<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<CR>", opt)
+  buf(
+    "n",
+    "<localleader>ld",
+    "<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<CR>",
+    opt
+  )
   -- buf("n", "<localleader>ld", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
   buf("n", "<localleader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opt)
   buf("n", "gp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
@@ -74,7 +86,12 @@ PLUGIN_KEYS.cmp = function(c)
 
   local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
+    return col ~= 0
+      and vim.api
+          .nvim_buf_get_lines(0, line - 1, line, true)[1]
+          :sub(col, col)
+          :match "%s"
+        == nil
   end
 
   return {

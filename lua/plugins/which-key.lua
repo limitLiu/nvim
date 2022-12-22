@@ -62,11 +62,12 @@ local mapping = {
   },
 }
 
-local format = { "<cmd>lua vim.lsp.buf.format{ async = true }<CR>", "Formatting" }
+local format =
+  { "<cmd>lua vim.lsp.buf.format{ async = true }<CR>", "Formatting" }
 
 local localMapping = {
-  p = { ":BufferLineCyclePrev<CR>", "Previous Buffer" },
-  n = { ":BufferLineCycleNext<CR>", "Next Buffer" },
+  -- p = { ":BufferLineCyclePrev<CR>", "Previous Buffer" },
+  -- n = { ":BufferLineCycleNext<CR>", "Next Buffer" },
   o = { "<cmd>Telescope find_files<CR>", "Open File" },
   d = { "Show Cursor Diagnostic" },
   l = {

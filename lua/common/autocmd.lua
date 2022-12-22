@@ -6,7 +6,18 @@ local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("BufWritePre", {
   group = autoGroup,
-  pattern = { "*.res", "*.rs", "*.ml", "*.lua", "*.scss", "*.js", "*.ts", "*.tsx", "*.json" },
+  pattern = {
+    "*.res",
+    "*.rs",
+    "*.ml",
+    "*.lua",
+    "*.scss",
+    "*.js",
+    "*.ts",
+    "*.tsx",
+    "*.json",
+    "*.kt",
+  },
   callback = function()
     vim.lsp.buf.format { async = false }
   end,

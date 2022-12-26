@@ -1,5 +1,9 @@
 local wk = require "which-key"
 local mapping = {
+  [";"] = {
+    "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>",
+    "Search Buffer",
+  },
   a = {
     name = "Search",
     b = { "<cmd>Telescope buffers<CR>", "Search Buffer" },
@@ -7,7 +11,6 @@ local mapping = {
   },
   b = {
     name = "Buffer",
-    d = { ":bd<CR>", "Delete Buffer" },
     k = { ":bw<CR>", "Kill Buffer" },
   },
   d = {
@@ -68,6 +71,7 @@ local format =
 local localMapping = {
   -- p = { ":BufferLineCyclePrev<CR>", "Previous Buffer" },
   -- n = { ":BufferLineCycleNext<CR>", "Next Buffer" },
+  k = { ":bd<CR>", "Delete Buffer" },
   o = { "<cmd>Telescope find_files<CR>", "Open File" },
   d = { "Show Cursor Diagnostic" },
   l = {

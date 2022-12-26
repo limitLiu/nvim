@@ -23,13 +23,13 @@ map("n", "<C-d>", "9j", opt)
 map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opt)
 map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", opt)
 
-local PLUGIN_KEYS = {}
+local M = {}
 
-PLUGIN_KEYS.nvim_tree_keys = {
+M.nvim_tree_keys = {
   { key = ".", action = "toggle_dotfiles" },
 }
 
-PLUGIN_KEYS.telescope_keys = {
+M.telescope_keys = {
   i = {
     ["<C-u>"] = "preview_scrolling_up",
     ["<C-d>"] = "preview_scrolling_down",
@@ -44,7 +44,7 @@ PLUGIN_KEYS.telescope_keys = {
   },
 }
 
-PLUGIN_KEYS.map_lsp = function(buf)
+M.map_lsp = function(buf)
   -- buf("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
   buf("n", "K", "<cmd>Lspsaga hover_doc<CR>", opt)
   -- buf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
@@ -72,13 +72,13 @@ PLUGIN_KEYS.map_lsp = function(buf)
   buf("n", "gn", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt)
 end
 
-PLUGIN_KEYS.map_ts_util = function(buf)
+M.map_ts_util = function(buf)
   buf("n", "<leader>gs", "<cmd>TSLspOrganize<CR>", opt)
   buf("n", "<leader>gr", "<cmd>TSLspRenameFile<CR>", opt)
   buf("n", "<leader>gi", "<cmd>TSLspImportAll<CR>", opt)
 end
 
-PLUGIN_KEYS.cmp = function(c)
+M.cmp = function(c)
   local feed_key = function(key, mode)
     local keys = vim.api.nvim_replace_termcodes(key, true, true, true) or ""
     vim.api.nvim_feedkeys(keys, mode, true)
@@ -130,14 +130,14 @@ PLUGIN_KEYS.cmp = function(c)
   }
 end
 
-PLUGIN_KEYS.comment = {
+M.comment = {
   opleader = {
     line = "gc",
     bock = "gb",
   },
 }
 
-PLUGIN_KEYS.map_dap = function()
+M.map_dap = function()
   map("n", "<leader>ds", "<cmd>RustDebuggables<CR>", opt)
   map(
     "n",
@@ -150,13 +150,13 @@ PLUGIN_KEYS.map_dap = function()
       .. "<C-w>o<CR>",
     opt
   )
-  map("n", "<leader>dc", ":lua require'dap'.continue()<CR>", opt)
-  map("n", "<leader>dp", ":lua require'dap'.toggle_breakpoint()<CR>", opt)
-  map("n", "<leader>dP", ":lua require'dap'.clear_breakpoints()<CR>", opt)
-  map("n", "<leader>dj", ":lua require'dap'.step_over()<CR>", opt)
-  map("n", "<leader>do", ":lua require'dap'.step_out()<CR>", opt)
-  map("n", "<leader>di", ":lua require'dap'.step_into()<CR>", opt)
-  map("n", "<leader>dh", ":lua require'dapui'.eval()<CR>", opt)
+  map("n", "<leader>dc", "<cmd>lua require'dap'.continue()<CR>", opt)
+  map("n", "<leader>dp", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opt)
+  map("n", "<leader>dP", "<cmd>lua require'dap'.clear_breakpoints()<CR>", opt)
+  map("n", "<leader>dj", "<cmd>lua require'dap'.step_over()<CR>", opt)
+  map("n", "<leader>do", "<cmd>lua require'dap'.step_out()<CR>", opt)
+  map("n", "<leader>di", "<cmd>lua require'dap'.step_into()<CR>", opt)
+  map("n", "<leader>dh", "<cmd>lua require'dapui'.eval()<CR>", opt)
 end
 
-return PLUGIN_KEYS
+return M

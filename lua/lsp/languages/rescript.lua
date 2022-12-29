@@ -7,6 +7,11 @@ local opts = {
     common.disableFormat(client)
     common.keybinding(buf)
   end,
+  init_options = {
+    extensionConfiguration = {
+      askToStartBuild = false,
+    },
+  },
 }
 
 return {

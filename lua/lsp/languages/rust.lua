@@ -12,6 +12,7 @@ local opts = {
       checkOnSave = {
         command = "clippy",
       },
+      inlayHints = { locationLinks = false },
     },
   },
 }

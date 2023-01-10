@@ -86,7 +86,6 @@ require("packer").startup {
     use "p00f/clangd_extensions.nvim"
     use "b0o/SchemaStore.nvim"
     use "lewis6991/impatient.nvim"
-    use "ThemerCorp/themer.lua"
   end,
   config = {
     display = {

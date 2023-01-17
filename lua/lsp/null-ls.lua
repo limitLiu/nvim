@@ -10,7 +10,6 @@ if null_ls then
       formatting.stylua,
       formatting.rustfmt,
       formatting.clang_format,
-      formatting.ocamlformat,
       formatting.rescript,
       formatting.ktlint,
       formatting.prettier.with {

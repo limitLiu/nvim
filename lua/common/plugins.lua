@@ -74,7 +74,7 @@ require("packer").startup {
     use "folke/neodev.nvim"
     use {
       "glepnir/lspsaga.nvim",
-      branch = "version_2.3",
+      branch = "version_2.2",
     }
 
     use "jose-elias-alvarez/null-ls.nvim"

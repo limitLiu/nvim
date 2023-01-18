@@ -11,12 +11,6 @@ autocmd("BufWritePre", {
     "*.rs",
     "*.ml",
     "*.lua",
-    "*.scss",
-    "*.js",
-    "*.ts",
-    "*.tsx",
-    "*.json",
-    "*.kt",
   },
   callback = function()
     vim.lsp.buf.format { async = false }
@@ -40,7 +34,6 @@ autocmd("InsertLeave", {
   callback = function()
     local buf = vim.api.nvim_get_current_buf()
     vim.api.nvim_buf_call(buf, function()
-      vim.lsp.buf.format { async = false }
       vim.cmd "silent! update"
     end)
   end,

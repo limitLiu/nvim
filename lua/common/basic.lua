@@ -60,3 +60,4 @@ vim.opt.backupdir = { prefix .. "/nvim/.backup//" }
 vim.opt.directory = { prefix .. "/nvim/.swp//" }
 
 vim.o.clipboard = "unnamed,unnamedplus"
+vim.g.everforest_enable_italic = true

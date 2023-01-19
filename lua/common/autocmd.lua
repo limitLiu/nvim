@@ -11,19 +11,6 @@ autocmd("BufWritePre", {
     "*.rs",
     "*.ml",
     "*.lua",
-  },
-  callback = function()
-    vim.lsp.buf.format { async = false }
-  end,
-})
-
-autocmd("InsertLeave", {
-  group = autoGroup,
-  pattern = {
-    "*.res",
-    "*.rs",
-    "*.ml",
-    "*.lua",
     "*.scss",
     "*.js",
     "*.ts",
@@ -32,12 +19,31 @@ autocmd("InsertLeave", {
     "*.kt",
   },
   callback = function()
-    local buf = vim.api.nvim_get_current_buf()
-    vim.api.nvim_buf_call(buf, function()
-      vim.cmd "silent! update"
-    end)
+    vim.lsp.buf.format { async = false }
   end,
 })
+
+-- autocmd("InsertLeave", {
+--   group = autoGroup,
+--   pattern = {
+--     "*.res",
+--     "*.rs",
+--     "*.ml",
+--     "*.lua",
+--     "*.scss",
+--     "*.js",
+--     "*.ts",
+--     "*.tsx",
+--     "*.json",
+--     "*.kt",
+--   },
+--   callback = function()
+--     local buf = vim.api.nvim_get_current_buf()
+--     vim.api.nvim_buf_call(buf, function()
+--       vim.cmd "silent! update"
+--     end)
+--   end,
+-- })
 
 -- vim.cmd "au TextYankPost * lua vim.highlight.on_yank {on_visual = true}"
 autocmd("TextYankPost", {

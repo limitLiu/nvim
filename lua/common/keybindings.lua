@@ -54,21 +54,17 @@ M.map_lsp = function(buf)
     opt
   )
   buf("n", "gi", "<cmd>LSoutlineToggle<CR>", opt)
-  buf("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", opt)
-  -- buf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
+  buf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
   -- buf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
-  -- buf("n", "gr", "<cmd>lua require'telescope.builtin'.lsp_references({ initial_mode = 'normal' })<CR>", opt)
-  buf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
+  buf("n", "gr", "<cmd>lua require'telescope.builtin'.lsp_references({ initial_mode = 'normal' })<CR>", opt)
   buf(
     "n",
-    "<localleader>ld",
+    "<localleader>d",
     "<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<CR>",
     opt
   )
-  -- buf("n", "<localleader>ld", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
-  buf("n", "<localleader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opt)
-  buf("n", "gp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
-  buf("n", "gn", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt)
+  buf("n", "gn", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
+  buf("n", "gp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
 end
 
 M.map_ts_util = function(buf)

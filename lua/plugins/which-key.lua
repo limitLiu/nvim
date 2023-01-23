@@ -36,7 +36,7 @@ local mapping = {
     name = "LSP",
     r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
     -- c = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code Action' },
-    c = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
+    c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
     -- f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Formatting' },
   },
   p = {

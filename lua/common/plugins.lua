@@ -72,10 +72,6 @@ require("packer").startup {
     }
     use "ahmedkhalf/project.nvim"
     use "folke/neodev.nvim"
-    use {
-      "glepnir/lspsaga.nvim",
-      branch = "version_2.2",
-    }
 
     use "jose-elias-alvarez/null-ls.nvim"
 
@@ -85,7 +81,6 @@ require("packer").startup {
     use "puremourning/vimspector"
     use "p00f/clangd_extensions.nvim"
     use "b0o/SchemaStore.nvim"
-    use "lewis6991/impatient.nvim"
     use "dominikduda/vim_current_word"
   end,
   config = {

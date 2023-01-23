@@ -1,5 +1,3 @@
-require "lsp.ui.lspsaga"
-
 vim.diagnostic.config {
   virtual_text = true,
   signs = true,

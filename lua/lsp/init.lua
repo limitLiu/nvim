@@ -1,6 +1,5 @@
 require "lsp.setup"
 require "lsp.nvim-cmp"
 require "lsp.ui"
-require "lsp.ui.lspsaga"
 require "lsp.null-ls"
 require "lsp.dap.nvim-dap.init"

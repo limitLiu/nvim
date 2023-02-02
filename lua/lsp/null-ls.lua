@@ -6,7 +6,6 @@ if null_ls then
   null_ls.setup {
     debug = false,
     sources = {
-      formatting.phpcsfixer,
       formatting.stylua,
       formatting.rustfmt,
       formatting.clang_format,
@@ -42,6 +41,6 @@ if null_ls then
     -- #{m}: message
     -- #{s}: source name (defaults to null-ls if not specified)
     -- #{c}: code (if available)
-    diagnostics_format = "[#{s}] #{m}",
+    diagnostics_format = "[#{s}] #{m}]",
   }
 end

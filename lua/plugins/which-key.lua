@@ -74,10 +74,6 @@ local localMapping = {
   k = { ":bd<CR>", "Delete Buffer" },
   o = { "<cmd>Telescope find_files<CR>", "Open File" },
   d = { "Show Cursor Diagnostic" },
-  l = {
-    name = "Diagnostic",
-    d = { "Show Line Diagnostic" },
-  },
   e = { "<cmd>Telescope buffers<CR>", "Show Buffers" },
   ["="] = format,
 }

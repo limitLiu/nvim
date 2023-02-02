@@ -56,15 +56,30 @@ M.map_lsp = function(buf)
   buf("n", "gi", "<cmd>LSoutlineToggle<CR>", opt)
   buf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
   -- buf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
-  buf("n", "gr", "<cmd>lua require'telescope.builtin'.lsp_references({ initial_mode = 'normal' })<CR>", opt)
+  buf(
+    "n",
+    "gr",
+    "<cmd>lua require'telescope.builtin'.lsp_references({ initial_mode = 'normal' })<CR>",
+    opt
+  )
   buf(
     "n",
     "<localleader>d",
     "<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<CR>",
     opt
   )
-  buf("n", "gn", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
-  buf("n", "gp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
+  buf(
+    "n",
+    "gn",
+    "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'single' } })<CR>",
+    opt
+  )
+  buf(
+    "n",
+    "gp",
+    "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'single' } })<CR>",
+    opt
+  )
 end
 
 M.map_ts_util = function(buf)

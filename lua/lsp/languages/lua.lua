@@ -23,6 +23,7 @@ local opts = {
       },
     },
   },
+  handlers = common.handlers,
   flags = common.flags,
   on_attach = function(client, buf)
     common.disableFormat(client)

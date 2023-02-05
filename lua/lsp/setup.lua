@@ -14,7 +14,6 @@ local servers = {
   emmet_ls = require "lsp.languages.emmet",
   jsonls = require "lsp.languages.json",
   tsserver = require "lsp.languages.ts",
-  -- hls = require "lsp.languages.haskell",
   phpactor = require "lsp.languages.php",
   kotlin_language_server = require "lsp.languages.kotlin",
   ocamllsp = require "lsp.languages.ocaml",

@@ -82,6 +82,37 @@ M.map_lsp = function(buf)
   )
 end
 
+M.map_rust_lsp = function(buf)
+  buf(
+    "n",
+    "K",
+    "<cmd>lua require'rust-tools'.hover_actions.hover_actions()<CR>",
+    opt
+  )
+  buf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
+  buf("n", "gi", "<cmd>LSoutlineToggle<CR>", opt)
+  buf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
+  buf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
+  buf(
+    "n",
+    "<localleader>d",
+    "<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<CR>",
+    opt
+  )
+  buf(
+    "n",
+    "gn",
+    "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'single' } })<CR>",
+    opt
+  )
+  buf(
+    "n",
+    "gp",
+    "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'single' } })<CR>",
+    opt
+  )
+end
+
 M.map_ts_util = function(buf)
   buf("n", "<leader>gs", "<cmd>TSLspOrganize<CR>", opt)
   buf("n", "<leader>gr", "<cmd>TSLspRenameFile<CR>", opt)
@@ -97,8 +128,7 @@ M.cmp = function(c)
   local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0
-      and vim.api
-          .nvim_buf_get_lines(0, line - 1, line, true)[1]
+      and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]
           :sub(col, col)
           :match "%s"
         == nil

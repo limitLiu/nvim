@@ -7,6 +7,13 @@ M.keybinding = function(buf)
   require("common.keybindings").map_lsp(buf_set_map)
 end
 
+function M:rustKeybinding(buf)
+  local function buf_set_map(...)
+    vim.api.nvim_buf_set_keymap(buf, ...)
+  end
+  require("common.keybindings").map_rust_lsp(buf_set_map)
+end
+
 M.tsKeybinding = function(buf, keybindings)
   local function buf_set_map(...)
     vim.api.nvim_buf_set_keymap(buf, ...)
@@ -25,7 +32,7 @@ M.flags = {
   debounce_text_changes = 150,
 }
 
-local border = {
+M.border = {
   { "┌", "FloatBorder" },
   { "─", "FloatBorder" },
   { "┐", "FloatBorder" },
@@ -39,11 +46,11 @@ local border = {
 M.handlers = {
   ["textDocument/hover"] = vim.lsp.with(
     vim.lsp.handlers.hover,
-    { border = border }
+    { border = M.border }
   ),
   ["textDocument/signatureHelp"] = vim.lsp.with(
     vim.lsp.handlers.signature_help,
-    { border = border }
+    { border = M.border }
   ),
 }
 

@@ -34,7 +34,8 @@ local mapping = {
   },
   l = {
     name = "LSP",
-    r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+    -- r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+    r = { "<cmd>lua require('lsp.ui.lspsaga.rename').rename()<CR>", "Rename" },
     -- c = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code Action' },
     c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
     -- f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Formatting' },
@@ -65,8 +66,10 @@ local mapping = {
   },
 }
 
-local format =
-  { "<cmd>lua vim.lsp.buf.format{ async = true }<CR>", "Formatting" }
+local format = {
+  "<cmd>lua vim.lsp.buf.format{ async = true }<CR>",
+  "Formatting",
+}
 
 local localMapping = {
   -- p = { ":BufferLineCyclePrev<CR>", "Previous Buffer" },

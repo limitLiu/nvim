@@ -90,9 +90,18 @@ M.map_rust_lsp = function(buf)
     opt
   )
   buf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
-  buf("n", "gi", "<cmd>LSoutlineToggle<CR>", opt)
-  buf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
-  buf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
+  buf(
+    "n",
+    "gi",
+    "<cmd>lua require'lsp.ui.lspsaga.provider'.preview_definition()<CR>",
+    opt
+  )
+  buf(
+    "n",
+    "gr",
+    "<cmd>lua require'lsp.ui.lspsaga.provider'.lsp_finder()<CR>",
+    opt
+  )
   buf(
     "n",
     "<localleader>d",
@@ -109,6 +118,18 @@ M.map_rust_lsp = function(buf)
     "n",
     "gp",
     "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'single' } })<CR>",
+    opt
+  )
+  buf(
+    "n",
+    "<C-f>",
+    "<cmd>lua require('lsp.ui.lspsaga.action').smart_scroll_with_saga(1)<CR>",
+    opt
+  )
+  buf(
+    "n",
+    "<C-b>",
+    "<cmd>lua require('lsp.ui.lspsaga.action').smart_scroll_with_saga(-1)<CR>",
     opt
   )
 end

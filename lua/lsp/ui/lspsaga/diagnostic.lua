@@ -25,11 +25,8 @@ local get_line_diagnostics = function(lnum, bufnr)
 end
 
 local format_message = function(diagnostic)
-  local message = string.gsub(
-    config.diagnostic_message_format,
-    "%%m",
-    diagnostic.message
-  )
+  local message =
+    string.gsub(config.diagnostic_message_format, "%%m", diagnostic.message)
 
   if diagnostic.source then
     message = string.gsub(message, "%%s", diagnostic.source)
@@ -40,11 +37,8 @@ local format_message = function(diagnostic)
     and diagnostic.user_data.lsp
     and diagnostic.user_data.lsp.code
   then
-    message = string.gsub(
-      message,
-      "%%c",
-      "[" .. diagnostic.user_data.lsp.code .. "]"
-    )
+    message =
+      string.gsub(message, "%%c", "[" .. diagnostic.user_data.lsp.code .. "]")
   else
     message = string.gsub(message, "%%c", "")
   end
@@ -71,7 +65,6 @@ M.yank_line_messages = function(opts, lnum, bufnr)
   vim.fn.setreg(reg, message)
 end
 
----TODO(refactor): move to popup.lua
 local show_diagnostics = function(opts, get_diagnostics)
   local close_hover = opts.close_hover or false
   -- if we have a hover rendered, don't show diagnostics due to this usually
@@ -87,11 +80,8 @@ local show_diagnostics = function(opts, get_diagnostics)
   local max_width = window.get_max_float_width() - 2
 
   -- if there already has diagnostic float window did not show show lines diagnostic window
-  local has_var, diag_float_winid = pcall(
-    vim.api.nvim_buf_get_var,
-    0,
-    "diagnostic_float_window"
-  )
+  local has_var, diag_float_winid =
+    pcall(vim.api.nvim_buf_get_var, 0, "diagnostic_float_window")
   if has_var and diag_float_winid ~= nil then
     if
       vim.api.nvim_win_is_valid(diag_float_winid[1])
@@ -142,7 +132,7 @@ local show_diagnostics = function(opts, get_diagnostics)
 
     local message = format_message(diagnostic)
 
-    local message_lines = vim.split(message, "\n", true)
+    local message_lines = vim.split(message, "\n", { plain = true })
     message_lines[1] = prefix .. message_lines[1]
     for j = 2, #message_lines do
       message_lines[j] = string.rep(" ", #prefix) .. message_lines[j]
@@ -154,12 +144,14 @@ local show_diagnostics = function(opts, get_diagnostics)
     )
 
     for j = 1, #wrap_message do
-      table.insert(lines, wrap_message[j])
+      if wrap_message then
+        table.insert(lines, wrap_message[j])
 
-      if not config.highlight_prefix then
-        table.insert(highlights, { #prefix, hiname })
-      else
-        table.insert(highlights, { 0, hiname })
+        if not config.highlight_prefix then
+          table.insert(highlights, { #prefix, hiname })
+        else
+          table.insert(highlights, { 0, hiname })
+        end
       end
     end
   end

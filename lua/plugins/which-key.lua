@@ -8,6 +8,7 @@ local mapping = {
     name = "Search",
     b = { "<cmd>Telescope buffers<CR>", "Search Buffer" },
     g = { "<cmd>Telescope live_grep<CR>", "Search Keyword" },
+    c = { ":source $MYVIMRC<CR>", "Reload Config" },
   },
   b = {
     name = "Buffer",
@@ -32,13 +33,18 @@ local mapping = {
     r = { ":NvimTreeRefresh<CR>", "Tree Refresh" },
     d = { ":NvimTreeFindFile<CR>", "Find Current File" },
   },
+  g = {
+    name = "gitsigns",
+    b = { "Blame Line" },
+    p = { "Preview Hunk" },
+    S = { "Stage Buffer" },
+    s = { "Stage Hunk" },
+  },
   l = {
     name = "LSP",
     -- r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-    r = { "<cmd>lua require('lsp.ui.lspsaga.rename').rename()<CR>", "Rename" },
-    -- c = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code Action' },
-    c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-    -- f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Formatting' },
+    r = { "<cmd>Lspsaga rename<CR>", "Rename" },
+    c = { "Code Action" },
   },
   p = {
     name = "Projects",
@@ -74,9 +80,15 @@ local format = {
 local localMapping = {
   -- p = { ":BufferLineCyclePrev<CR>", "Previous Buffer" },
   -- n = { ":BufferLineCycleNext<CR>", "Next Buffer" },
-  k = { ":bd<CR>", "Delete Buffer" },
+  k = { "<cmd>bd<CR>", "Delete Buffer" },
   o = { "<cmd>Telescope find_files<CR>", "Open File" },
-  d = { "Show Cursor Diagnostic" },
+  d = {
+    name = "Diagnostic",
+    w = { "Show Cursor Diagnostic" },
+    l = { "Show Line Diagnostic" },
+    n = { "Show Next Diagnostic" },
+    p = { "Show Prev Diagnostic" },
+  },
   e = { "<cmd>Telescope buffers<CR>", "Show Buffers" },
   ["="] = format,
 }

@@ -85,13 +85,8 @@ M.check = function()
         if M.servers[current_file] then
           return
         end
-        local is_nightly = vim.fn.has "nvim-0.8.0"
-        local code_action_provider = nil
-        if is_nightly then
-          code_action_provider = client.server_capabilities.codeActionProvider
-        else
-          code_action_provider = client.resolved_capabilities.code_action
-        end
+        local code_action_provider =
+          client.server_capabilities.codeActionProvider
         if code_action_provider and client.supports_method "code_action" then
           M.servers[current_file] = true
         end

@@ -33,7 +33,7 @@ if null_ls then
         prefer_local = "node_modules/.bin",
       },
       -- code actions ---------------------
-      code_action.gitsigns,
+      -- code_action.gitsigns,
       code_action.eslint.with {
         prefer_local = "node_modules/.bin",
       },

@@ -46,80 +46,14 @@ M.telescope_keys = {
 
 M.map_lsp = function(buf)
   buf("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
-  -- buf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
-  buf(
-    "n",
-    "gd",
-    "<cmd>lua require'telescope.builtin'.lsp_definitions({ initial_mode = 'normal', })<CR>",
-    opt
-  )
-  buf("n", "gi", "<cmd>LSoutlineToggle<CR>", opt)
-  buf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
-  -- buf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
-  buf(
-    "n",
-    "gr",
-    "<cmd>lua require'telescope.builtin'.lsp_references({ initial_mode = 'normal' })<CR>",
-    opt
-  )
-  buf(
-    "n",
-    "<localleader>d",
-    "<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<CR>",
-    opt
-  )
-  buf(
-    "n",
-    "gn",
-    "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'single' } })<CR>",
-    opt
-  )
-  buf(
-    "n",
-    "gp",
-    "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'single' } })<CR>",
-    opt
-  )
-end
-
-M.map_rust_lsp = function(buf)
-  buf(
-    "n",
-    "K",
-    "<cmd>lua require'rust-tools'.hover_actions.hover_actions()<CR>",
-    opt
-  )
-  buf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
-  buf(
-    "n",
-    "gi",
-    "<cmd>lua require'lsp.ui.lspsaga.provider'.preview_definition()<CR>",
-    opt
-  )
-  buf(
-    "n",
-    "gr",
-    "<cmd>lua require'lsp.ui.lspsaga.provider'.lsp_finder()<CR>",
-    opt
-  )
-  buf(
-    "n",
-    "<localleader>d",
-    "<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<CR>",
-    opt
-  )
-  buf(
-    "n",
-    "gn",
-    "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'single' } })<CR>",
-    opt
-  )
-  buf(
-    "n",
-    "gp",
-    "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'single' } })<CR>",
-    opt
-  )
+  buf("n", "gd", "<cmd>Lspsaga definition<CR>", opt)
+  buf("n", "gp", "<cmd>Lspsaga preview_definition<CR>", opt)
+  buf("n", "gi", "<cmd>Lspsaga implement<CR>", opt)
+  buf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
+  buf("n", "<localleader>dw", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opt)
+  buf("n", "<localleader>dl", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
+  buf("n", "<localleader>dn", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt)
+  buf("n", "<localleader>dp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
   buf(
     "n",
     "<C-f>",
@@ -132,6 +66,8 @@ M.map_rust_lsp = function(buf)
     "<cmd>lua require('lsp.ui.lspsaga.action').smart_scroll_with_saga(-1)<CR>",
     opt
   )
+  buf("n", "<leader>lc", "<cmd>Lspsaga code_action<CR>", opt)
+  buf("v", "<leader>lc", ":<C-U>Lspsaga range_code_action<CR>", opt)
 end
 
 M.map_ts_util = function(buf)
@@ -149,7 +85,8 @@ M.cmp = function(c)
   local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0
-      and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]
+      and vim.api
+          .nvim_buf_get_lines(0, line - 1, line, true)[1]
           :sub(col, col)
           :match "%s"
         == nil

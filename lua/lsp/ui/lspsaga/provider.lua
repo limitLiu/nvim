@@ -10,32 +10,24 @@ local send_request = function(timeout)
   local def_params = lsp.util.make_position_params(0, "utf-8")
   local ref_params = lsp.util.make_position_params(0, "utf-8")
   ref_params.context = { includeDeclaration = true }
-  local def_response = lsp.buf_request_sync(
-    0,
-    method[1],
-    def_params,
-    timeout or 1000
-  )
-  local ref_response = lsp.buf_request_sync(
-    0,
-    method[2],
-    ref_params,
-    timeout or 1000
-  )
+  local def_response =
+    lsp.buf_request_sync(0, method[1], def_params, timeout or 1000)
+  local ref_response =
+    lsp.buf_request_sync(0, method[2], ref_params, timeout or 1000)
   if config.debug then
     print(vim.inspect(def_response))
     print(vim.inspect(ref_response))
   end
 
   local responses = {}
-  if libs.result_isempty(def_response) then
+  if libs.result_isempty(def_response) and def_response then
     def_response[1] = {}
     def_response[1].result = {}
     def_response[1].result.saga_msg = "0 definitions found"
   end
   table.insert(responses, def_response)
 
-  if libs.result_isempty(ref_response) then
+  if libs.result_isempty(ref_response) and ref_response then
     ref_response[1] = {}
     ref_response[1].result = {}
     ref_response[1].result.saga_msg = "0 references found"
@@ -153,6 +145,7 @@ function Finder:create_finder_contents(result, method_type, root_dir)
         short_name = libs.split_by_pathsep(link, 4)
       end
 
+      -- local target_line = "[" .. index .. "]" .. " " .. short_name
       local target_line = "[" .. index .. "]" .. " " .. short_name
       local range = result[index].targetRange or result[index].range
       if index == 1 then
@@ -421,11 +414,8 @@ function Finder:auto_open_preview()
   local content = self.short_link[current_line].preview or {}
 
   if next(content) ~= nil then
-    local has_var, finder_win_opts = pcall(
-      api.nvim_win_get_var,
-      0,
-      "lsp_finder_win_opts"
-    )
+    local has_var, finder_win_opts =
+      pcall(api.nvim_win_get_var, 0, "lsp_finder_win_opts")
     if not has_var then
       print "get finder window options wrong"
       return
@@ -519,7 +509,7 @@ function Finder:open_link(action_type)
   local current_line = vim.fn.line "."
 
   if self.short_link[current_line] == nil then
-    error "[LspSaga] target file uri not exist"
+    vim.notify "[LspSaga] target file uri not exist"
     return
   end
 
@@ -612,6 +602,34 @@ end
 
 function lspfinder.scroll_in_preview(direction)
   Finder:scroll_in_preview(direction)
+end
+
+function lspfinder.definition(timeout_ms)
+  local active, msg = libs.check_lsp_active()
+  if not active then
+    print(msg)
+    return
+  end
+
+  local method = "textDocument/definition"
+  local params = lsp.util.make_position_params(0, "utf-8")
+  local result = vim.lsp.buf_request_sync(0, method, params, timeout_ms or 1000)
+  if result == nil or vim.tbl_isempty(result) then
+    print("No location found: " .. method)
+    return nil
+  end
+  if vim.tbl_islist(result) then
+    for _, definition in ipairs(result) do
+      if
+        not vim.tbl_isempty(definition)
+        and not vim.tbl_isempty(definition.result)
+      then
+        vim.lsp.buf.definition()
+      else
+        lspfinder.lsp_finder()
+      end
+    end
+  end
 end
 
 function lspfinder.preview_definition(timeout_ms)
@@ -727,11 +745,8 @@ function lspfinder.preview_definition(timeout_ms)
 end
 
 function lspfinder.has_saga_def_preview()
-  local has_preview, pdata = pcall(
-    api.nvim_buf_get_var,
-    0,
-    "lspsaga_def_preview"
-  )
+  local has_preview, pdata =
+    pcall(api.nvim_buf_get_var, 0, "lspsaga_def_preview")
   if has_preview and api.nvim_win_is_valid(pdata[1]) then
     return true
   end
@@ -739,11 +754,8 @@ function lspfinder.has_saga_def_preview()
 end
 
 function lspfinder.scroll_in_def_preview(direction)
-  local has_preview, pdata = pcall(
-    api.nvim_buf_get_var,
-    0,
-    "lspsaga_def_preview"
-  )
+  local has_preview, pdata =
+    pcall(api.nvim_buf_get_var, 0, "lspsaga_def_preview")
   if not has_preview then
     return
   end

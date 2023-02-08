@@ -67,7 +67,7 @@ end
 function libs.result_isempty(res)
   if type(res) ~= "table" then
     print "[Lspsaga] Server return wrong response"
-    return
+    return false
   end
   for _, v in pairs(res) do
     if next(v) == nil then

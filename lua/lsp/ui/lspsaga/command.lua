@@ -4,10 +4,10 @@ local lsprename = require "lsp.ui.lspsaga.rename"
 local lsphover = require "lsp.ui.lspsaga.hover"
 local diagnostic = require "lsp.ui.lspsaga.diagnostic"
 local codeaction = require "lsp.ui.lspsaga.codeaction"
-local signature = require "lsp.ui.lspsaga.signaturehelp"
 local implement = require "lsp.ui.lspsaga.implement"
 
 local subcommands = {
+  definition = provider.definition,
   lsp_finder = provider.lsp_finder,
   preview_definition = provider.preview_definition,
   rename = lsprename.rename,
@@ -19,7 +19,6 @@ local subcommands = {
   diagnostic_jump_prev = diagnostic.navigate "prev",
   code_action = codeaction.code_action,
   range_code_action = codeaction.range_code_action,
-  signature_help = signature.signature_help,
   implement = implement.lspsaga_implementation,
   toggle_virtual_text = diagnostic.toggle_virtual_text,
 }

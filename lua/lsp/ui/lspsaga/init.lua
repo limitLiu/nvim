@@ -8,13 +8,13 @@ M.config_values = {
   warn_sign = "",
   hint_sign = "",
   infor_sign = "",
-  diagnostic_header_icon = "   ",
+  -- diagnostic_header_icon = "   ",
+  diagnostic_header_icon = " ",
   use_diagnostic_virtual_text = true,
   -- diagnostic_show_source = true,
   -- diagnostic_show_code = true,
   -- code action title icon
-  -- code_action_icon = " ",
-  code_action_icon = "",
+  code_action_icon = " ",
   code_action_prompt = {
     enable = true,
     sign = true,
@@ -92,7 +92,7 @@ M.init_lsp_saga = function(opts)
       vim.fn.sign_define(hl, {
         text = icon,
         texthl = hl,
-        numhl = "",
+        numhl = hl,
       })
     end
   end
@@ -101,7 +101,26 @@ M.init_lsp_saga = function(opts)
     require("lsp.ui.lspsaga.codeaction.indicator").attach()
   end
 
-  vim.diagnostic.config { virtual_text = config.use_diagnostic_virtual_text }
+  vim.diagnostic.config {
+    virtual_text = config.use_diagnostic_virtual_text,
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = false,
+  }
+
+  vim.api.nvim_create_user_command("Lspsaga", function(args)
+    require("lsp.ui.lspsaga.command").load_command(unpack(args.fargs))
+  end, {
+    range = true,
+    nargs = "+",
+    complete = function(arg)
+      local list = require("lsp.ui.lspsaga.command").command_list()
+      return vim.tbl_filter(function(s)
+        return string.match(s, "^" .. arg)
+      end, list)
+    end,
+  })
 end
 
 M.setup = M.init_lsp_saga

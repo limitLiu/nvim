@@ -18,7 +18,6 @@ require("packer").startup {
       "akinsho/bufferline.nvim",
       requires = "kyazdani42/nvim-web-devicons",
     }
-    use "akinsho/toggleterm.nvim"
 
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 

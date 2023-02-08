@@ -5,6 +5,7 @@ local lsphover = require "lsp.ui.lspsaga.hover"
 local diagnostic = require "lsp.ui.lspsaga.diagnostic"
 local codeaction = require "lsp.ui.lspsaga.codeaction"
 local implement = require "lsp.ui.lspsaga.implement"
+local floaterm = require "lsp.ui.lspsaga.floaterm"
 
 local subcommands = {
   definition = provider.definition,
@@ -21,6 +22,9 @@ local subcommands = {
   range_code_action = codeaction.range_code_action,
   implement = implement.lspsaga_implementation,
   toggle_virtual_text = diagnostic.toggle_virtual_text,
+  open_floaterm = floaterm.open_float_terminal,
+  close_floaterm = floaterm.close_float_terminal,
+  toggle_floaterm = floaterm.toggle_float_terminal,
 }
 
 function command.command_list()

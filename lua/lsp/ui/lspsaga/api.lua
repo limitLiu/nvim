@@ -6,8 +6,15 @@ M.methods = {
 
 M.code_action_request = function(args)
   local bufnr = vim.api.nvim_get_current_buf()
-  args.params.context = args.context or { diagnostics = vim.lsp.diagnostic.get_line_diagnostics() }
-  local callback = args.callback { bufnr = bufnr, method = M.methods.code_action, params = args.params }
+  args.params.context = args.context
+    or {
+      diagnostics = vim.lsp.diagnostic.get_line_diagnostics(),
+    }
+  local callback = args.callback {
+    bufnr = bufnr,
+    method = M.methods.code_action,
+    params = args.params,
+  }
   vim.lsp.buf_request_all(bufnr, M.methods.code_action, args.params, callback)
 end
 
@@ -31,13 +38,7 @@ end
 
 M.code_action_execute = function(client_id, action, ctx)
   local client = vim.lsp.get_client_by_id(client_id)
-
-  local code_action_provide = nil
-  if vim.fn.has("nvim-0.8.0") then
-    code_action_provide = client.server_capabilities.codeActionProvider
-  else
-    code_action_provide = client.resolved_capabilities.code_action
-  end
+  local code_action_provide = client.server_capabilities.codeActionProvider
 
   if
     not action.edit

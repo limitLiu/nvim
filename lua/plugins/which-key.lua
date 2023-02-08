@@ -8,7 +8,6 @@ local mapping = {
     name = "Search",
     b = { "<cmd>Telescope buffers<CR>", "Search Buffer" },
     g = { "<cmd>Telescope live_grep<CR>", "Search Keyword" },
-    c = { ":source $MYVIMRC<CR>", "Reload Config" },
   },
   b = {
     name = "Buffer",
@@ -59,8 +58,7 @@ local mapping = {
   },
   t = {
     name = "Terminal",
-    t = { ":ToggleTerm<CR>", "Open Terminal" },
-    g = { "<cmd>lua _lazygit_toggle()<CR>", "Open lazygit" },
+    t = { ":Lspsaga open_floaterm<CR>", "Open Terminal" },
   },
   w = {
     name = "Window",

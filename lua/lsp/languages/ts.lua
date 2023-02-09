@@ -6,6 +6,7 @@ local opts = {}
 
 if ts_utils and keybindings then
   opts = {
+    handlers = common.handlers,
     capabilities = common.capabilities,
     flags = common.flags,
     on_attach = function(client, buf)

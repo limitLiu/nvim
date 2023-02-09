@@ -82,6 +82,7 @@ local localMapping = {
   o = { "<cmd>Telescope find_files<CR>", "Open File" },
   d = {
     name = "Diagnostic",
+    d = { "Show Line Diagnostic By Vim API" },
     w = { "Show Cursor Diagnostic" },
     l = { "Show Line Diagnostic" },
     n = { "Show Next Diagnostic" },

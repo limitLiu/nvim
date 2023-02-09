@@ -18,7 +18,7 @@ end
 
 M.require_diagnostics = {
   ["go"] = true,
-  ["python"] = true,
+  ["rust"] = true,
 }
 
 M.special_buffers = {
@@ -33,7 +33,7 @@ M.special_buffers = {
 
 M.update = function(winid, line)
   if config.virtual_text then
-    local namespace = vim.api.nvim_create_namespace "sagalightbulb"
+    local namespace = vim.api.nvim_create_namespace(M.group)
     vim.api.nvim_buf_clear_namespace(0, namespace, 0, -1)
 
     if line then

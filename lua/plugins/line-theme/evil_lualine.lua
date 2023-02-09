@@ -112,7 +112,12 @@ ins_left {
       ["!"] = colors.red,
       t = colors.red,
     }
-    vim.api.nvim_command("hi! LualineMode guifg=" .. mode_color[vim.fn.mode()] .. " guibg=" .. colors.bg)
+    vim.api.nvim_command(
+      "hi! LualineMode guifg="
+        .. mode_color[vim.fn.mode()]
+        .. " guibg="
+        .. colors.bg
+    )
     return ""
   end,
   color = "LualineMode",
@@ -165,18 +170,26 @@ ins_right {
     end
     for _, client in ipairs(clients) do
       local filetypes = client.config.filetypes
-      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 and client.name ~= "null-ls" then
+      if
+        filetypes
+        and vim.fn.index(filetypes, buf_ft) ~= -1
+        and client.name ~= "null-ls"
+      then
         return client.name
+      else
+        msg = buf_ft
       end
     end
     return msg
   end,
   icon = " :",
-  color = { fg = colors.cyan, gui = "bold" },
+  color = { fg = colors.magenta, gui = "bold" },
 }
 
+local lsp_progress = require "plugins/line-theme/components/lsp-progress"
+
 ins_right {
-  "lsp_progress",
+  lsp_progress,
   colors = {
     percentage = colors.cyan,
     title = colors.cyan,
@@ -193,10 +206,14 @@ ins_right {
     lsp_client_name = { pre = "[", post = "]" },
     spinner = { pre = "", post = "" },
   },
-  -- display_components = { "spinner", { "title", "percentage" } },
-  display_components = { "spinner", {} },
-  timer = { progress_enddelay = 1000, spinner = 1000, lsp_client_name_enddelay = 1000 },
-  spinner_symbols = { "🌑 ", "🌒 ", "🌓 ", "🌔 ", "🌕 ", "🌖 ", "🌗 ", "🌘 " },
+  display_components = { "spinner", { "title", "percentage" } },
+  -- display_components = { "spinner", {} },
+  timer = {
+    progress_enddelay = 1000,
+    spinner = 1000,
+    lsp_client_name_enddelay = 1000,
+  },
+  spinner_symbols = { " ", " ", " ", " ", " ", " " },
 }
 
 -- Add components to right sections

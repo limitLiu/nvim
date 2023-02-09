@@ -4,3 +4,4 @@ plugin/
 .luarc.json
 config.json
 lazy-lock.json
+node_modules/

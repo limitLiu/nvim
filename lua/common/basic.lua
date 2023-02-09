@@ -1,5 +1,5 @@
 vim.cmd [[
-set guifont=SFMono\ Nerd\ Font:h16
+set guifont=DMMono\ Nerd\ Font:h16
 ]]
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = "utf-8"

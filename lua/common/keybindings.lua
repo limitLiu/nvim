@@ -57,6 +57,12 @@ M.map_lsp = function(buf)
   buf("n", "<localleader>dp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
   buf(
     "n",
+    "<localleader>dd",
+    "<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<CR>",
+    opt
+  )
+  buf(
+    "n",
     "<C-f>",
     "<cmd>lua require('lsp.ui.lspsaga.action').smart_scroll_with_saga(1)<CR>",
     opt

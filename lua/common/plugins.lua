@@ -60,7 +60,6 @@ require("lazy").setup {
   "lukas-reineke/indent-blankline.nvim",
   "lewis6991/gitsigns.nvim",
   "NvChad/nvim-colorizer.lua",
-  "arkav/lualine-lsp-progress",
   "matze/vim-move",
   -- 'mhartington/formatter.nvim'
   {

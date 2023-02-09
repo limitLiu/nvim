@@ -14,6 +14,7 @@ require("lazy").setup {
   { "williamboman/mason-lspconfig.nvim", lazy = true },
   "folke/neodev.nvim",
   "neovim/nvim-lspconfig",
+  "folke/tokyonight.nvim",
   { "jose-elias-alvarez/null-ls.nvim", event = "BufReadPre" },
   {
     "nvim-treesitter/nvim-treesitter",

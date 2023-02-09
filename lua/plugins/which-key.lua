@@ -58,7 +58,7 @@ local mapping = {
   },
   t = {
     name = "Terminal",
-    t = { ":Lspsaga open_floaterm<CR>", "Open Terminal" },
+    t = { ":Lspsaga toggle_floaterm<CR>", "Toggle Terminal" },
   },
   w = {
     name = "Window",

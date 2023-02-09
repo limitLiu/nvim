@@ -22,7 +22,7 @@ map("n", "<C-u>", "9k", opt)
 map("n", "<C-d>", "9j", opt)
 map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opt)
 map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", opt)
-map("t", "<leader>tt", "<C-\\><C-n>:Lspsaga close_floaterm<CR>", opt)
+map("t", "<leader>tt", "<C-\\><C-n>:Lspsaga toggle_floaterm<CR>", opt)
 
 local M = {}
 
@@ -86,7 +86,8 @@ M.cmp = function(c)
   local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0
-      and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]
+      and vim.api
+          .nvim_buf_get_lines(0, line - 1, line, true)[1]
           :sub(col, col)
           :match "%s"
         == nil

@@ -112,10 +112,8 @@ local function generate_win_opts(contents, opts)
   if opts.no_size_override and opts.width and opts.height then
     win_width, win_height = opts.width, opts.height
   else
-    win_width, win_height = vim.lsp.util._make_floating_popup_size(
-      contents,
-      opts
-    )
+    win_width, win_height =
+      vim.lsp.util._make_floating_popup_size(contents, opts)
   end
   opts = make_floating_popup_options(win_width, win_height, opts)
   return opts
@@ -162,7 +160,7 @@ function M.create_win_with_border(content_opts, opts)
   local bufnr = api.nvim_create_buf(false, true)
   -- buffer settings for contents buffer
   -- Clean up input: trim empty lines from the end, pad
-  local content = vim.lsp.util._trim(contents)
+  local content = vim.lsp.util._trim(contents, { pad_top = 0, pad_bottom = 0 })
 
   if filetype then
     api.nvim_buf_set_option(bufnr, "filetype", filetype)
@@ -190,10 +188,8 @@ end
 
 function M.open_shadow_float_win(content_opts, opts)
   local shadow_bufnr, shadow_winid = open_shadow_win()
-  local contents_bufnr, contents_winid = M.create_win_with_border(
-    content_opts,
-    opts
-  )
+  local contents_bufnr, contents_winid =
+    M.create_win_with_border(content_opts, opts)
   return contents_bufnr, contents_winid, shadow_bufnr, shadow_winid
 end
 
@@ -438,11 +434,8 @@ function M.nvim_close_valid_window(winid)
 end
 
 function M.nvim_win_try_close()
-  local has_var, line_diag_winids = pcall(
-    api.nvim_win_get_var,
-    0,
-    "show_line_diag_winids"
-  )
+  local has_var, line_diag_winids =
+    pcall(api.nvim_win_get_var, 0, "show_line_diag_winids")
   if has_var and line_diag_winids ~= nil then
     M.nvim_close_valid_window(line_diag_winids)
   end

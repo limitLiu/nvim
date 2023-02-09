@@ -38,9 +38,9 @@ local function open_float_terminal(command, border_style)
   if border_style == 0 then
     cb, cw, _, ow = window.open_shadow_float_win(content_opts, opts)
   else
-    local border_opts = {
-      border = border_style,
-    }
+    -- local border_opts = {
+    --   border = border_style,
+    -- }
     cb, cw, _, ow = window.create_win_with_border(content_opts, opts)
   end
   api.nvim_command("terminal " .. cmd)
@@ -51,11 +51,8 @@ local function open_float_terminal(command, border_style)
 end
 
 local function close_float_terminal()
-  local has_var, float_terminal_win = pcall(
-    api.nvim_buf_get_var,
-    0,
-    "float_terminal_win"
-  )
+  local has_var, float_terminal_win =
+    pcall(api.nvim_buf_get_var, 0, "float_terminal_win")
   if not has_var then
     return
   end

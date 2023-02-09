@@ -3,3 +3,4 @@ plugin/
 .DS_Store
 .luarc.json
 config.json
+lazy-lock.json

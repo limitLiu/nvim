@@ -11,7 +11,6 @@ local servers = {
   gopls = require "lsp.languages.go",
   html = require "lsp.languages.html",
   cssls = require "lsp.languages.css",
-  emmet_ls = require "lsp.languages.emmet",
   jsonls = require "lsp.languages.json",
   tsserver = require "lsp.languages.ts",
   phpactor = require "lsp.languages.php",

@@ -176,13 +176,12 @@ ins_right {
         and client.name ~= "null-ls"
       then
         return client.name
-      else
-        msg = buf_ft
       end
     end
     return msg
   end,
-  icon = " :",
+  -- icon = " :",
+  icon = "",
   color = { fg = colors.magenta, gui = "bold" },
 }
 
@@ -206,8 +205,9 @@ ins_right {
     lsp_client_name = { pre = "[", post = "]" },
     spinner = { pre = "", post = "" },
   },
-  display_components = { "spinner", { "title", "percentage" } },
-  -- display_components = { "spinner", {} },
+  -- display_components = { "spinner", { "title", "percentage" } },
+  display_components = { "spinner", {} },
+
   timer = {
     progress_enddelay = 1000,
     spinner = 1000,

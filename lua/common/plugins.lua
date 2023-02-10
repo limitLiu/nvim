@@ -14,7 +14,6 @@ require("lazy").setup {
   { "williamboman/mason-lspconfig.nvim", lazy = true },
   "folke/neodev.nvim",
   "neovim/nvim-lspconfig",
-  "folke/tokyonight.nvim",
   { "jose-elias-alvarez/null-ls.nvim", event = "BufReadPre" },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -22,10 +21,6 @@ require("lazy").setup {
       "nkrkv/nvim-treesitter-rescript",
     },
     build = ":TSUpdate",
-  },
-  {
-    "ellisonleao/gruvbox.nvim",
-    dependencies = { "rktjmp/lush.nvim" },
   },
   {
     "kyazdani42/nvim-tree.lua",
@@ -69,4 +64,7 @@ require("lazy").setup {
       "nvim-lua/plenary.nvim",
     },
   },
+  -- theme plugins
+  { "catppuccin/nvim", name = "catppuccin" },
+  "glepnir/zephyr-nvim",
 }

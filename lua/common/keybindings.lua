@@ -24,6 +24,11 @@ map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opt)
 map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", opt)
 map("t", "<leader>tt", "<C-\\><C-n>:Lspsaga toggle_floaterm<CR>", opt)
 
+map("n", "<C-k>", "<C-w>k", opt)
+map("n", "<C-l>", "<C-w>l", opt)
+map("n", "<C-j>", "<C-w>j", opt)
+map("n", "<C-h>", "<C-w>h", opt)
+
 local M = {}
 
 M.nvim_tree_keys = {

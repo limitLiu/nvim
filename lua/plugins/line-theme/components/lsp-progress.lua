@@ -176,7 +176,7 @@ LspProgress.register_progress = function(self)
                 self.clients[client_key] and self.clients[client_key].progress
               then
                 for _, _ in pairs(self.clients[client_key].progress) do
-                  has_items = 1
+                  has_items = true
                   break
                 end
               end

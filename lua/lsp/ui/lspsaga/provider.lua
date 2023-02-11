@@ -10,18 +10,10 @@ local send_request = function(timeout)
   local def_params = lsp.util.make_position_params(0, "utf-8")
   local ref_params = lsp.util.make_position_params(0, "utf-8")
   ref_params.context = { includeDeclaration = true }
-  local def_response = lsp.buf_request_sync(
-    0,
-    method[1],
-    def_params,
-    timeout or 1000
-  )
-  local ref_response = lsp.buf_request_sync(
-    0,
-    method[2],
-    ref_params,
-    timeout or 1000
-  )
+  local def_response =
+    lsp.buf_request_sync(0, method[1], def_params, timeout or 1000)
+  local ref_response =
+    lsp.buf_request_sync(0, method[2], ref_params, timeout or 1000)
   if config.debug then
     print(vim.inspect(def_response))
     print(vim.inspect(ref_response))
@@ -422,11 +414,8 @@ function Finder:auto_open_preview()
   local content = self.short_link[current_line].preview or {}
 
   if next(content) ~= nil then
-    local has_var, finder_win_opts = pcall(
-      api.nvim_win_get_var,
-      0,
-      "lsp_finder_win_opts"
-    )
+    local has_var, finder_win_opts =
+      pcall(api.nvim_win_get_var, 0, "lsp_finder_win_opts")
     if not has_var then
       print "get finder window options wrong"
       return
@@ -635,10 +624,10 @@ function lspfinder.definition(timeout_ms)
         not vim.tbl_isempty(definition)
         and not vim.tbl_isempty(definition.result)
       then
-        if #definition.result == 1 then
-          vim.lsp.buf.definition()
-        else
+        if #definition.result > 1 then
           lspfinder.lsp_finder()
+        else
+          vim.lsp.buf.definition()
         end
       else
       end
@@ -759,11 +748,8 @@ function lspfinder.preview_definition(timeout_ms)
 end
 
 function lspfinder.has_saga_def_preview()
-  local has_preview, pdata = pcall(
-    api.nvim_buf_get_var,
-    0,
-    "lspsaga_def_preview"
-  )
+  local has_preview, pdata =
+    pcall(api.nvim_buf_get_var, 0, "lspsaga_def_preview")
   if has_preview and api.nvim_win_is_valid(pdata[1]) then
     return true
   end
@@ -771,11 +757,8 @@ function lspfinder.has_saga_def_preview()
 end
 
 function lspfinder.scroll_in_def_preview(direction)
-  local has_preview, pdata = pcall(
-    api.nvim_buf_get_var,
-    0,
-    "lspsaga_def_preview"
-  )
+  local has_preview, pdata =
+    pcall(api.nvim_buf_get_var, 0, "lspsaga_def_preview")
   if not has_preview then
     return
   end

@@ -9,7 +9,6 @@ require("lazy").setup {
   "puremourning/vimspector",
   { "p00f/clangd_extensions.nvim", lazy = true },
   "b0o/SchemaStore.nvim",
-  "dominikduda/vim_current_word",
   { "williamboman/mason.nvim", lazy = true },
   { "williamboman/mason-lspconfig.nvim", lazy = true },
   "folke/neodev.nvim",

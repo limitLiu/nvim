@@ -4,7 +4,7 @@ require("mason-lspconfig").setup {}
 local lsp_config = require "lspconfig"
 
 local servers = {
-  sumneko_lua = require "lsp.languages.lua",
+  lua_ls = require "lsp.languages.lua",
   rust_analyzer = require "lsp.languages.rust",
   clangd = require "lsp.languages.clangd",
   jdtls = require "lsp.languages.java",

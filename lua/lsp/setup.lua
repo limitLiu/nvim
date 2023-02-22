@@ -17,6 +17,7 @@ local servers = {
   kotlin_language_server = require "lsp.languages.kotlin",
   ocamllsp = require "lsp.languages.ocaml",
   rescriptls = require "lsp.languages.rescript",
+  rnix = require "lsp.languages.nix",
 }
 
 for key, config in pairs(servers) do

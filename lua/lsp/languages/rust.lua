@@ -25,8 +25,15 @@ local opts = {
   end,
   settings = {
     ["rust-analyzer"] = {
-      checkOnSave = {
-        command = "clippy",
+      procMacro = {
+        enable = true,
+      },
+      checkOnSave = true,
+      check = {
+        command = "check",
+      },
+      diagnostics = {
+        disabled = { "unresolved-proc-macro" },
       },
       inlayHints = { locationLinks = false },
     },

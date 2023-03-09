@@ -17,6 +17,9 @@ autocmd("BufWritePre", {
     "*.tsx",
     "*.json",
     "*.kt",
+    "*.c",
+    "*.cc",
+    "*.cpp",
   },
   callback = function()
     vim.lsp.buf.format { async = false }

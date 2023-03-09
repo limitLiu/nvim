@@ -1,5 +1,5 @@
 vim.cmd [[
-set guifont=DMMono\ Nerd\ Font:h16
+set guifont=iMWritingMonoS\ Nerd\ Font:h16
 ]]
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = "utf-8"
@@ -60,4 +60,3 @@ vim.opt.backupdir = { prefix .. "/nvim/.backup//" }
 vim.opt.directory = { prefix .. "/nvim/.swp//" }
 
 vim.o.clipboard = "unnamed,unnamedplus"
-vim.g.everforest_enable_italic = false

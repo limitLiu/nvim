@@ -16,7 +16,8 @@ if nvim_tree and keys then
         custom_only = false,
         list = keys,
       },
-      side = "right",
+      -- side = "right",
+      side = "left",
     },
   }
 end

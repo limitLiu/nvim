@@ -28,9 +28,10 @@ local mapping = {
   f = {
     name = "File",
     s = { ":update<CR>", "Save" },
-    t = { ":NvimTreeToggle<CR>", "Toggle Tree" },
-    r = { ":NvimTreeRefresh<CR>", "Tree Refresh" },
-    d = { ":NvimTreeFindFile<CR>", "Find Current File" },
+    t = { "<cmd>NvimTreeToggle<CR>", "Toggle Tree" },
+    r = { "<cmd>NvimTreeRefresh<CR>", "Tree Refresh" },
+    d = { "<cmd>NvimTreeFindFile<CR>", "Find Current File" },
+    c = { "<cmd>NvimTreeCollapse<CR>", "Tree Collapse" },
   },
   g = {
     name = "gitsigns",

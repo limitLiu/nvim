@@ -45,7 +45,10 @@ require("catppuccin").setup {
   },
 }
 
-vim.o.background = json.background or "light"
+vim.g.everforest_enable_italic = true
+vim.g.everforest_background = json.background or "Medium"
+vim.o.background = json.dark or "light"
+vim.g.everforest_better_performance = true
 local color = json.colorscheme or "everforest"
 local ok, _ = pcall(vim.cmd, "colorscheme " .. color)
 pcall(vim.cmd, "set termguicolors")

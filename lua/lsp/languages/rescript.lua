@@ -11,6 +11,10 @@ local opts = {
   init_options = {
     extensionConfiguration = {
       askToStartBuild = false,
+      signatureHelp = { enabled = true },
+      inlayHints = { enable = true },
+      autoRunCodeAnalysis = true,
+      codeLens = true,
     },
   },
 }

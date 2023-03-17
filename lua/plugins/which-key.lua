@@ -30,7 +30,7 @@ local mapping = {
     s = { ":update<CR>", "Save" },
     t = { "<cmd>NvimTreeToggle<CR>", "Toggle Tree" },
     r = { "<cmd>NvimTreeRefresh<CR>", "Tree Refresh" },
-    d = { "<cmd>NvimTreeFindFile<CR>", "Find Current File" },
+    d = { "<cmd>NvimTreeFocus<CR>", "Find Current File" },
     c = { "<cmd>NvimTreeCollapse<CR>", "Tree Collapse" },
   },
   g = {

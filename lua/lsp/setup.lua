@@ -18,6 +18,7 @@ local servers = {
   ocamllsp = require "lsp.languages.ocaml",
   rescriptls = require "lsp.languages.rescript",
   rnix = require "lsp.languages.nix",
+  sourcekit = require "lsp.languages.swift",
 }
 
 for key, config in pairs(servers) do

@@ -4,12 +4,9 @@ lua require('basic')
 lua require('keybinding')
 lua require('plugin')
 
-lua require('lsp/init')
-
 lua require('plugins/lualine')
 lua require('plugins/nvim-tree')
 lua require('plugins/bufferline')
-lua require('plugins/nvim-treesitter')
 lua require('plugins/comment')
 lua require('plugins/which-key')
 lua require('plugins/nvim-autopairs')
@@ -17,7 +14,6 @@ lua require('plugins/toggleterm')
 lua require('plugins/startup')
 lua require('plugins/telescope')
 lua require('plugins/indent_blankline')
-lua require('plugins/gitsigns')
 lua require('plugins/colorizer')
 
 " set background=dark

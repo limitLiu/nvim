@@ -52,7 +52,7 @@ vim.o.wildmenu = true
 vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.pumheight = 10
 vim.o.showtabline = 2
--- vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
+vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
 
 local prefix = vim.fn.expand "/tmp"
 vim.opt.undodir = { prefix .. "/nvim/.undo//" }
@@ -60,3 +60,5 @@ vim.opt.backupdir = { prefix .. "/nvim/.backup//" }
 vim.opt.directory = { prefix .. "/nvim/.swp//" }
 
 vim.o.clipboard = "unnamed,unnamedplus"
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0

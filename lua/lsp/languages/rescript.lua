@@ -12,9 +12,9 @@ local opts = {
     extensionConfiguration = {
       askToStartBuild = false,
       signatureHelp = { enabled = true },
-      inlayHints = { enable = true },
+      inlayHints = { enable = false },
       autoRunCodeAnalysis = true,
-      codeLens = true,
+      codeLens = false,
     },
   },
 }

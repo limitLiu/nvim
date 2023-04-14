@@ -6,7 +6,7 @@ require("catppuccin").setup {
   flavour = "latte", -- latte, frappe, macchiato, mocha
   background = { -- :h background
     light = "latte",
-    dark = "mocha",
+    dark = "macchiato",
   },
   transparent_background = false,
   show_end_of_buffer = false, -- show the '~' characters after the end of buffers
@@ -45,14 +45,23 @@ require("catppuccin").setup {
   },
 }
 
-vim.g.everforest_enable_italic = true
-vim.g.everforest_background = json.background or "Medium"
-vim.o.background = json.dark or "light"
-vim.g.everforest_better_performance = true
 local color = json.colorscheme or "everforest"
-local ok, _ = pcall(vim.cmd, "colorscheme " .. color)
-pcall(vim.cmd, "set termguicolors")
-if not ok then
-  vim.notify("Failed to find colorscheme " .. color)
-  return
+vim.g.colors_name = color
+vim.opt.termguicolors = true
+if json.dark then
+  vim.o.background = json.dark
 end
+
+if color == "everforest" then
+  vim.g.everforest_enable_italic = true
+  vim.g.everforest_background = json.background or "Medium"
+  vim.g.everforest_better_performance = true
+end
+
+-- vim.cmd [[
+-- set guifont=iMWritingMonoS\ Nerd\ Font:h16
+-- ]]
+vim.opt.guifont = {
+  json.font or "iMWritingMonoS Nerd Font",
+  ":h" .. tostring(json.font_size or 16),
+}

@@ -13,6 +13,13 @@ opts.capabilities.offsetEncoding = { "utf-16" }
 
 return {
   on_setup = function(server)
-    server.setup(opts)
+    local clangd_extensions = requirePlugin "clangd_extensions"
+    if not clangd_extensions then
+      server.setup(opts)
+    else
+      clangd_extensions.setup {
+        server = opts,
+      }
+    end
   end,
 }

@@ -66,4 +66,12 @@ require("lazy").setup {
   -- theme plugins
   { "catppuccin/nvim", name = "catppuccin" },
   "glepnir/zephyr-nvim",
+  {
+    "akinsho/flutter-tools.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "stevearc/dressing.nvim",
+    },
+  },
 }

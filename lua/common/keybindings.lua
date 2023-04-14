@@ -82,6 +82,10 @@ M.map_lsp = function(buf)
   buf("v", "<leader>lc", ":<C-U>Lspsaga range_code_action<CR>", opt)
 end
 
+M.map_flutter_tools = function(buf)
+  buf("n", "<leader>ac", "<cmd>Telescope flutter commands<CR>", opt)
+end
+
 M.map_ts_util = function(buf)
   buf("n", "<localleader>gs", "<cmd>TSLspOrganize<CR>", opt)
   buf("n", "<localleader>gr", "<cmd>TSLspRenameFile<CR>", opt)

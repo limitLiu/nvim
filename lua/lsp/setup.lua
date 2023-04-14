@@ -19,6 +19,7 @@ local servers = {
   rescriptls = require "lsp.languages.rescript",
   rnix = require "lsp.languages.nix",
   sourcekit = require "lsp.languages.swift",
+  dartls = require "lsp.languages.flutter",
 }
 
 for key, config in pairs(servers) do

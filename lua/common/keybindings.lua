@@ -31,10 +31,6 @@ map("n", "<C-h>", "<C-w>h", opt)
 
 local M = {}
 
-M.nvim_tree_keys = {
-  { key = ".", action = "toggle_dotfiles" },
-}
-
 M.telescope_keys = {
   i = {
     ["<C-u>"] = "preview_scrolling_up",

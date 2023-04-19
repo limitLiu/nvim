@@ -55,7 +55,7 @@ end
 if color == "everforest" then
   vim.g.everforest_enable_italic = true
   vim.g.everforest_background = json.background or "Medium"
-  vim.g.everforest_better_performance = true
+  -- vim.g.everforest_better_performance = true
 end
 
 -- vim.cmd [[

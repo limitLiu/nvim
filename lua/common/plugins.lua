@@ -74,4 +74,11 @@ require("lazy").setup {
       "stevearc/dressing.nvim",
     },
   },
+  {
+    "glepnir/lspsaga.nvim",
+    event = "LspAttach",
+    config = function()
+      require("lspsaga").setup {}
+    end,
+  },
 }

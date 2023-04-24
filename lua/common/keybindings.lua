@@ -22,7 +22,7 @@ map("n", "<C-u>", "9k", opt)
 map("n", "<C-d>", "9j", opt)
 map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opt)
 map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", opt)
-map("t", "<leader>tt", "<C-\\><C-n>:Lspsaga toggle_floaterm<CR>", opt)
+map("t", "<leader>tt", "<C-\\><C-n><cmd>Lspsaga term_toggle<CR>", opt)
 
 map("n", "<C-k>", "<C-w>k", opt)
 map("n", "<C-l>", "<C-w>l", opt)
@@ -47,10 +47,10 @@ M.telescope_keys = {
 }
 
 M.map_lsp = function(buf)
-  buf("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
-  buf("n", "gd", "<cmd>Lspsaga definition<CR>", opt)
-  buf("n", "gp", "<cmd>Lspsaga preview_definition<CR>", opt)
-  buf("n", "gi", "<cmd>Lspsaga implement<CR>", opt)
+  -- buf("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
+  buf("n", "K", "<cmd>Lspsaga hover_doc<CR>", opt)
+  buf("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opt)
+  buf("n", "gp", "<cmd>Lspsaga peek_definition<CR>", opt)
   buf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
   buf("n", "<localleader>dw", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opt)
   buf("n", "<localleader>dl", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
@@ -62,20 +62,7 @@ M.map_lsp = function(buf)
     "<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<CR>",
     opt
   )
-  buf(
-    "n",
-    "<C-f>",
-    "<cmd>lua require('lsp.ui.lspsaga.action').smart_scroll_with_saga(1)<CR>",
-    opt
-  )
-  buf(
-    "n",
-    "<C-b>",
-    "<cmd>lua require('lsp.ui.lspsaga.action').smart_scroll_with_saga(-1)<CR>",
-    opt
-  )
   buf("n", "<leader>lc", "<cmd>Lspsaga code_action<CR>", opt)
-  buf("v", "<leader>lc", ":<C-U>Lspsaga range_code_action<CR>", opt)
 end
 
 M.map_flutter_tools = function(buf)

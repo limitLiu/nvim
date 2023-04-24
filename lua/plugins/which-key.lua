@@ -45,6 +45,7 @@ local mapping = {
     -- r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
     r = { "<cmd>Lspsaga rename<CR>", "Rename" },
     c = { "Code Action" },
+    o = { "<cmd>Lspsaga outline<CR>", "Toggle Outline" },
   },
   p = {
     name = "Projects",
@@ -59,7 +60,7 @@ local mapping = {
   },
   t = {
     name = "Terminal",
-    t = { ":Lspsaga toggle_floaterm<CR>", "Toggle Terminal" },
+    t = { "<cmd>Lspsaga term_toggle<CR>", "Toggle Terminal" },
   },
   w = {
     name = "Window",

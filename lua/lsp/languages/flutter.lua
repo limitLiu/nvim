@@ -36,7 +36,7 @@ return {
         },
         outline = {
           open_cmd = "30vnew",
-          auto_open = true,
+          auto_open = false,
         },
       }
     end

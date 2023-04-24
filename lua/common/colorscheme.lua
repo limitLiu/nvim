@@ -3,14 +3,14 @@ local _, json =
   parser:parse(vim.api.nvim_list_runtime_paths()[1] .. "/config.json")
 
 require("catppuccin").setup {
-  flavour = "latte", -- latte, frappe, macchiato, mocha
+  flavour = "frappe", -- latte, frappe, macchiato, mocha
   background = { -- :h background
     light = "latte",
     dark = "macchiato",
   },
-  transparent_background = false,
+  transparent_background = true,
   show_end_of_buffer = false, -- show the '~' characters after the end of buffers
-  term_colors = false,
+  term_colors = true,
   dim_inactive = {
     enabled = false,
     shade = "dark",
@@ -22,9 +22,9 @@ require("catppuccin").setup {
     comments = { "italic" },
     conditionals = { "italic" },
     loops = { "bold" },
-    functions = {},
+    functions = { "bold" },
     keywords = { "italic" },
-    strings = {},
+    strings = { "bold" },
     variables = {},
     numbers = {},
     booleans = { "bold" },
@@ -48,9 +48,9 @@ require("catppuccin").setup {
 local color = json.colorscheme or "everforest"
 vim.g.colors_name = color
 vim.opt.termguicolors = true
-if json.dark then
-  vim.o.background = json.dark
-end
+vim.schedule(function()
+  vim.o.background = json.dark or "dark"
+end)
 
 if color == "everforest" then
   vim.g.everforest_enable_italic = true

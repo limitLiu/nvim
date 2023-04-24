@@ -47,8 +47,8 @@ M.telescope_keys = {
 }
 
 M.map_lsp = function(buf)
-  -- buf("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
-  buf("n", "K", "<cmd>Lspsaga hover_doc<CR>", opt)
+  buf("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
+  -- buf("n", "K", "<cmd>Lspsaga hover_doc<CR>", opt)
   buf("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opt)
   buf("n", "gp", "<cmd>Lspsaga peek_definition<CR>", opt)
   buf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)

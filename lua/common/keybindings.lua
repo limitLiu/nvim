@@ -18,6 +18,11 @@ map("v", "v", "<Esc>", opt)
 -- map("v", "[", "<gv", opt)
 -- map("v", "]", ">gv", opt)
 
+map("n", "<A-]>", "<C-w>+", opt)
+map("n", "<A-[>", "<C-w>-", opt)
+map("n", "<A-h>", "<C-w><", opt)
+map("n", "<A-l>", "<C-w>>", opt)
+
 map("n", "<C-u>", "9k", opt)
 map("n", "<C-d>", "9j", opt)
 map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opt)

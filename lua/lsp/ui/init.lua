@@ -17,4 +17,18 @@ if lspkind then
   }
 end
 
+local lspsaga = requirePlugin "lspsaga"
+if lspsaga then
+  lspsaga.setup {
+    finder = {
+      max_height = 0.8,
+      keys = {
+        expand_or_jump = "<CR>",
+      },
+    },
+  }
+else
+  vim.notify "Failed to load lspsaga."
+end
+
 return M

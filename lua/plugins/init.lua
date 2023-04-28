@@ -1,4 +1,5 @@
 require "plugins.lualine"
+require "plugins.catppuccin"
 require "plugins.nvim-tree"
 require "plugins.bufferline"
 require "plugins.nvim-treesitter"

@@ -78,4 +78,11 @@ require("lazy").setup {
     "glepnir/lspsaga.nvim",
     event = "LspAttach",
   },
+  {
+    "nvimdev/hlsearch.nvim",
+    event = "BufRead",
+    config = function()
+      require("hlsearch").setup()
+    end,
+  },
 }

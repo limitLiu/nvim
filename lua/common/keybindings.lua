@@ -104,10 +104,10 @@ M.cmp = function(c)
     },
     ["<C-p>"] = c.mapping.select_prev_item(),
     ["<C-n>"] = c.mapping.select_next_item(),
-    ["<C-e>"] = c.mapping {
-      i = c.mapping.abort(),
-      c = c.mapping.close(),
-    },
+    -- ["<C-e>"] = c.mapping {
+    --   i = c.mapping.abort(),
+    --   c = c.mapping.close(),
+    -- },
     ["<CR>"] = c.mapping.confirm {
       select = true,
     },

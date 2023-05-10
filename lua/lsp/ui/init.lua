@@ -22,7 +22,7 @@ if lspsaga then
   lspsaga.setup {
     finder = {
       keys = {
-        expand_or_jump = "<CR>",
+        -- expand_or_jump = "<CR>",
       },
     },
   }

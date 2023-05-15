@@ -1,4 +1,3 @@
-vim.opt.termguicolors = true
 local plugin = requirePlugin "bufferline"
 if plugin then
   plugin.setup {

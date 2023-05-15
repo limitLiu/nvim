@@ -1,8 +1,9 @@
 local parser = require "utils.parser"
-local _, json =
-  parser:parse(vim.api.nvim_list_runtime_paths()[1] .. "/config.json")
+local _, json = parser:parse(
+  vim.api.nvim_list_runtime_paths()[1] .. "/config.json"
+)
 
-local color = json.colorscheme or "everforest"
+local color = json.colorscheme
 vim.g.colors_name = color
 vim.opt.termguicolors = true
 vim.schedule(function()

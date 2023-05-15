@@ -41,7 +41,6 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
 vim.o.termguicolors = true
-vim.opt.termguicolors = true
 vim.o.list = true
 -- vim.o.listchars = 'space:.'
 vim.o.listchars = "space: "
@@ -49,7 +48,7 @@ vim.o.wildmenu = true
 vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.pumheight = 10
 vim.o.showtabline = 2
-vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
+vim.g.python3_host_prog = "/opt/local/bin/python3"
 
 local prefix = vim.fn.expand "/tmp"
 vim.opt.undodir = { prefix .. "/nvim/.undo//" }

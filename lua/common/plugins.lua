@@ -84,5 +84,5 @@ require("lazy").setup {
       require("hlsearch").setup()
     end,
   },
-  { "neanias/everforest-nvim", lazy = false, priority = 1000 },
+  { "maxmx03/solarized.nvim", lazy = false },
 }

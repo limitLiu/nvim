@@ -84,5 +84,6 @@ require("lazy").setup {
       require("hlsearch").setup()
     end,
   },
-  { "maxmx03/solarized.nvim", lazy = false },
+  { "limitLiu/everforest-nvim", lazy = false, priority = 1000 },
+  "RRethy/vim-illuminate",
 }

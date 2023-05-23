@@ -1,10 +1,10 @@
 local catppuccin = requirePlugin "catppuccin"
 if catppuccin then
   catppuccin.setup {
-    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    flavour = "Mocha", -- latte, frappe, macchiato, mocha
     background = { -- :h background
       light = "latte",
-      dark = "macchiato",
+      dark = "Mocha",
     },
     transparent_background = true,
     show_end_of_buffer = false, -- show the '~' characters after the end of buffers

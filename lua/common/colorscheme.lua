@@ -6,14 +6,8 @@ local color = json.colorscheme or "everforest"
 vim.g.colors_name = color
 vim.opt.termguicolors = true
 vim.schedule(function()
-  vim.o.background = json.dark or "dark"
+  vim.o.background = json.background or "dark"
 end)
-
-if color == "everforest" then
-  vim.g.everforest_enable_italic = true
-  vim.g.everforest_background = json.background or "Medium"
-  -- vim.g.everforest_better_performance = true
-end
 
 -- vim.cmd [[
 -- set guifont=iMWritingMonoS\ Nerd\ Font:h16

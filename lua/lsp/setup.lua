@@ -17,7 +17,7 @@ local servers = {
   kotlin_language_server = require "lsp.languages.kotlin",
   ocamllsp = require "lsp.languages.ocaml",
   rescriptls = require "lsp.languages.rescript",
-  rnix = require "lsp.languages.nix",
+  volar = require "lsp.languages.vue",
   sourcekit = require "lsp.languages.swift",
   dartls = require "lsp.languages.flutter",
 }

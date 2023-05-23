@@ -1,6 +1,5 @@
 require("lazy").setup {
   "folke/which-key.nvim",
-  "sainnhe/everforest",
   "jose-elias-alvarez/nvim-lsp-ts-utils",
   "ahmedkhalf/project.nvim",
   "mfussenegger/nvim-dap",
@@ -85,4 +84,6 @@ require("lazy").setup {
       require("hlsearch").setup()
     end,
   },
+  { "neanias/everforest-nvim", lazy = false, priority = 1000 },
+
 }

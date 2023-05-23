@@ -7,7 +7,7 @@ vim.wo.relativenumber = true
 vim.wo.cursorline = true
 vim.wo.cursorcolumn = true
 vim.wo.signcolumn = "yes"
-vim.wo.colorcolumn = "80"
+-- vim.wo.colorcolumn = "80"
 vim.o.tabstop = 2
 vim.bo.tabstop = 2
 vim.o.softtabstop = 2
@@ -49,7 +49,7 @@ vim.o.wildmenu = true
 vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.pumheight = 10
 vim.o.showtabline = 2
-vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
+vim.g.python3_host_prog ="/usr/bin/python3"
 
 local prefix = vim.fn.expand "/tmp"
 vim.opt.undodir = { prefix .. "/nvim/.undo//" }

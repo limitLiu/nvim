@@ -62,9 +62,6 @@ require("lazy").setup {
       "nvim-lua/plenary.nvim",
     },
   },
-  -- theme plugins
-  { "catppuccin/nvim", name = "catppuccin" },
-  "glepnir/zephyr-nvim",
   {
     "akinsho/flutter-tools.nvim",
     lazy = false,
@@ -84,6 +81,10 @@ require("lazy").setup {
       require("hlsearch").setup()
     end,
   },
-  { "neanias/everforest-nvim", lazy = false, priority = 1000 },
-
+  -- theme start
+  { "catppuccin/nvim", name = "catppuccin" },
+  { "limitLiu/everforest-nvim", lazy = false, priority = 1000 },
+  "limitLiu/zephyr-nvim",
+  "RRethy/vim-illuminate",
+  -- theme end
 }

@@ -41,7 +41,6 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
 vim.o.termguicolors = true
-vim.opt.termguicolors = true
 vim.o.list = true
 -- vim.o.listchars = 'space:.'
 vim.o.listchars = "space: "

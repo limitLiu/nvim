@@ -39,6 +39,13 @@ local mapping = {
     p = { "Preview Hunk" },
     S = { "Stage Buffer" },
     s = { "Stage Hunk" },
+    t = { "Toggle Current Line Blame" },
+    R = { "Reset Buffer" },
+    d = { "Diff This" },
+    u = { "Undo Stage Hunk" },
+    x = { "Toggle Deleted" },
+    r = { "Visual Reset Hunk" },
+    D = { "Diff This ~" },
   },
   l = {
     name = "LSP",

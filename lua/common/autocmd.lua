@@ -8,16 +8,10 @@ local file_type = {
   "*.rs",
   "*.ml",
   "*.lua",
-  "*.scss",
-  "*.js",
-  "*.ts",
-  "*.tsx",
   "*.json",
-  "*.kt",
   "*.c",
   "*.cc",
   "*.cpp",
-  "*.dart",
 }
 
 autocmd("BufWritePre", {

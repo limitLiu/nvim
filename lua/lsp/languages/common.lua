@@ -7,20 +7,6 @@ M.keybinding = function(buf)
   require("common.keybindings").map_lsp(buf_set_map)
 end
 
-M.flutterKeybinding = function(buf, keybindings)
-  local function buf_set_map(...)
-    vim.api.nvim_buf_set_keymap(buf, ...)
-  end
-  keybindings.map_flutter_tools(buf_set_map)
-end
-
-M.tsKeybinding = function(buf, keybindings)
-  local function buf_set_map(...)
-    vim.api.nvim_buf_set_keymap(buf, ...)
-  end
-  keybindings.map_ts_util(buf_set_map)
-end
-
 M.disableFormat = function(client)
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false

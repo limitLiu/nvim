@@ -70,16 +70,6 @@ M.map_lsp = function(buf)
   buf("n", "<leader>lc", "<cmd>Lspsaga code_action<CR>", opt)
 end
 
-M.map_flutter_tools = function(buf)
-  buf("n", "<leader>ac", "<cmd>Telescope flutter commands<CR>", opt)
-end
-
-M.map_ts_util = function(buf)
-  buf("n", "<localleader>gs", "<cmd>TSLspOrganize<CR>", opt)
-  buf("n", "<localleader>gr", "<cmd>TSLspRenameFile<CR>", opt)
-  buf("n", "<localleader>gi", "<cmd>TSLspImportAll<CR>", opt)
-end
-
 M.cmp = function(c)
   local feed_key = function(key, mode)
     local keys = vim.api.nvim_replace_termcodes(key, true, true, true) or ""

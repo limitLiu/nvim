@@ -12,7 +12,9 @@ M.disableFormat = function(client)
   client.server_capabilities.documentRangeFormattingProvider = false
 end
 
-M.capabilities = require("cmp_nvim_lsp").default_capabilities()
+M.capabilities = require("cmp_nvim_lsp").default_capabilities {
+  snippetSupport = false,
+}
 
 M.flags = {
   debounce_text_changes = 150,

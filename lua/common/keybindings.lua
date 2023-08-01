@@ -82,18 +82,14 @@ M.cmp = function(c)
     ["<CR>"] = c.mapping.confirm {
       select = true,
     },
-    ["<Tab>"] = c.mapping(function(fallback)
+    ["<Tab>"] = c.mapping.confirm {
+      select = true,
+    },
+    ["<S-Tab>"] = c.mapping(function()
       if c.visible() then
-        local entry = c.get_selected_entry()
-        if not entry then
-          c.select_next_item { behavior = c.SelectBehavior.Select }
-        else
-          c.confirm()
-        end
-      else
-        fallback()
+        c.select_prev_item()
       end
-    end, { "i", "s", "c" }),
+    end, { "i", "s" }),
   }
 end
 

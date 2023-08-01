@@ -15,9 +15,6 @@ require("lazy").setup {
   { "jose-elias-alvarez/null-ls.nvim", event = "BufReadPre" },
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      "nkrkv/nvim-treesitter-rescript",
-    },
     build = ":TSUpdate",
   },
   {
@@ -60,14 +57,6 @@ require("lazy").setup {
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
-    },
-  },
-  {
-    "akinsho/flutter-tools.nvim",
-    lazy = false,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "stevearc/dressing.nvim",
     },
   },
   {

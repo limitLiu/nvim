@@ -12,7 +12,12 @@ require("lazy").setup {
   { "williamboman/mason-lspconfig.nvim", lazy = true },
   "folke/neodev.nvim",
   "neovim/nvim-lspconfig",
-  { "jose-elias-alvarez/null-ls.nvim", event = "BufReadPre" },
+  {
+    "nvimdev/guard.nvim",
+    dependencies = {
+      "nvimdev/guard-collection",
+    },
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",

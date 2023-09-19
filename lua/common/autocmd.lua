@@ -3,24 +3,25 @@ local autoGroup = vim.api.nvim_create_augroup("autoGroup", {
 })
 
 local autocmd = vim.api.nvim_create_autocmd
-local file_type = {
-  "*.res",
-  "*.rs",
-  "*.ml",
-  "*.lua",
-  "*.json",
-  "*.c",
-  "*.cc",
-  "*.cpp",
-}
+-- local file_type = {
+--   "*.res",
+--   "*.rs",
+--   "*.ml",
+--   "*.lua",
+--   "*.json",
+--   "*.c",
+--   "*.cc",
+--   "*.cpp",
+--   "*.hs",
+-- }
 
-autocmd("BufWritePre", {
-  group = autoGroup,
-  pattern = file_type,
-  callback = function()
-    vim.lsp.buf.format { async = false }
-  end,
-})
+-- autocmd("BufWritePre", {
+--   group = autoGroup,
+--   pattern = file_type,
+--   callback = function()
+--     vim.lsp.buf.format { async = false }
+--   end,
+-- })
 
 -- autocmd("InsertLeave", {
 --   group = autoGroup,

@@ -132,7 +132,7 @@ LspProgress.register_progress = function(self)
 
     if key then
       if self.clients[client_key] == nil then
-        if vim.lsp.get_client_by_id(info.client_id).name == "null-ls" then
+        if vim.lsp.get_client_by_id(info.client_id).name == "guard" then
           return
         end
         self.clients[client_key] = {

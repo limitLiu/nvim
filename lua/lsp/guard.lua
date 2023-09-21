@@ -4,6 +4,6 @@ if ft then
 
   require("guard").setup {
     fmt_on_save = true,
-    lsp_as_default_formatter = true,
+    lsp_as_default_formatter = false,
   }
 end

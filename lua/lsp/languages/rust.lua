@@ -18,8 +18,8 @@ local opts = {
   capabilities = common.capabilities,
   flags = common.flags,
   handlers = common.handlers,
-  on_attach = function(_, buf)
-    -- common.disableFormat(client)
+  on_attach = function(client, buf)
+    common.disableFormat(client)
     common.keybinding(buf)
     keybinding(buf)
   end,
@@ -30,7 +30,7 @@ local opts = {
       },
       checkOnSave = true,
       check = {
-        command = "check",
+        command = "clippy",
       },
       diagnostics = {
         disabled = { "unresolved-proc-macro" },

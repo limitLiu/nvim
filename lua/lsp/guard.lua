@@ -1,6 +1,7 @@
 local ft = requirePlugin "guard.filetype"
 if ft then
   ft("c"):fmt("clang-format"):lint "clang-tidy"
+  ft("rust"):fmt("rustfmt")
 
   require("guard").setup {
     fmt_on_save = true,

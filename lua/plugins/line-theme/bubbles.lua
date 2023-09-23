@@ -52,10 +52,14 @@ local bubbles_theme = {
   },
 }
 
+local lsp_progress = require "plugins/line-theme/components/lsp-progress"
+local custom_filetype = require "plugins/line-theme/components/custom-filetype"
+
 local config = {
   options = {
     theme = bubbles_theme,
-    component_separators = "|",
+    -- component_separators = "|",
+    component_separators = { left = "", right = "" },
     -- section_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
   },
@@ -64,11 +68,31 @@ local config = {
       -- { "mode", separator = { left = "" }, right_padding = 2 },
       { "mode", separator = { left = "" }, right_padding = 2 },
     },
-    lualine_b = { "filename", "branch" },
-    lualine_c = { { "fileformat", color = { fg = colors.white } } },
+    -- lualine_b = { "filename", "branch" },
+    lualine_b = {
+      "branch",
+      {
+        "diff",
+        -- Is it me or the symbol for modified us really weird
+        symbols = { added = " ", modified = "󰝤 ", removed = " " },
+        diff_color = {
+          added = { fg = colors.green },
+          modified = { fg = colors.orange },
+          removed = { fg = colors.red },
+        },
+        cond = conditions.hide_in_width,
+      },
+      { "fileformat", color = { fg = colors.white } },
+    },
+    lualine_c = {},
     lualine_x = {},
     lualine_y = {
-      "filetype",
+      {
+        custom_filetype,
+        lsp_name = true,
+        icon_only = false,
+        -- icon = { align = "left" },
+      },
       {
         "o:encoding", -- option component same as &encoding in viml
         fmt = string.lower, -- I'm not sure why it's upper case either ;)
@@ -109,12 +133,12 @@ ins_left {
   },
 }
 
-local function ins_right(component)
+local function ins_right_x(component)
   table.insert(config.sections.lualine_x, component)
 end
 
---[[ ins_right {
-  "lsp_progress",
+ins_right_x {
+  lsp_progress,
   colors = {
     percentage = colors.cyan,
     title = colors.cyan,
@@ -131,22 +155,13 @@ end
     lsp_client_name = { pre = "[", post = "]" },
     spinner = { pre = "", post = "" },
   },
-  -- display_components = { "spinner", { "title", "percentage" } },
   display_components = { "spinner", {} },
-  timer = { progress_enddelay = 1000, spinner = 1000, lsp_client_name_enddelay = 1000 },
-  spinner_symbols = { "🌑 ", "🌒 ", "🌓 ", "🌔 ", "🌕 ", "🌖 ", "🌗 ", "🌘 " },
-} ]]
-
-ins_right {
-  "diff",
-  -- Is it me or the symbol for modified us really weird
-  symbols = { added = " ", modified = "󰝤 ", removed = " " },
-  diff_color = {
-    added = { fg = colors.green },
-    modified = { fg = colors.orange },
-    removed = { fg = colors.red },
+  timer = {
+    progress_enddelay = 1000,
+    spinner = 1000,
+    lsp_client_name_enddelay = 1000,
   },
-  cond = conditions.hide_in_width,
+  spinner_symbols = { "󰇊", "󰇋", "󰇌", "󰇍", "󰇎", "󰇏" },
 }
 
 require("lualine").setup(config)

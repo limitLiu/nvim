@@ -213,7 +213,7 @@ ins_right {
     spinner = 1000,
     lsp_client_name_enddelay = 1000,
   },
-  spinner_symbols = { " ", " ", " ", " ", " ", " " },
+  spinner_symbols = { "󰇊", "󰇋", "󰇌", "󰇍", "󰇎", "󰇏" },
 }
 
 -- Add components to right sections

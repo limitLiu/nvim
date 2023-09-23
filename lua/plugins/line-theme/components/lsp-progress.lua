@@ -31,7 +31,7 @@ LspProgress.default = {
     spinner = 500,
     lsp_client_name_enddelay = 1000,
   },
-  spinner_symbols_dice = { " ", " ", " ", " ", " ", " " }, -- Nerd fonts needed
+  spinner_symbols_dice = { "󰇊", "󰇋", "󰇌", "󰇍", "󰇎", "󰇏" }, -- Nerd fonts needed
   spinner_symbols_moon = {
     "🌑 ",
     "🌒 ",

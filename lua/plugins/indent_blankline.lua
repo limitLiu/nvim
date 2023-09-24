@@ -1,14 +1,14 @@
 local indent = requirePlugin "indent_blankline"
 
 if indent then
-  vim.opt.list = true
-  vim.opt.listchars:append "eol:↴"
+  -- vim.opt.list = true
+  -- vim.opt.listchars:append "eol:↴"
 
   indent.setup {
     char = "",
     space_char_blankline = " ",
     show_first_indent_level = true,
-    show_end_of_line = true,
+    -- show_end_of_line = true,
     filetype_exclude = {
       "startify",
       "dashboard",

@@ -8,8 +8,8 @@ return {
       },
       capabilities = common.capabilities,
       flags = common.flags,
-      on_attach = function(_)
-        -- common.disableFormat(client)
+      on_attach = function(client)
+        common.disableFormat(client)
       end,
     }
   end,

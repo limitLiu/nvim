@@ -13,12 +13,6 @@ require("lazy").setup {
   "folke/neodev.nvim",
   "neovim/nvim-lspconfig",
   {
-    "nvimdev/guard.nvim",
-    dependencies = {
-      "nvimdev/guard-collection",
-    },
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
   },
@@ -71,6 +65,12 @@ require("lazy").setup {
     "glepnir/lspsaga.nvim",
     event = "LspAttach",
   },
+  {
+    "limitLiu/fidget.nvim",
+    event = "LspAttach",
+    opts = {},
+  },
+  { "limitLiu/null-ls.nvim", event = "BufReadPre" },
   {
     "nvimdev/hlsearch.nvim",
     event = "BufRead",

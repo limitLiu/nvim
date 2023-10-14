@@ -52,7 +52,6 @@ local bubbles_theme = {
   },
 }
 
-local lsp_progress = require "plugins/line-theme/components/lsp-progress"
 local custom_filetype = require "plugins/line-theme/components/custom-filetype"
 local custom_mode = require "plugins/line-theme/components/custom-mode"
 
@@ -132,32 +131,5 @@ ins_left {
 local function ins_right_x(component)
   table.insert(config.sections.lualine_x, component)
 end
-
-ins_right_x {
-  lsp_progress,
-  colors = {
-    percentage = colors.cyan,
-    title = colors.cyan,
-    message = colors.cyan,
-    spinner = colors.cyan,
-    lsp_client_name = colors.magenta,
-    use = true,
-  },
-  separators = {
-    component = "",
-    progress = "",
-    percentage = { pre = "", post = "%% " },
-    title = { pre = "", post = ": " },
-    lsp_client_name = { pre = "[", post = "]" },
-    spinner = { pre = "", post = "" },
-  },
-  display_components = { "spinner", {} },
-  timer = {
-    progress_enddelay = 1000,
-    spinner = 1000,
-    lsp_client_name_enddelay = 1000,
-  },
-  spinner_symbols = { "󰇊", "󰇋", "󰇌", "󰇍", "󰇎", "󰇏" },
-}
 
 require("lualine").setup(config)

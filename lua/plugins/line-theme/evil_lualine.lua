@@ -185,37 +185,6 @@ ins_right {
   color = { fg = colors.magenta, gui = "bold" },
 }
 
-local lsp_progress = require "plugins/line-theme/components/lsp-progress"
-
-ins_right {
-  lsp_progress,
-  colors = {
-    percentage = colors.cyan,
-    title = colors.cyan,
-    message = colors.cyan,
-    spinner = colors.cyan,
-    lsp_client_name = colors.magenta,
-    use = true,
-  },
-  separators = {
-    component = "",
-    progress = "",
-    percentage = { pre = "", post = "%% " },
-    title = { pre = "", post = ": " },
-    lsp_client_name = { pre = "[", post = "]" },
-    spinner = { pre = "", post = "" },
-  },
-  -- display_components = { "spinner", { "title", "percentage" } },
-  display_components = { "spinner", {} },
-
-  timer = {
-    progress_enddelay = 1000,
-    spinner = 1000,
-    lsp_client_name_enddelay = 1000,
-  },
-  spinner_symbols = { "󰇊", "󰇋", "󰇌", "󰇍", "󰇎", "󰇏" },
-}
-
 -- Add components to right sections
 ins_right {
   "o:encoding", -- option component same as &encoding in viml

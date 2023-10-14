@@ -78,6 +78,14 @@ require("lazy").setup {
       require("hlsearch").setup()
     end,
   },
+  {
+    "akinsho/flutter-tools.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "stevearc/dressing.nvim",
+    },
+  },
   -- theme start
   { "catppuccin/nvim", name = "catppuccin" },
   { "limitLiu/everforest-nvim", lazy = false, priority = 1000 },

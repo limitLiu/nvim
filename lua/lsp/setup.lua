@@ -10,6 +10,7 @@ local servers = {
   jsonls = require "lsp.languages.json",
   ocamllsp = require "lsp.languages.ocaml",
   hls = require "lsp.languages.haskell",
+  dartls = require "lsp.languages.dartls",
 }
 
 for key, config in pairs(servers) do

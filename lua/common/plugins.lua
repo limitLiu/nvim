@@ -53,7 +53,10 @@ require("lazy").setup {
   "lewis6991/gitsigns.nvim",
   "NvChad/nvim-colorizer.lua",
   "matze/vim-move",
-  -- 'mhartington/formatter.nvim'
+  {
+    "stevearc/conform.nvim",
+    opts = {},
+  },
   {
     "glepnir/dashboard-nvim",
     dependencies = {

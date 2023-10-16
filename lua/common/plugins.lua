@@ -70,7 +70,7 @@ require("lazy").setup {
     event = "LspAttach",
     opts = {},
   },
-  { "limitLiu/null-ls.nvim", event = "BufReadPre" },
+  { "mhartington/formatter.nvim", event = "BufReadPre" },
   {
     "nvimdev/hlsearch.nvim",
     event = "BufRead",

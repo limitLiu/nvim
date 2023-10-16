@@ -7,10 +7,5 @@ if ok then
       commenced = "Started", -- message shown when task starts
       completed = "Completed", -- message shown when task completes
     },
-    sources = {
-      ["null-ls"] = {
-        ignore = true,
-      },
-    },
   }
 end

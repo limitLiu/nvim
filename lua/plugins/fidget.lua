@@ -1,11 +1,23 @@
 local ok, fidget = pcall(require, "fidget")
 if ok then
+  fidget.spinner.patterns.dice = {
+    "", "", "", "", "", ""
+  }
+
   fidget.setup {
-    text = {
-      spinner = "dice", -- animation shown when tasks are ongoing
-      done = "✔", -- character shown when all tasks are complete
-      commenced = "Started", -- message shown when task starts
-      completed = "Completed", -- message shown when task completes
+    progress = {
+      display = {
+        progress_icon = { pattern = "dice", period = 1 },
+        done_icon = "✔",
+        overrides = {
+          rust_analyzer = { name = "rust-analyzer" },
+          lua_ls = { name = "lua" },
+        },
+      },
     },
   }
+  fidget.notification.default_config = {
+    name = "",
+  }
+  vim.notify = fidget.notify
 end

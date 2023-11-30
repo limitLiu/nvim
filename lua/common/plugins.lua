@@ -12,6 +12,7 @@ require("lazy").setup {
   { "williamboman/mason-lspconfig.nvim", lazy = true },
   "folke/neodev.nvim",
   "neovim/nvim-lspconfig",
+  "nkrkv/nvim-treesitter-rescript",
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -69,11 +70,10 @@ require("lazy").setup {
     event = "LspAttach",
   },
   {
-    "limitLiu/fidget.nvim",
+    "j-hui/fidget.nvim",
     event = "LspAttach",
     opts = {},
   },
-  { "mhartington/formatter.nvim", event = "BufReadPre" },
   {
     "nvimdev/hlsearch.nvim",
     event = "BufRead",

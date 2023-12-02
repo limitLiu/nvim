@@ -1,7 +1,7 @@
-local cmp = requirePlugin "cmp"
-local ui = require "lsp.ui"
+local cmpOk, cmp = pcall(require, "cmp")
+local uiOk, ui = pcall(require, "lsp.ui")
 
-if cmp and ui then
+if cmpOk and uiOk then
   cmp.setup {
     snippet = {
       expand = function(args)
@@ -17,6 +17,18 @@ if cmp and ui then
 
     mapping = require("common.keybindings").cmp(cmp),
     formatting = ui.formatting,
+    sorting = {
+      comparators = {
+        cmp.config.compare.offset,
+        cmp.config.compare.exact,
+        cmp.config.compare.recently_used,
+        require "clangd_extensions.cmp_scores",
+        cmp.config.compare.kind,
+        cmp.config.compare.sort_text,
+        cmp.config.compare.length,
+        cmp.config.compare.order,
+      },
+    },
   }
 
   -- Use buffer source for `/`.

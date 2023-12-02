@@ -1,9 +1,13 @@
 local ok, fidget = pcall(require, "fidget")
 if ok then
   fidget.spinner.patterns.dice = {
-    "", "", "", "", "", ""
+    "󰇊",
+    "󰇋",
+    "󰇌",
+    "󰇍",
+    "󰇎",
+    "󰇏",
   }
-
   fidget.setup {
     progress = {
       display = {
@@ -11,13 +15,13 @@ if ok then
         done_icon = "✔",
         overrides = {
           rust_analyzer = { name = "rust-analyzer" },
-          lua_ls = { name = "lua" },
+          lua_ls = { name = "lua-ls" },
         },
       },
     },
   }
   fidget.notification.default_config = {
-    name = "",
+    icon_on_left = false,
   }
   vim.notify = fidget.notify
 end

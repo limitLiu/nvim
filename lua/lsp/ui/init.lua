@@ -17,9 +17,12 @@ if lspkind then
   }
 end
 
-local lspsaga = requirePlugin "lspsaga"
-if lspsaga then
+local ok, lspsaga = pcall(require, "lspsaga")
+if ok then
   lspsaga.setup {
+    ui = {
+      border = "single",
+    },
     finder = {
       keys = {
         -- expand_or_jump = "<CR>",

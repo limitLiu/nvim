@@ -8,6 +8,25 @@ if ok then
     "󰇎",
     "󰇏",
   }
+
+  local local_config = {
+    name = "",
+    icon = "",
+    ttl = 5,
+    group_style = "Title",
+    icon_style = "Special",
+    annote_style = "Question",
+    debug_style = "Comment",
+    info_style = "Question",
+    warn_style = "WarningMsg",
+    error_style = "ErrorMsg",
+    debug_annote = " ",
+    info_annote = " ",
+    warn_annote = " ",
+    error_annote = " ",
+    icon_on_left = true,
+  }
+
   fidget.setup {
     progress = {
       display = {
@@ -19,9 +38,18 @@ if ok then
         },
       },
     },
+
+    notification = {
+      -- vim.notify = fidget.notify
+      override_vim_notify = true,
+      filter = vim.log.levels.INFO,
+      window = {
+        align = "top",
+        border = "single",
+        normal_hl = "Comment",
+        winblend = 0,
+      },
+      configs = { default = local_config },
+    },
   }
-  fidget.notification.default_config = {
-    icon_on_left = false,
-  }
-  vim.notify = fidget.notify
 end

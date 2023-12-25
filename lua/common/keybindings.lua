@@ -34,6 +34,11 @@ map("n", "<C-l>", "<C-w>l", opt)
 map("n", "<C-j>", "<C-w>j", opt)
 map("n", "<C-h>", "<C-w>h", opt)
 
+if vim.g.neovide then
+  vim.keymap.set("c", "<D-v>", "<C-R>+") -- Paste command mode
+  map("!", "<D-v>", "<C-R>+", opt)
+end
+
 local M = {}
 
 M.telescope_keys = {

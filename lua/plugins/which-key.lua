@@ -86,7 +86,7 @@ local format = {
 
 local localMapping = {
   -- p = { ":BufferLineCyclePrev<CR>", "Previous Buffer" },
-  -- n = { ":BufferLineCycleNext<CR>", "Next Buffer" },
+  n = { "<cmd>NerdIcons<CR>", "Open Nerd Icons" },
   k = { "<cmd>bd<CR>", "Delete Buffer" },
   o = { "<cmd>Telescope find_files<CR>", "Open File" },
   d = {

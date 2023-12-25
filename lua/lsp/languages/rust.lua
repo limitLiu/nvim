@@ -28,8 +28,16 @@ local opts = {
       procMacro = {
         enable = true,
       },
-      checkOnSave = true,
-      check = {
+      imports = {
+        granularity = {
+          group = "module",
+        },
+        prefix = "self",
+      },
+      cargo = {
+        buildScripts = { enable = true },
+      },
+      checkOnSave = {
         command = "clippy",
       },
       diagnostics = {
@@ -55,14 +63,20 @@ local hover_actions = {
 
 return {
   on_setup = function(server)
-    local rust_tools = requirePlugin "rust-tools"
-    if not rust_tools then
+    local ok, rust_tools = pcall(require, "rust-tools")
+    if not ok then
       server.setup(opts)
     else
       rust_tools.setup {
         server = opts,
         dap = require "lsp.dap.nvim-dap.rust",
         tools = {
+          inlay_hints = {
+            auto = true,
+            show_parameter_hints = false,
+            parameter_hints_prefix = "",
+            other_hints_prefix = "",
+          },
           hover_actions = hover_actions,
         },
       }

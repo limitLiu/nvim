@@ -99,6 +99,30 @@ local localMapping = {
   },
   e = { "<cmd>Telescope buffers<CR>", "Show Buffers" },
   ["="] = format,
+  t = {
+    name = "Quickfix List",
+    x = { "<cmd>TroubleToggle<CR>", "Open Quickfix" },
+    w = {
+      "<cmd>TroubleToggle workspace_diagnostics<CR>",
+      "Open Workspace Quickfix",
+    },
+    d = {
+      "<cmd>TroubleToggle document_diagnostics<CR>",
+      "Open Document Quickfix",
+    },
+    q = {
+      "<cmd>TroubleToggle quickfix<CR>",
+      "Do Quickfix",
+    },
+    l = {
+      "<cmd>TroubleToggle quickfix<CR>",
+      "Open Local Quickfix",
+    },
+    r = {
+      "<cmd>TroubleToggle lsp_references<CR>",
+      "Show Lsp References",
+    },
+  },
 }
 
 wk.register(mapping, { prefix = "<leader>" })

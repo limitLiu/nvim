@@ -89,11 +89,11 @@ require("lazy").setup {
       "stevearc/dressing.nvim",
     },
   },
+  "folke/trouble.nvim",
   { "glepnir/oceanic-material", priority = 1000 },
   { "glepnir/nerdicons.nvim", cmd = "NerdIcons" },
   -- theme start
   { "catppuccin/nvim", name = "catppuccin" },
-  { "ellisonleao/gruvbox.nvim", priority = 1000 },
   { "neanias/everforest-nvim", lazy = false, priority = 1000 },
   "limitLiu/zephyr-nvim",
   "RRethy/vim-illuminate",

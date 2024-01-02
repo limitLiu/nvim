@@ -1,7 +1,7 @@
 local catppuccin = requirePlugin "catppuccin"
 if catppuccin then
   catppuccin.setup {
-    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    flavour = "frappe", -- latte, frappe, macchiato, mocha
     background = { -- :h background
       light = "latte",
       dark = "macchiato",

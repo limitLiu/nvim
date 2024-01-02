@@ -1,5 +1,5 @@
-local plugin = requirePlugin "bufferline"
-if plugin then
+local ok, plugin = pcall(require, "bufferline")
+if ok then
   plugin.setup {
     options = {
       diagnostics = "nvim_lsp",

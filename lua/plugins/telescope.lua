@@ -1,6 +1,6 @@
-local telescope = requirePlugin "telescope"
+local ok, telescope = pcall(require, "telescope")
 
-if telescope then
+if ok then
   telescope.setup {
     defaults = {
       initial_mode = "insert",

@@ -1,8 +1,14 @@
 local common = require "lsp.languages.common"
 
 local opts = {
-  capabilities = common.capabilities,
   flags = common.flags,
+  filetypes = {
+    "c",
+    "cc",
+    "cpp",
+    "objc",
+    "objcpp",
+  },
   handlers = common.handlers,
   on_attach = function(client, buf)
     common.disableFormat(client)
@@ -15,7 +21,11 @@ local opts = {
   end,
 }
 
-opts.capabilities.offsetEncoding = { "utf-16" }
+opts.capabilities = vim.tbl_deep_extend(
+  "force",
+  common.capabilities,
+  { offsetEncoding = "utf-16" }
+)
 
 return {
   on_setup = function(server)

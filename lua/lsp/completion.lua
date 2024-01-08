@@ -18,6 +18,7 @@ if cmpOk and uiOk then
     mapping = require("common.keybindings").cmp(cmp),
     formatting = ui.formatting,
     sorting = {
+      priority_weight = 2,
       comparators = {
         cmp.config.compare.offset,
         cmp.config.compare.exact,

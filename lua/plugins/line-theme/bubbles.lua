@@ -54,6 +54,8 @@ local bubbles_theme = {
 
 local custom_filetype = require "plugins/line-theme/components/custom-filetype"
 local custom_mode = require "plugins/line-theme/components/custom-mode"
+local custom_file_path =
+  require "plugins/line-theme/components/custom-file-path"
 
 local config = {
   options = {
@@ -131,5 +133,10 @@ ins_left {
 local function ins_right_x(component)
   table.insert(config.sections.lualine_x, component)
 end
+
+ins_right_x {
+  custom_file_path,
+  color = { fg = colors.green },
+}
 
 require("lualine").setup(config)

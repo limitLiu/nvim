@@ -1,5 +1,5 @@
 local common = require "lsp.languages.common"
-local keybindings = requirePlugin "common.keybindings"
+local keybindings = require "common.keybindings"
 
 local opts = {
   handlers = common.handlers,
@@ -12,15 +12,15 @@ local opts = {
   end,
 }
 
-local telescope = requirePlugin "telescope"
-if telescope then
+local telescopeOk, telescope = pcall(require, "telescope")
+if telescopeOk then
   telescope.load_extension "flutter"
 end
 
 return {
   on_setup = function(server)
-    local flutter_tools = requirePlugin "flutter-tools"
-    if not flutter_tools then
+    local ok, flutter_tools = pcall(require, "flutter-tools")
+    if not ok then
       server.setup(opts)
     else
       flutter_tools.setup {

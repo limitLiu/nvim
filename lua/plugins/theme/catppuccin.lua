@@ -1,5 +1,5 @@
-local catppuccin = requirePlugin "catppuccin"
-if catppuccin then
+local ok, catppuccin = pcall(require, "catppuccin")
+if ok then
   catppuccin.setup {
     flavour = "frappe", -- latte, frappe, macchiato, mocha
     background = { -- :h background

@@ -1,8 +1,9 @@
-local dap = requirePlugin "dap"
-local dap_ui = requirePlugin "dapui"
-local dap_virtual_text = requirePlugin "nvim-dap-virtual-text"
+local ok, dap = pcall(require, "dap")
+local dapUIOk, dap_ui = pcall(require, "dapui")
+local dapVirtualTextOk, dap_virtual_text =
+  pcall(require, "nvim-dap-virtual-text")
 
-if dap_virtual_text then
+if dapVirtualTextOk then
   dap_virtual_text.setup { commented = true }
 end
 
@@ -27,9 +28,9 @@ vim.fn.sign_define("DapBreakpointRejected", {
   numhl = "",
 })
 
-if dap_ui and dap then
+if dapUIOk and ok then
   dap_ui.setup {
-    icons = { expanded = "▾", collapsed = "▸" },
+    icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
     mappings = {
       -- Use a table to apply multiple mappings
       expand = { "o", "<CR>" },

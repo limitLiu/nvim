@@ -3,18 +3,22 @@
 -- vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 local M = {}
 
-local lspkind = requirePlugin "lspkind"
-if lspkind then
-  M.formatting = {
-    format = lspkind.cmp_format {
-      with_text = true,
-      maxwidth = 50,
-      before = function(entry, vim_item)
-        vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
-        return vim_item
-      end,
-    },
-  }
+local lspKindOk, lspkind = pcall(require, "lspkind")
+if lspKindOk then
+  local ok, _ = pcall(require, "nvim-cmp")
+
+  if ok then
+    M.formatting = {
+      format = lspkind.cmp_format {
+        with_text = true,
+        maxwidth = 50,
+        before = function(entry, vim_item)
+          vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
+          return vim_item
+        end,
+      },
+    }
+  end
 end
 
 local ok, lspsaga = pcall(require, "lspsaga")
@@ -23,9 +27,8 @@ if ok then
     ui = {
       border = "single",
     },
-    symbol_in_winbar = {
-      enable = false,
-    },
+    symbol_in_winbar = { enable = false },
+    diagnostic = { border_follow = false },
     finder = {
       keys = {
         -- expand_or_jump = "<CR>",

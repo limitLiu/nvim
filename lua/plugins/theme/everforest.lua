@@ -1,5 +1,5 @@
-local everforest = requirePlugin "everforest"
-if everforest then
+local ok, everforest = pcall(require, "everforest")
+if ok then
   everforest.setup {
     background = "soft",
     transparent_background_level = 0,

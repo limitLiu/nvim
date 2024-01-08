@@ -39,9 +39,9 @@ require("lazy").setup {
       "hrsh7th/cmp-vsnip",
       "hrsh7th/vim-vsnip",
       -- "rafamadriz/friendly-snippets",
-      "onsails/lspkind-nvim",
     },
   },
+  "onsails/lspkind-nvim",
   { "simrat39/rust-tools.nvim", event = "BufReadPre" },
   {
     "nvim-lualine/lualine.nvim",

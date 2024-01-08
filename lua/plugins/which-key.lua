@@ -86,6 +86,7 @@ local format = {
 
 local localMapping = {
   -- p = { ":BufferLineCyclePrev<CR>", "Previous Buffer" },
+  c = { "Change Background" },
   n = { "<cmd>NerdIcons<CR>", "Open Nerd Icons" },
   k = { "<cmd>bd<CR>", "Delete Buffer" },
   o = { "<cmd>Telescope find_files<CR>", "Open File" },
@@ -99,6 +100,10 @@ local localMapping = {
   },
   e = { "<cmd>Telescope buffers<CR>", "Show Buffers" },
   ["="] = format,
+  l = {
+    name = "Lsp",
+    r = { "<cmd>LspRestart<CR>", "Lsp Restart" },
+  },
   t = {
     name = "Quickfix List",
     x = { "<cmd>TroubleToggle<CR>", "Open Quickfix" },

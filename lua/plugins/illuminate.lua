@@ -1,4 +1,4 @@
-local illuminate = requirePlugin "illuminate"
-if illuminate then
+local ok, illuminate = pcall(require, "illuminate")
+if ok then
   illuminate.configure {}
 end

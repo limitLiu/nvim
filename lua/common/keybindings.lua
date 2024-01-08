@@ -34,6 +34,14 @@ map("n", "<C-l>", "<C-w>l", opt)
 map("n", "<C-j>", "<C-w>j", opt)
 map("n", "<C-h>", "<C-w>h", opt)
 
+vim.keymap.set("n", "<localleader>c", function()
+  if vim.o.background == "light" then
+    vim.o.background = "dark"
+  else
+    vim.o.background = "light"
+  end
+end, { expr = true, noremap = true, replace_keycodes = false })
+
 if vim.g.neovide then
   vim.keymap.set("c", "<D-v>", "<C-R>+") -- Paste command mode
   map("!", "<D-v>", "<C-R>+", opt)

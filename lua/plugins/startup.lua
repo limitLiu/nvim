@@ -1,5 +1,5 @@
-local startup = requirePlugin "dashboard"
-if not startup then
+local ok, startup = pcall(require, "dashboard")
+if not ok then
   vim.notify "Cannot find dashboard"
   return
 end

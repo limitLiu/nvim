@@ -81,14 +81,6 @@ require("lazy").setup {
       require("hlsearch").setup()
     end,
   },
-  {
-    "akinsho/flutter-tools.nvim",
-    lazy = false,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "stevearc/dressing.nvim",
-    },
-  },
   "folke/trouble.nvim",
   { "glepnir/oceanic-material", priority = 1000 },
   { "glepnir/nerdicons.nvim", cmd = "NerdIcons" },

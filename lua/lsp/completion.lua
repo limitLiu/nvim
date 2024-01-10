@@ -9,11 +9,13 @@ if cmpOk and uiOk then
         vim.fn["vsnip#anonymous"](args.body)
       end,
     },
-    sources = cmp.config.sources({
+    sources = cmp.config.sources {
       { name = "nvim_lsp" },
       -- { name = "cmp_tabnine" },
       { name = "vsnip" },
-    }, { { name = "buffer" }, { name = "path" } }),
+      { name = "buffer" },
+      { name = "path" },
+    },
 
     mapping = require("common.keybindings").cmp(cmp),
     formatting = ui.formatting,

@@ -5,15 +5,22 @@ local M = {}
 
 local lspKindOk, lspkind = pcall(require, "lspkind")
 if lspKindOk then
-  local ok, _ = pcall(require, "nvim-cmp")
+  local ok, _ = pcall(require, "cmp")
 
   if ok then
     M.formatting = {
+      fields = { "kind", "abbr", "menu" },
       format = lspkind.cmp_format {
         with_text = true,
         maxwidth = 50,
         before = function(entry, vim_item)
-          vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
+          local source = entry.source.name
+          local s = ({
+            nvim_lsp = "lsp",
+          })[source]
+          vim_item.menu = (s and { "[" .. s:upper():sub(1, 1) .. "]" } or {
+            "[" .. source:upper():sub(1, 1) .. "]",
+          })[1]
           return vim_item
         end,
       },

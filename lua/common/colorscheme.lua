@@ -13,7 +13,7 @@ end)
 -- set guifont=iMWritingMonoS\ Nerd\ Font:h16
 -- ]]
 vim.opt.guifont = {
-  json.font or "iMWritingMonoS Nerd Font",
+  json.font or "DMMono Nerd Font",
   ":h" .. tostring(json.font_size or 16),
 }
 

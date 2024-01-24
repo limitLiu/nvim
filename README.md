@@ -2,12 +2,12 @@
 
 ## Must be configured
 
-First of all, create a JSON file named "config.json" in the current directory, it contains the following content:
+First of all, create a Lua file named "config.lua" in the `lua` directory, it contains the following content:
 
-```json
-{
-  "colorscheme": "<theme name>",
-  "background": "<light | dark>",
-  "python3_host_prog": "<Your Python3 path>"
+```lua
+return {
+  colorscheme = "everforest",
+  background = "light",
+  python3_host_prog = "/usr/bin/python3",
 }
 ```

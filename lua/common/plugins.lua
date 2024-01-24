@@ -17,16 +17,7 @@ require("lazy").setup {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
   },
-  {
-    "kyazdani42/nvim-tree.lua",
-    dependencies = {
-      "kyazdani42/nvim-web-devicons",
-      {
-        "JMarkin/nvim-tree.lua-float-preview",
-        lazy = true,
-      },
-    },
-  },
+  "kyazdani42/nvim-tree.lua",
   {
     "akinsho/bufferline.nvim",
     dependencies = { "kyazdani42/nvim-web-devicons" },

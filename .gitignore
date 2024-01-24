@@ -5,3 +5,4 @@ plugin/
 config.json
 node_modules/
 lazy-lock.json
+lua/common/config.lua

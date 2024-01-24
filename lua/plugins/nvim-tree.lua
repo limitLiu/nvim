@@ -1,9 +1,7 @@
 local ok, nvim_tree = pcall(require, "nvim-tree")
-local previewOk, preview = pcall(require, "float-preview")
 
 local function on_attach(bufnr)
   local api = require "nvim-tree.api"
-  preview.attach_nvimtree(bufnr)
 
   local function opts(desc)
     return {
@@ -146,7 +144,7 @@ local function on_attach(bufnr)
   )
 end
 
-if ok and previewOk then
+if ok then
   nvim_tree.setup {
     git = {
       enable = true,
@@ -162,36 +160,5 @@ if ok and previewOk then
       side = "left",
     },
     on_attach = on_attach,
-  }
-  preview.setup {
-    wrap_nvimtree_commands = true,
-    scroll_lines = 20,
-    window = {
-      style = "minimal",
-      relative = "win",
-      border = "single",
-      wrap = false,
-    },
-    mapping = {
-      -- scroll down float buffer
-      down = { "<C-d>" },
-      -- scroll up float buffer
-      up = { "<C-e>", "<C-u>" },
-      -- enable/disable float windows
-      toggle = { "<C-x>" },
-    },
-    hooks = {
-      pre_open = function(path)
-        local size = require("float-preview.utils").get_size(path)
-        if type(size) ~= "number" then
-          return false
-        end
-        local is_text = require("float-preview.utils").is_text(path)
-        return size < 5 and is_text
-      end,
-      post_open = function(_)
-        return true
-      end,
-    },
   }
 end

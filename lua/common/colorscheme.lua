@@ -1,4 +1,4 @@
-local config = require "common.config"
+local config = require "config"
 vim.opt.termguicolors = true
 
 vim.schedule(function()

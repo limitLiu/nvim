@@ -2,9 +2,8 @@ local config = require "config"
 vim.opt.termguicolors = true
 
 vim.schedule(function()
-  local color = config.colorscheme
+  local color = config.colorscheme or "everforest"
   vim.g.colors_name = color
-  -- vim.cmd("set background=" .. config.background)
   vim.o.background = config.background or "dark"
-  vim.g.python3_host_prog = config.python3_host_prog or "/opt/local/bin/python3"
+  vim.g.python3_host_prog = config.python3_host_prog or "/usr/bin/python3"
 end)

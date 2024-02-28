@@ -71,6 +71,7 @@ if dapUIOk and ok then
     windows = { indent = 1 },
     render = {
       max_type_length = nil, -- Can be integer or nil.
+      indent = 1,
     },
   }
   dap.listeners.after.event_initialized["dapui_config"] = function()

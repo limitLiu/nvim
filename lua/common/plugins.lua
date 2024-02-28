@@ -36,7 +36,12 @@ require("lazy").setup {
     },
   },
   "onsails/lspkind-nvim",
-  { "simrat39/rust-tools.nvim", event = "BufReadPre" },
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^4",
+    ft = { "rust" },
+    event = "BufReadPre",
+  },
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "kyazdani42/nvim-web-devicons" },

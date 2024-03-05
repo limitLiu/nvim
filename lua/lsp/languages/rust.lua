@@ -6,12 +6,7 @@ local keybinding = function(b)
   end
 
   local opt = { noremap = true, silent = true }
-  buf(
-    "n",
-    "K",
-    "<cmd>lua require'rust-tools'.hover_actions.hover_actions()<CR>",
-    opt
-  )
+  buf("n", "K", "<cmd>RustLsp hover actions<CR>", opt)
 end
 
 local opts = {
@@ -61,25 +56,16 @@ local hover_actions = {
   auto_focus = false,
 }
 
-return {
-  on_setup = function(server)
-    local ok, rust_tools = pcall(require, "rust-tools")
-    if not ok then
-      server.setup(opts)
-    else
-      rust_tools.setup {
-        server = opts,
-        dap = require "lsp.dap.nvim-dap.rust",
-        tools = {
-          inlay_hints = {
-            auto = true,
-            show_parameter_hints = false,
-            parameter_hints_prefix = "",
-            other_hints_prefix = "",
-          },
-          hover_actions = hover_actions,
-        },
-      }
-    end
-  end,
+vim.g.rustaceanvim = {
+  server = opts,
+  dap = require "lsp.dap.nvim-dap.rust",
+  tools = {
+    inlay_hints = {
+      auto = true,
+      show_parameter_hints = false,
+      parameter_hints_prefix = "",
+      other_hints_prefix = "",
+    },
+    hover_actions = hover_actions,
+  },
 }

@@ -74,15 +74,9 @@ if dapUIOk and ok then
       indent = 1,
     },
   }
-  dap.listeners.after.event_initialized["dapui_config"] = function()
-    dap_ui.open()
-  end
-  dap.listeners.before.event_terminated["dapui_config"] = function()
-    dap_ui.close()
-  end
-  dap.listeners.before.event_exited["dapui_config"] = function()
-    dap_ui.close()
-  end
-
+  dap.listeners.before.attach.dapui_config = dap_ui.open
+  dap.listeners.before.launch.dapui_config = dap_ui.open
+  dap.listeners.before.event_terminated.dapui_config = dap_ui.close
+  dap.listeners.before.event_exited.dapui_config = dap_ui.close
   require("common.keybindings").map_dap()
 end

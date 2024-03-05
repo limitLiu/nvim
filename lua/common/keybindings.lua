@@ -114,7 +114,7 @@ M.comment = {
 }
 
 M.map_dap = function()
-  map("n", "<leader>ds", "<cmd>RustDebuggables<CR>", opt)
+  map("n", "<leader>ds", "<cmd>RustLsp debuggables<CR>", opt)
   map(
     "n",
     "<leader>dq",

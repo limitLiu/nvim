@@ -5,7 +5,7 @@ local lsp_config = require "lspconfig"
 
 local servers = {
   lua_ls = require "lsp.languages.lua",
-  rust_analyzer = require "lsp.languages.rust",
+  -- rust_analyzer = require "lsp.languages.rust",
   clangd = require "lsp.languages.clangd",
   jsonls = require "lsp.languages.json",
   ocamllsp = require "lsp.languages.ocaml",

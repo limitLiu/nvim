@@ -12,7 +12,7 @@ require("lazy").setup {
   { "williamboman/mason-lspconfig.nvim", lazy = true },
   "folke/neodev.nvim",
   "neovim/nvim-lspconfig",
-  "nkrkv/nvim-treesitter-rescript",
+  "limitLiu/nvim-treesitter-rescript",
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -86,7 +86,7 @@ require("lazy").setup {
   { "glepnir/nerdicons.nvim", cmd = "NerdIcons" },
   -- theme start
   { "catppuccin/nvim", name = "catppuccin" },
-  { "neanias/everforest-nvim", lazy = false, priority = 1000 },
+  { "limitLiu/everforest-nvim", lazy = false, priority = 1000 },
   "limitLiu/zephyr-nvim",
   "RRethy/vim-illuminate",
   -- theme end

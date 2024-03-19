@@ -1,4 +1,9 @@
 local ok, illuminate = pcall(require, "illuminate")
 if ok then
-  illuminate.configure {}
+  illuminate.configure {
+    providers = {
+      "lsp",
+      "treesitter",
+    },
+  }
 end

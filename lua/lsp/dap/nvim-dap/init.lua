@@ -78,5 +78,9 @@ if dapUIOk and ok then
   dap.listeners.before.launch.dapui_config = dap_ui.open
   dap.listeners.before.event_terminated.dapui_config = dap_ui.close
   dap.listeners.before.event_exited.dapui_config = dap_ui.close
-  require("common.keybindings").map_dap()
+
+  local isOk, bindings = pcall(require, "common.keybindings")
+  if isOk then
+    bindings.map_dap()
+  end
 end

@@ -2,9 +2,16 @@ require("lazy").setup {
   "folke/which-key.nvim",
   -- "jose-elias-alvarez/nvim-lsp-ts-utils",
   "ahmedkhalf/project.nvim",
-  "mfussenegger/nvim-dap",
   "theHamsta/nvim-dap-virtual-text",
-  "rcarriga/nvim-dap-ui",
+
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+    },
+  },
+
   "puremourning/vimspector",
   { "p00f/clangd_extensions.nvim", lazy = true },
   "b0o/SchemaStore.nvim",

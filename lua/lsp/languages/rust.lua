@@ -16,7 +16,7 @@ local opts = {
   on_attach = function(client, buf)
     common.disableFormat(client)
     common.keybinding(buf)
-    vim.lsp.inlay_hint.enable(buf, true)
+    vim.lsp.inlay_hint.enable(true, { bufnr = buf })
     keybinding(buf)
   end,
   settings = {
@@ -33,9 +33,10 @@ local opts = {
       cargo = {
         buildScripts = { enable = true },
       },
-      checkOnSave = {
+      check = {
         command = "clippy",
       },
+      checkOnSave = true,
       diagnostics = {
         disabled = { "unresolved-proc-macro", "needless_return" },
       },

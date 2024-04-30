@@ -60,6 +60,3 @@ vim.g.loaded_perl_provider = 0
 
 vim.g.loaded_netrw = 0
 vim.g.loaded_netrwPlugin = 0
-
-vim.g.neovide_input_macos_alt_is_meta = true
-vim.g.neovide_cursor_vfx_mode = "wireframe"

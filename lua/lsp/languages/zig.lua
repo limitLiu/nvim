@@ -1,0 +1,17 @@
+local common = require "lsp.languages.common"
+
+local opts = {
+  capabilities = common.capabilities,
+  flags = common.flags,
+  handlers = common.handlers,
+  on_attach = function(_client, buf)
+    -- common.disableFormat(client)
+    common.keybinding(buf)
+  end,
+}
+
+return {
+  on_setup = function(server)
+    server.setup(opts)
+  end,
+}

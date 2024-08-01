@@ -7,7 +7,6 @@ local lspKindOk, lspkind = pcall(require, "lspkind")
 if lspKindOk then
   lspkind.init {}
   local ok, _ = pcall(require, "cmp")
-  local epoOk, _ = pcall(require, "epo")
 
   if ok then
     M.formatting = {
@@ -27,24 +26,6 @@ if lspKindOk then
         end,
       },
     }
-  elseif epoOk then
-    local function get_symbol(kind)
-      local symbol = lspkind.symbol_map[kind]
-      local hasString = false
-      if symbol then
-        hasString = true
-      end
-      return hasString, symbol
-    end
-
-    M.epo_formatting = function(kind)
-      local o, s = get_symbol(kind)
-      if o then
-        return (s .. "  " .. kind)
-      else
-        return ""
-      end
-    end
   end
 end
 

@@ -106,26 +106,13 @@ local localMapping = {
   },
   t = {
     name = "Quickfix List",
-    x = { "<cmd>TroubleToggle<CR>", "Open Quickfix" },
-    w = {
-      "<cmd>TroubleToggle workspace_diagnostics<CR>",
-      "Open Workspace Quickfix",
+    x = {
+      "<cmd>Trouble diagnostics toggle focus=true<cr>",
+      "Diagnostics (Trouble)",
     },
-    d = {
-      "<cmd>TroubleToggle document_diagnostics<CR>",
-      "Open Document Quickfix",
-    },
-    q = {
-      "<cmd>TroubleToggle quickfix<CR>",
-      "Do Quickfix",
-    },
-    l = {
-      "<cmd>TroubleToggle quickfix<CR>",
-      "Open Local Quickfix",
-    },
-    r = {
-      "<cmd>TroubleToggle lsp_references<CR>",
-      "Show Lsp References",
+    b = {
+      "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+      "Buffer Diagnostics (Trouble)",
     },
   },
 }

@@ -11,6 +11,8 @@ map("i", "jj", "<Esc>", opt)
 
 map("i", "<C-f>", "<Right>", opt)
 map("i", "<C-b>", "<Left>", opt)
+map("i", "<C-p>", "<Up>", opt)
+map("i", "<C-n>", "<Down>", opt)
 map("i", "<C-e>", "<End>", opt)
 map("i", "<C-a>", "<C-o>I", opt)
 

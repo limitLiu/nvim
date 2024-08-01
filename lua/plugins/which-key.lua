@@ -1,144 +1,108 @@
 local wk = require "which-key"
-local mapping = {
-  [";"] = {
+
+wk.add {
+  {
+    "<leader>;",
     "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>",
-    "Search Buffer",
+    desc = "Comment",
   },
-  a = {
-    name = "Search",
-    b = { "<cmd>Telescope buffers<CR>", "Search Buffer" },
-    g = { "<cmd>Telescope live_grep<CR>", "Search Keyword" },
+  { "<leader>a", group = "Search" },
+  { "<leader>ab", "<cmd>Telescope buffers<CR>", desc = "Search Buffer" },
+  { "<leader>ag", "<cmd>Telescope live_grep<CR>", desc = "Search Keyword" },
+  { "<leader>b", group = "Buffer" },
+  { "<leader>bk", ":bw<CR>", desc = "Kill Buffer" },
+  { "<leader>d", group = "Debugger" },
+  { "<leader>dP", desc = "Clear All BreakPoints" },
+  { "<leader>dc", desc = "Continue" },
+  { "<leader>dh", desc = "Help" },
+  { "<leader>di", desc = "Step Into" },
+  { "<leader>dj", desc = "Step Over" },
+  { "<leader>do", desc = "Step Out" },
+  { "<leader>dp", desc = "Set BreakPoint" },
+  { "<leader>dq", desc = "Quit" },
+  { "<leader>ds", desc = "Start" },
+  { "<leader>f", group = "File" },
+  { "<leader>fc", "<cmd>NvimTreeCollapse<CR>", desc = "Tree Collapse" },
+  { "<leader>fd", "<cmd>NvimTreeFocus<CR>", desc = "Find Current File" },
+  { "<leader>fr", "<cmd>NvimTreeRefresh<CR>", desc = "Tree Refresh" },
+  { "<leader>fs", ":update<CR>", desc = "Save" },
+  { "<leader>ft", "<cmd>NvimTreeToggle<CR>", desc = "Toggle Tree" },
+  { "<leader>g", group = "gitsigns" },
+  { "<leader>gD", desc = "Diff This ~" },
+  { "<leader>gR", desc = "Reset Buffer" },
+  { "<leader>gS", desc = "Stage Buffer" },
+  { "<leader>gb", desc = "Blame Line" },
+  { "<leader>gd", desc = "Diff This" },
+  { "<leader>gp", desc = "Preview Hunk" },
+  { "<leader>gr", desc = "Visual Reset Hunk" },
+  { "<leader>gs", desc = "Stage Hunk" },
+  { "<leader>gt", desc = "Toggle Current Line Blame" },
+  { "<leader>gu", desc = "Undo Stage Hunk" },
+  { "<leader>gx", desc = "Toggle Deleted" },
+  { "<leader>l", group = "LSP" },
+  { "<leader>lc", desc = "Code Action" },
+  { "<leader>lo", "<cmd>Lspsaga outline<CR>", desc = "Toggle Outline" },
+  { "<leader>lr", "<cmd>Lspsaga rename<CR>", desc = "Rename" },
+  { "<leader>p", group = "Projects" },
+  {
+    "<leader>pt",
+    "<cmd>Telescope projects<CR>",
+    desc = "Show Recent Projects",
   },
-  b = {
-    name = "Buffer",
-    k = { ":bw<CR>", "Kill Buffer" },
-  },
-  d = {
-    name = "Debugger",
-    s = { "Start" },
-    q = { "Quit" },
-    c = { "Continue" },
-    p = { "Set BreakPoint" },
-    P = { "Clear All BreakPoints" },
-    j = { "Step Over" },
-    o = { "Step Out" },
-    i = { "Step Into" },
-    h = { "Help" },
-  },
-  f = {
-    name = "File",
-    s = { ":update<CR>", "Save" },
-    t = { "<cmd>NvimTreeToggle<CR>", "Toggle Tree" },
-    r = { "<cmd>NvimTreeRefresh<CR>", "Tree Refresh" },
-    d = { "<cmd>NvimTreeFocus<CR>", "Find Current File" },
-    c = { "<cmd>NvimTreeCollapse<CR>", "Tree Collapse" },
-  },
-  g = {
-    name = "gitsigns",
-    b = { "Blame Line" },
-    p = { "Preview Hunk" },
-    S = { "Stage Buffer" },
-    s = { "Stage Hunk" },
-    t = { "Toggle Current Line Blame" },
-    R = { "Reset Buffer" },
-    d = { "Diff This" },
-    u = { "Undo Stage Hunk" },
-    x = { "Toggle Deleted" },
-    r = { "Visual Reset Hunk" },
-    D = { "Diff This ~" },
-  },
-  l = {
-    name = "LSP",
-    -- r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-    r = { "<cmd>Lspsaga rename<CR>", "Rename" },
-    c = { "Code Action" },
-    o = { "<cmd>Lspsaga outline<CR>", "Toggle Outline" },
-  },
-  p = {
-    name = "Projects",
-    t = {
-      "<cmd>Telescope projects<CR>",
-      "Show Recent Projects",
-    },
-  },
-  s = {
-    name = "Search",
-    c = { ":nohlsearch<CR>", "Clear Highlight Result" },
-  },
-  t = {
-    name = "Terminal",
-    t = { "<cmd>Lspsaga term_toggle<CR>", "Toggle Terminal" },
-  },
-  w = {
-    name = "Window",
-    h = { ":vsp<CR>", "Split Horizontal Window" },
-    v = { ":sp<CR>", "Split Vertical Window" },
-    c = { "<C-w>c", "Close Current Window" },
-    o = { "<C-w>o", "Close Other Windows" },
-    ["="] = { "<C-w>=", "Same Width Split Window" },
-  },
+  { "<leader>s", group = "Search" },
+  { "<leader>sc", ":nohlsearch<CR>", desc = "Clear Highlight Result" },
+  { "<leader>t", group = "Terminal" },
+  { "<leader>tt", "<cmd>Lspsaga term_toggle<CR>", desc = "Toggle Terminal" },
+  { "<leader>w", group = "Window" },
+  { "<leader>w=", "<C-w>=", desc = "Same Width Split Window" },
+  { "<leader>wc", "<C-w>c", desc = "Close Current Window" },
+  { "<leader>wh", ":vsp<CR>", desc = "Split Horizontal Window" },
+  { "<leader>wo", "<C-w>o", desc = "Close Other Windows" },
+  { "<leader>wv", ":sp<CR>", desc = "Split Vertical Window" },
 }
 
-local format = {
-  "<cmd>lua vim.lsp.buf.format{ async = true }<CR>",
-  "Formatting",
-}
-
-local localMapping = {
-  -- p = { ":BufferLineCyclePrev<CR>", "Previous Buffer" },
-  c = { "Change Background" },
-  n = { "<cmd>NerdIcons<CR>", "Open Nerd Icons" },
-  k = { "<cmd>bd<CR>", "Delete Buffer" },
-  o = { "<cmd>Telescope find_files<CR>", "Open File" },
-  d = {
-    name = "Diagnostic",
-    d = { "Show Line Diagnostic By Vim API" },
-    w = { "Show Cursor Diagnostic" },
-    l = { "Show Line Diagnostic" },
-    n = { "Show Next Diagnostic" },
-    p = { "Show Prev Diagnostic" },
+wk.add {
+  {
+    "<localleader>=",
+    "<cmd>lua vim.lsp.buf.format{ async = true }<CR>",
+    desc = "Formatting",
   },
-  e = { "<cmd>Telescope buffers<CR>", "Show Buffers" },
-  ["="] = format,
-  l = {
-    name = "Lsp",
-    r = { "<cmd>LspRestart<CR>", "Lsp Restart" },
+  { "<localleader>c", desc = "Change Background" },
+  { "<localleader>d", group = "Diagnostic" },
+  { "<localleader>dd", desc = "Show Line Diagnostic By Vim API" },
+  { "<localleader>dl", desc = "Show Line Diagnostic" },
+  { "<localleader>dn", desc = "Show Next Diagnostic" },
+  { "<localleader>dp", desc = "Show Prev Diagnostic" },
+  { "<localleader>dw", desc = "Show Cursor Diagnostic" },
+  { "<localleader>e", "<cmd>Telescope buffers<CR>", desc = "Show Buffers" },
+  { "<localleader>k", "<cmd>bd<CR>", desc = "Delete Buffer" },
+  { "<localleader>l", group = "Lsp" },
+  { "<localleader>lr", "<cmd>LspRestart<CR>", desc = "Lsp Restart" },
+  { "<localleader>n", "<cmd>NerdIcons<CR>", desc = "Open Nerd Icons" },
+  { "<localleader>o", "<cmd>Telescope find_files<CR>", desc = "Open File" },
+  { "<localleader>t", group = "Quickfix List" },
+  {
+    "<localleader>tb",
+    "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+    desc = "Buffer Diagnostics (Trouble)",
   },
-  t = {
-    name = "Quickfix List",
-    x = {
-      "<cmd>Trouble diagnostics toggle focus=true<cr>",
-      "Diagnostics (Trouble)",
-    },
-    b = {
-      "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-      "Buffer Diagnostics (Trouble)",
-    },
+  {
+    "<localleader>tx",
+    "<cmd>Trouble diagnostics toggle focus=true<cr>",
+    desc = "Diagnostics (Trouble)",
   },
 }
-
-wk.register(mapping, { prefix = "<leader>" })
-wk.register(localMapping, { prefix = "<localleader>" })
 
 wk.setup {
+  preset = "modern",
   icons = {
     breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
     separator = "➜", -- symbol used between a key and it's label
     group = "+", -- symbol prepended to a group
   },
-  window = {
-    -- border = "rounded",
-    border = "double", -- none, single, double, shadow
-    position = "bottom", -- bottom, top
-    margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-    padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-    winblend = 0,
-  },
+  win = { border = "single" },
   layout = {
-    height = { min = 4, max = 25 }, -- min and max height of the columns
-    width = { min = 20, max = 50 }, -- min and max width of the columns
-    spacing = 3, -- spacing between columns
-    align = "left", -- align columns left, center or right
+    width = { min = 20 },
+    spacing = 3,
   },
-  triggers = { "<leader>", "<localleader>" }, -- automatically setup triggers
 }

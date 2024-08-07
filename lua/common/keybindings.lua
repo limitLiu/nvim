@@ -29,7 +29,7 @@ map("n", "<C-u>", "9k", opt)
 map("n", "<C-d>", "9j", opt)
 map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opt)
 map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", opt)
-map("t", "<leader>tt", "<C-\\><C-n><cmd>Lspsaga term_toggle<CR>", opt)
+map("t", "<localleader>tt", "<C-\\><C-n><cmd>Lspsaga term_toggle<CR>", opt)
 
 map("n", "<C-k>", "<C-w>k", opt)
 map("n", "<C-l>", "<C-w>l", opt)

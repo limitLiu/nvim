@@ -49,10 +49,9 @@ wk.add {
     "<cmd>Telescope projects<CR>",
     desc = "Show Recent Projects",
   },
-  { "<leader>s", group = "Search" },
-  { "<leader>sc", ":nohlsearch<CR>", desc = "Clear Highlight Result" },
+  -- { "<leader>s", group = "Search" },
+  -- { "<leader>sc", ":nohlsearch<CR>", desc = "Clear Highlight Result" },
   { "<leader>t", group = "Terminal" },
-  { "<leader>tt", "<cmd>Lspsaga term_toggle<CR>", desc = "Toggle Terminal" },
   { "<leader>w", group = "Window" },
   { "<leader>w=", "<C-w>=", desc = "Same Width Split Window" },
   { "<leader>wc", "<C-w>c", desc = "Close Current Window" },
@@ -82,6 +81,11 @@ wk.add {
   { "<localleader>o", "<cmd>Telescope find_files<CR>", desc = "Open File" },
   { "<localleader>t", group = "Quickfix List" },
   {
+    "<localleader>tt",
+    "<cmd>Lspsaga term_toggle<CR>",
+    desc = "Toggle Terminal",
+  },
+  {
     "<localleader>tb",
     "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
     desc = "Buffer Diagnostics (Trouble)",
@@ -104,5 +108,9 @@ wk.setup {
   layout = {
     width = { min = 20 },
     spacing = 3,
+  },
+  triggers = {
+    { "<leader>", mode = "n" },
+    { "<localleader>", mode = "n" },
   },
 }

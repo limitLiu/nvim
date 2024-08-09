@@ -7,6 +7,13 @@ M.keybinding = function(buf)
   require("common.keybindings").map_lsp(buf_set_map)
 end
 
+M.map_xcodebuild = function(buf)
+  local function buf_set_map(...)
+    vim.api.nvim_buf_set_keymap(buf, ...)
+  end
+  require("common.keybindings").map_xcodebuild(buf_set_map)
+end
+
 M.disableFormat = function(client)
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false

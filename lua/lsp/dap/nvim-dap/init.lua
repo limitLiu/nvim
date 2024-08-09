@@ -81,6 +81,6 @@ if dapUIOk and ok then
 
   local isOk, bindings = pcall(require, "common.keybindings")
   if isOk then
-    bindings.map_dap()
+    bindings.map_rust_dap()
   end
 end

@@ -7,6 +7,7 @@ require("conform").setup {
     cpp = { "clang_format" },
     dart = { "dart_format" },
     haskell = { "fourmolu" },
+    swift = { "swiftformat" },
   },
   format_on_save = {
     timeout_ms = 500,

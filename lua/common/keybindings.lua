@@ -85,6 +85,11 @@ M.map_lsp = function(buf)
   buf("n", "<leader>lc", "<cmd>Lspsaga code_action<CR>", opt)
 end
 
+M.map_xcodebuild = function(buf)
+  buf("n", "<localleader>ss", "<cmd>XcodebuildSetup<cr>", opt)
+  buf("n", "<localleader>sr", "<cmd>XcodebuildBuildRun<cr>", opt)
+end
+
 M.cmp = function(c)
   return {
     ["<A-.>"] = c.mapping(c.mapping.complete(), { "i", "c" }),
@@ -115,7 +120,7 @@ M.comment = {
   },
 }
 
-M.map_dap = function()
+M.map_rust_dap = function()
   map("n", "<leader>ds", "<cmd>RustLsp debuggables<CR>", opt)
   map(
     "n",
@@ -135,6 +140,7 @@ M.map_dap = function()
   map("n", "<leader>do", "<cmd>lua require'dap'.step_out()<CR>", opt)
   map("n", "<leader>di", "<cmd>lua require'dap'.step_into()<CR>", opt)
   map("n", "<leader>dh", "<cmd>lua require'dapui'.eval()<CR>", opt)
+  map("n", "<leader>dt", "<cmd>lua require'dapui'.toggle()<CR>", opt)
 end
 
 return M

@@ -44,7 +44,7 @@ if ok then
       override_vim_notify = true,
       filter = vim.log.levels.INFO,
       window = {
-        align = "top",
+        align = "bottom",
         border = "single",
         normal_hl = "Comment",
         winblend = 0,

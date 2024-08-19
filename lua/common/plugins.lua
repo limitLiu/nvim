@@ -101,7 +101,7 @@ require("lazy").setup {
   { "glepnir/nerdicons.nvim", cmd = "NerdIcons" },
   -- theme start
   { "catppuccin/nvim", name = "catppuccin" },
-  { "limitLiu/everforest-nvim", lazy = false, priority = 1000 },
+  { "neanias/everforest-nvim", lazy = false, priority = 1000 },
   "limitLiu/zephyr-nvim",
   "RRethy/vim-illuminate",
   -- theme end

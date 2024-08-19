@@ -13,7 +13,7 @@ if cmpOk and uiOk then
       { name = "nvim_lsp" },
       -- { name = "cmp_tabnine" },
       { name = "vsnip" },
-      { name = "buffer" },
+      -- { name = "buffer" },
       { name = "path" },
     },
 

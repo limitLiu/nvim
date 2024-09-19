@@ -105,11 +105,6 @@ M.cmp = function(c)
     ["<Tab>"] = c.mapping.confirm {
       select = true,
     },
-    ["<S-Tab>"] = c.mapping(function()
-      if c.visible() then
-        c.select_prev_item()
-      end
-    end, { "i", "s" }),
   }
 end
 

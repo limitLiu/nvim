@@ -1,2 +1,2 @@
--- require "plugins/line-theme/evil_lualine"
-require('plugins/line-theme/bubbles')
+local config = require "config"
+require("plugins/line-theme/" .. config.lua_line)

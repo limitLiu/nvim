@@ -8,6 +8,7 @@ require("conform").setup {
     dart = { "dart_format" },
     haskell = { "fourmolu" },
     swift = { "swiftformat" },
+    zig = { "zigfmt" },
   },
   format_on_save = {
     timeout_ms = 500,

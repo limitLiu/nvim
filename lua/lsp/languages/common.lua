@@ -39,14 +39,10 @@ M.border = {
 }
 
 M.handlers = {
-  ["textDocument/hover"] = vim.lsp.with(
-    vim.lsp.handlers.hover,
-    { border = M.border }
-  ),
-  ["textDocument/signatureHelp"] = vim.lsp.with(
-    vim.lsp.handlers.signature_help,
-    { border = M.border }
-  ),
+  ["textDocument/hover"] = vim.lsp.buf.hover { border = M.border },
+  ["textDocument/signatureHelp"] = vim.lsp.buf.signature_help {
+    border = M.border,
+  },
 }
 
 return M

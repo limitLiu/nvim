@@ -1,3 +1,3 @@
 require("nvim-autopairs").setup {
-  disable_filetype = { "TelescopePrompt", "spectre_panel", "swift" },
+  disable_filetype = { "TelescopePrompt", "spectre_panel" },
 }

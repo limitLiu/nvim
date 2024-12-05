@@ -7,7 +7,7 @@ local autocmd = vim.api.nvim_create_autocmd
 -- vim.cmd "au TextYankPost * lua vim.highlight.on_yank {on_visual = true}"
 autocmd("TextYankPost", {
   callback = function()
-    vim.highlight.on_yank { on_visual = true }
+    vim.hl.on_yank { on_visual = true }
   end,
   group = autoGroup,
   pattern = "*",

@@ -11,5 +11,6 @@ return {
   colorscheme = "everforest",
   background = "light",
   python3_host_prog = "/usr/bin/python3",
+  lua_line = "evil_lualine",
 }
 ```

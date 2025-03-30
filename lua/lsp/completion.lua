@@ -10,11 +10,11 @@ if cmpOk and uiOk then
       end,
     },
     sources = cmp.config.sources {
-      { name = "nvim_lsp" },
+      { name = "nvim_lsp", group_index = 1 },
       -- { name = "cmp_tabnine" },
-      { name = "vsnip" },
+      { name = "vsnip", group_index = 2 },
       -- { name = "buffer" },
-      { name = "path" },
+      { name = "path", group_index = 3 },
     },
 
     mapping = require("common.keybindings").cmp(cmp),

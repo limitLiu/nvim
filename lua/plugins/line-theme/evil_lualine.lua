@@ -130,6 +130,7 @@ ins_left {
   cond = conditions.buffer_not_empty,
 }
 
+local custom_filetype = require "plugins/line-theme/components/custom-filetype"
 local custom_file_path =
   require "plugins/line-theme/components/custom-file-path"
 
@@ -165,19 +166,10 @@ ins_left {
 
 ins_right {
   -- Lsp server name .
-  function()
-    local msg = "-"
-    local clients = vim.lsp.get_clients()
-    if next(clients) == nil then
-      return msg
-    end
-    for _, client in ipairs(clients) do
-      return client.name
-    end
-    return msg
-  end,
+  custom_filetype,
+  lsp_name = true,
+  icon_only = false,
   -- icon = " :",
-  icon = "",
   color = { fg = colors.magenta, gui = "bold" },
 }
 

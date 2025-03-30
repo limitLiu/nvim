@@ -1,5 +1,11 @@
-require("mason").setup {}
-require("mason-lspconfig").setup {}
+require("mason").setup {
+  log_level = vim.log.levels.ERROR,
+}
+
+require("mason-lspconfig").setup {
+  ensure_installed = { "lua_ls", "rust_analyzer" },
+  automatic_installation = false,
+}
 
 local lsp_config = require "lspconfig"
 

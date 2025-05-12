@@ -27,8 +27,4 @@ opts.capabilities = vim.tbl_deep_extend(
   { offsetEncoding = "utf-16" }
 )
 
-return {
-  on_setup = function(server)
-    server.setup(opts)
-  end,
-}
+return opts

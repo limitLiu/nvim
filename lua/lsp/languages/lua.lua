@@ -9,10 +9,5 @@ local opts = {
     common.keybinding(buf)
   end,
 }
-
-return {
-  on_setup = function(server)
-    require("neodev").setup { lspconfig = opts }
-    server.setup(opts)
-  end,
-}
+require("neodev").setup { lspconfig = opts }
+return opts

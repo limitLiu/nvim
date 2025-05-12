@@ -2,11 +2,6 @@ require("mason").setup {
   log_level = vim.log.levels.ERROR,
 }
 
-require("mason-lspconfig").setup {
-  ensure_installed = { "lua_ls", "rust_analyzer" },
-  automatic_installation = false,
-}
-
 local lsp_config = require "lspconfig"
 
 local servers = {
@@ -23,10 +18,7 @@ local servers = {
 
 for key, config in pairs(servers) do
   if config ~= nil and type(config) == "table" then
-    if config.on_setup then
-      config.on_setup(lsp_config[key])
-    end
-  else
-    lsp_config[key].setup {}
+    vim.lsp.enable(key)
+    lsp_config[key].setup(config)
   end
 end

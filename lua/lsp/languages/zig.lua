@@ -10,8 +10,4 @@ local opts = {
   end,
 }
 
-return {
-  on_setup = function(server)
-    server.setup(opts)
-  end,
-}
+return opts

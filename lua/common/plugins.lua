@@ -94,7 +94,7 @@ require("lazy").setup {
       require("hlsearch").setup()
     end,
   },
-  "stevearc/dressing.nvim",
+  "folke/snacks.nvim",
   "folke/trouble.nvim",
   { "glepnir/nerdicons.nvim", cmd = "NerdIcons" },
   -- theme start

@@ -29,6 +29,7 @@ if ok then
 
   fidget.setup {
     progress = {
+      ignore = { "rust-analyzer" },
       display = {
         progress_icon = { pattern = "dice", period = 1 },
         done_icon = "✔",

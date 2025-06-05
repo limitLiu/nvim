@@ -130,9 +130,7 @@ ins_left {
   cond = conditions.buffer_not_empty,
 }
 
--- local custom_filetype = require "plugins/line-theme/components/custom-filetype"
-local custom_lsp_status =
-  require "plugins/line-theme/components/custom-lsp-status"
+local custom_filetype = require "plugins/line-theme/components/custom-filetype"
 local custom_file_path =
   require "plugins/line-theme/components/custom-file-path"
 
@@ -166,27 +164,19 @@ ins_left {
   end,
 }
 
--- ins_right {
---   -- Lsp server name .
---   custom_filetype,
---   lsp_name = true,
---   icon_only = false,
---   -- icon = " :",
---   color = { fg = colors.magenta, gui = "bold" },
--- }
-
 ins_right {
-  custom_lsp_status,
-  icons_enabled = true,
-  icon = "",
-  symbols = {
-    done = " ",
-    separator = "",
-  },
-  -- List of LSP names to ignore (e.g., `null-ls`):
-  ignore_lsp = {},
+  -- Lsp server name .
+  custom_filetype,
+  lsp_name = true,
+  icon_only = false,
+  -- icon = " :",
   color = { fg = colors.magenta, gui = "bold" },
 }
+
+ins_right(function()
+  -- local api = require "lsp-progress.api"
+  return require("lsp-progress").progress {}
+end)
 
 -- Add components to right sections
 ins_right {

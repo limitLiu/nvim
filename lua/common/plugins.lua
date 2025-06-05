@@ -94,6 +94,7 @@ require("lazy").setup {
       require("hlsearch").setup()
     end,
   },
+  "linrongbin16/lsp-progress.nvim",
   "folke/snacks.nvim",
   "folke/trouble.nvim",
   { "glepnir/nerdicons.nvim", cmd = "NerdIcons" },

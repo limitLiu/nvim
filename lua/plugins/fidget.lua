@@ -1,4 +1,6 @@
+local config_ok, config = pcall(require, "config")
 local ok, fidget = pcall(require, "fidget")
+
 if ok then
   fidget.spinner.patterns.dice = {
     "󰇊",
@@ -29,7 +31,8 @@ if ok then
 
   fidget.setup {
     progress = {
-      ignore = { "rust-analyzer" },
+      ignore = config_ok and config.ignore
+        or { "rust-analyzer", "hls", "lua_ls" },
       display = {
         progress_icon = { pattern = "dice", period = 1 },
         done_icon = "✔",

@@ -20,6 +20,8 @@ local colors = {
   magenta  = '#c678dd',
 }
 
+local config_ok, external_config = pcall(require, "config")
+
 local conditions = {
   buffer_not_empty = function()
     return vim.fn.empty(vim.fn.expand "%:t") ~= 1
@@ -91,6 +93,9 @@ local config = {
         icon_only = false,
         -- icon = { align = "left" },
       },
+      function()
+        return require("lsp-progress").progress {}
+      end,
       {
         "o:encoding", -- option component same as &encoding in viml
         fmt = string.lower, -- I'm not sure why it's upper case either ;)
@@ -136,7 +141,9 @@ end
 
 ins_right_x {
   custom_file_path,
-  color = { fg = colors.green },
+  cond = conditions.buffer_not_empty,
+  color = { fg = colors.green, gui = "bold" },
+  path = 5,
 }
 
 require("lualine").setup(config)

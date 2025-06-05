@@ -174,7 +174,6 @@ ins_right {
 }
 
 ins_right(function()
-  -- local api = require "lsp-progress.api"
   return require("lsp-progress").progress {}
 end)
 

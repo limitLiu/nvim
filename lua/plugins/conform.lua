@@ -6,7 +6,7 @@ require("conform").setup {
     c = { "clang_format" },
     cpp = { "clang_format" },
     dart = { "dart_format" },
-    haskell = { "fourmolu" },
+    haskell = { "ormolu" },
     swift = { "swiftformat" },
     zig = { "zigfmt" },
   },

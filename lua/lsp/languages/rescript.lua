@@ -7,13 +7,19 @@ local opts = {
     common.keybinding(buf)
   end,
   handlers = common.handlers,
-  init_options = {
-    extensionConfiguration = {
-      askToStartBuild = false,
-      signatureHelp = { enabled = true },
-      inlayHints = { enable = true },
-      autoRunCodeAnalysis = true,
-      codeLens = true,
+  settings = {
+    rescript = {
+      settings = {
+        askToStartBuild = false,
+        allowBuiltInFormatter = true, -- lower latency
+        incrementalTypechecking = { -- removes the need for external build process
+          enabled = true,
+          acrossFiles = true,
+        },
+        cache = { projectConfig = { enabled = true } }, -- speed up latency dramatically
+        codeLens = true,
+        inlayHints = { enable = true },
+      },
     },
   },
 }

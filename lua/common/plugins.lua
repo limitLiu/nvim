@@ -24,7 +24,6 @@ require("lazy").setup {
   { "p00f/clangd_extensions.nvim", lazy = true },
   "b0o/SchemaStore.nvim",
   { "williamboman/mason.nvim", lazy = true },
-  "folke/neodev.nvim",
   "neovim/nvim-lspconfig",
   "limitLiu/nvim-treesitter-rescript",
   {
@@ -97,6 +96,10 @@ require("lazy").setup {
   "linrongbin16/lsp-progress.nvim",
   "folke/snacks.nvim",
   "folke/trouble.nvim",
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+  },
   { "glepnir/nerdicons.nvim", cmd = "NerdIcons" },
   -- theme start
   { "catppuccin/nvim", name = "catppuccin" },

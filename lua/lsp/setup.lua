@@ -2,8 +2,6 @@ require("mason").setup {
   log_level = vim.log.levels.ERROR,
 }
 
-local lsp_config = require "lspconfig"
-
 local servers = {
   lua_ls = require "lsp.languages.lua",
   -- rust_analyzer = require "lsp.languages.rust",
@@ -19,6 +17,6 @@ local servers = {
 for key, config in pairs(servers) do
   if config ~= nil and type(config) == "table" then
     vim.lsp.enable(key)
-    lsp_config[key].setup(config)
+    vim.lsp.config(key, config)
   end
 end

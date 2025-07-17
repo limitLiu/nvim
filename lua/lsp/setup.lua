@@ -12,6 +12,7 @@ local servers = {
   sourcekit = require "lsp.languages.swift",
   rescriptls = require "lsp.languages.rescript",
   zls = require "lsp.languages.zig",
+  cssls = require "lsp.languages.css",
 }
 
 for key, config in pairs(servers) do

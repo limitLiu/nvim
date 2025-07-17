@@ -10,6 +10,11 @@ require("conform").setup {
     swift = { "swiftformat" },
     zig = { "zigfmt" },
   },
+  formatters = {
+    rustfmt = {
+      options = { default_edition = "2024" },
+    },
+  },
   format_on_save = {
     timeout_ms = 500,
     lsp_fallback = true,

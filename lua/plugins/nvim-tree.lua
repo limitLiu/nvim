@@ -149,6 +149,7 @@ if ok then
     git = {
       enable = true,
       ignore = true,
+      timeout = 5000,
     },
     update_cwd = true,
     update_focused_file = {

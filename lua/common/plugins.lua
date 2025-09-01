@@ -1,6 +1,6 @@
 require("lazy").setup {
   "folke/which-key.nvim",
-  -- "jose-elias-alvarez/nvim-lsp-ts-utils",
+  "pmizio/typescript-tools.nvim",
   "ahmedkhalf/project.nvim",
   "theHamsta/nvim-dap-virtual-text",
 

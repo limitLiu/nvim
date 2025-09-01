@@ -6,8 +6,6 @@ local opts = {
     "c",
     "cc",
     "cpp",
-    "objc",
-    "objcpp",
   },
   handlers = common.handlers,
   on_attach = function(client, buf)

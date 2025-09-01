@@ -5,10 +5,15 @@ require("conform").setup {
     ocaml = { "ocamlformat" },
     c = { "clang_format" },
     cpp = { "clang_format" },
+    objc = { "clang_format" },
+    objcpp = { "clang_format" },
     dart = { "dart_format" },
     haskell = { "ormolu" },
     swift = { "swiftformat" },
     zig = { "zigfmt" },
+    typescript = { "prettier", stop_after_first = true },
+    typescriptreact = { "prettier", stop_after_first = true },
+    javascript = { "prettier", stop_after_first = true },
   },
   formatters = {
     rustfmt = {

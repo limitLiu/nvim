@@ -93,9 +93,6 @@ local config = {
         icon_only = false,
         -- icon = { align = "left" },
       },
-      function()
-        return require("lsp-progress").progress {}
-      end,
       {
         "o:encoding", -- option component same as &encoding in viml
         fmt = string.lower, -- I'm not sure why it's upper case either ;)

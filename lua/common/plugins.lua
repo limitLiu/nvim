@@ -3,7 +3,7 @@ require("lazy").setup {
   "pmizio/typescript-tools.nvim",
   "ahmedkhalf/project.nvim",
   "theHamsta/nvim-dap-virtual-text",
-
+  "mfussenegger/nvim-lint",
   {
     "rcarriga/nvim-dap-ui",
     dependencies = {
@@ -25,7 +25,6 @@ require("lazy").setup {
   "b0o/SchemaStore.nvim",
   { "williamboman/mason.nvim", lazy = true },
   "neovim/nvim-lspconfig",
-  "limitLiu/nvim-treesitter-rescript",
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",

@@ -13,6 +13,8 @@ local servers = {
   rescriptls = require "lsp.languages.rescript",
   zls = require "lsp.languages.zig",
   cssls = require "lsp.languages.css",
+  wgsl_analyzer = require "lsp.languages.zig",
+  glsl_analyzer = require "lsp.languages.zig",
 }
 
 for key, config in pairs(servers) do

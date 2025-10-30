@@ -42,7 +42,8 @@ wk.add {
   { "<leader>gx", desc = "Toggle Deleted" },
   { "<leader>l", group = "LSP" },
   { "<leader>lc", desc = "Code Action" },
-  { "<leader>lo", "<cmd>Lspsaga outline<CR>", desc = "Toggle Outline" },
+  -- { "<leader>lo", "<cmd>Lspsaga outline<CR>", desc = "Toggle Outline" },
+  { "<leader>lo", "<cmd>Navbuddy<CR>", desc = "Toggle Outline" },
   { "<leader>lr", "<cmd>Lspsaga rename<CR>", desc = "Rename" },
   { "<leader>p", group = "Projects" },
   {

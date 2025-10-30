@@ -24,7 +24,20 @@ require("lazy").setup {
   { "p00f/clangd_extensions.nvim", lazy = true },
   "b0o/SchemaStore.nvim",
   { "williamboman/mason.nvim", lazy = true },
-  "neovim/nvim-lspconfig",
+  {
+
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      {
+        "hasansujon786/nvim-navbuddy",
+        dependencies = {
+          "SmiteshP/nvim-navic",
+          "MunifTanjim/nui.nvim",
+        },
+        opts = { lsp = { auto_attach = true } },
+      },
+    },
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",

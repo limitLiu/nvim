@@ -87,6 +87,7 @@ end
 
 M.map_xcodebuild = function(buf)
   buf("n", "<localleader>ss", "<cmd>XcodebuildSetup<cr>", opt)
+  buf("n", "<localleader>sb", "<cmd>XcodebuildBuild<cr>", opt)
   buf("n", "<localleader>sr", "<cmd>XcodebuildBuildRun<cr>", opt)
 end
 

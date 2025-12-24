@@ -9,7 +9,7 @@ require("conform").setup {
     objcpp = { "clang_format" },
     dart = { "dart_format" },
     haskell = { "ormolu" },
-    swift = { "swift_format" },
+    swift = { "swiftformat", "swift_format", stop_after_first = true },
     zig = { "zigfmt" },
     typescript = { "prettier", stop_after_first = true },
     typescriptreact = { "prettier", stop_after_first = true },

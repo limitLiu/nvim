@@ -63,7 +63,7 @@ require("lazy").setup {
   "onsails/lspkind-nvim",
   {
     "mrcjkb/rustaceanvim",
-    version = "^6",
+    version = "^7",
     ft = { "rust" },
     event = "BufReadPre",
   },
@@ -114,7 +114,6 @@ require("lazy").setup {
   },
   { "glepnir/nerdicons.nvim", cmd = "NerdIcons" },
   -- theme start
-  { "catppuccin/nvim", name = "catppuccin" },
   { "neanias/everforest-nvim", lazy = false, priority = 1000 },
   "limitLiu/zephyr-nvim",
   "RRethy/vim-illuminate",

@@ -105,6 +105,19 @@ require("lazy").setup {
       require("hlsearch").setup()
     end,
   },
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && bun install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
   "linrongbin16/lsp-progress.nvim",
   "folke/snacks.nvim",
   "folke/trouble.nvim",

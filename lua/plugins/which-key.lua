@@ -98,6 +98,22 @@ wk.add {
     "<cmd>Trouble diagnostics toggle focus=true<cr>",
     desc = "Diagnostics (Trouble)",
   },
+  { "<localleader>m", group = "Markdown" },
+  {
+    "<localleader>ms",
+    "<cmd>Markview splitToggle<cr>",
+    desc = "Toggles splitview",
+  },
+  {
+    "<localleader>mt",
+    "<cmd>Markview splitToggle<cr>",
+    desc = "Toggles preview for buffer",
+  },
+  {
+    "<localleader>mp",
+    "<cmd>MarkdownPreview<cr>",
+    desc = "Markdown preview",
+  },
 }
 
 wk.setup {

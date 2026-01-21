@@ -10,20 +10,13 @@ if lspKindOk then
 
   if ok then
     M.formatting = {
-      fields = { "kind", "abbr", "menu" },
+      fields = { "icon", "abbr", "menu" },
       format = lspkind.cmp_format {
         mode = "symbol",
         maxwidth = 50,
-        -- before = function(entry, vim_item)
-        --   local source = entry.source.name
-        --   local s = ({
-        --     nvim_lsp = "lsp",
-        --   })[source]
-        --   vim_item.menu = (s and { "[" .. s:upper():sub(1, 1) .. "]" } or {
-        --     "[" .. source:upper():sub(1, 1) .. "]",
-        --   })[1]
-        --   return vim_item
-        -- end,
+        before = function(_entry, vim_item)
+          return vim_item
+        end,
       },
     }
   end
@@ -34,6 +27,9 @@ if ok then
   lspsaga.setup {
     ui = {
       border = "single",
+    },
+    lightbulb = {
+      enable = false,
     },
     symbol_in_winbar = { enable = false },
     diagnostic = { border_follow = false },

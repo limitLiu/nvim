@@ -20,6 +20,8 @@ local colors = {
   magenta  = '#c678dd',
 }
 
+local config_ok, external_config = pcall(require, "config")
+
 local conditions = {
   buffer_not_empty = function()
     return vim.fn.empty(vim.fn.expand "%:t") ~= 1
@@ -136,7 +138,9 @@ end
 
 ins_right_x {
   custom_file_path,
-  color = { fg = colors.green },
+  cond = conditions.buffer_not_empty,
+  color = { fg = colors.green, gui = "bold" },
+  path = 5,
 }
 
 require("lualine").setup(config)

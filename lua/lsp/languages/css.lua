@@ -1,13 +1,10 @@
 local common = require "lsp.languages.common"
 
 local opts = {
-  filetypes = { "swift", "objc", "objcpp" },
   capabilities = common.capabilities,
   flags = common.flags,
-  on_attach = function(client, buf)
-    common.disableFormat(client)
+  on_attach = function(_, buf)
     common.keybinding(buf)
-    common.map_xcodebuild(buf)
   end,
 }
 

@@ -42,7 +42,8 @@ wk.add {
   { "<leader>gx", desc = "Toggle Deleted" },
   { "<leader>l", group = "LSP" },
   { "<leader>lc", desc = "Code Action" },
-  { "<leader>lo", "<cmd>Lspsaga outline<CR>", desc = "Toggle Outline" },
+  -- { "<leader>lo", "<cmd>Lspsaga outline<CR>", desc = "Toggle Outline" },
+  { "<leader>lo", "<cmd>Navbuddy<CR>", desc = "Toggle Outline" },
   { "<leader>lr", "<cmd>Lspsaga rename<CR>", desc = "Rename" },
   { "<leader>p", group = "Projects" },
   {
@@ -96,6 +97,22 @@ wk.add {
     "<localleader>tx",
     "<cmd>Trouble diagnostics toggle focus=true<cr>",
     desc = "Diagnostics (Trouble)",
+  },
+  { "<localleader>m", group = "Markdown" },
+  {
+    "<localleader>ms",
+    "<cmd>Markview splitToggle<cr>",
+    desc = "Toggles splitview",
+  },
+  {
+    "<localleader>mt",
+    "<cmd>Markview splitToggle<cr>",
+    desc = "Toggles preview for buffer",
+  },
+  {
+    "<localleader>mp",
+    "<cmd>MarkdownPreview<cr>",
+    desc = "Markdown preview",
   },
 }
 

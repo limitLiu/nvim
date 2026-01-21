@@ -173,6 +173,10 @@ ins_right {
   color = { fg = colors.magenta, gui = "bold" },
 }
 
+ins_right(function()
+  return require("lsp-progress").progress {}
+end)
+
 -- Add components to right sections
 ins_right {
   "o:encoding", -- option component same as &encoding in viml

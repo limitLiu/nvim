@@ -1,9 +1,9 @@
 require("lazy").setup {
   "folke/which-key.nvim",
-  -- "jose-elias-alvarez/nvim-lsp-ts-utils",
+  "pmizio/typescript-tools.nvim",
   "ahmedkhalf/project.nvim",
   "theHamsta/nvim-dap-virtual-text",
-
+  "mfussenegger/nvim-lint",
   {
     "rcarriga/nvim-dap-ui",
     dependencies = {
@@ -24,11 +24,23 @@ require("lazy").setup {
   { "p00f/clangd_extensions.nvim", lazy = true },
   "b0o/SchemaStore.nvim",
   { "williamboman/mason.nvim", lazy = true },
-  "folke/neodev.nvim",
-  "neovim/nvim-lspconfig",
-  "limitLiu/nvim-treesitter-rescript",
+  {
+
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      {
+        "hasansujon786/nvim-navbuddy",
+        dependencies = {
+          "SmiteshP/nvim-navic",
+          "MunifTanjim/nui.nvim",
+        },
+        opts = { lsp = { auto_attach = true } },
+      },
+    },
+  },
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     build = ":TSUpdate",
   },
   "kyazdani42/nvim-tree.lua",
@@ -52,7 +64,7 @@ require("lazy").setup {
   "onsails/lspkind-nvim",
   {
     "mrcjkb/rustaceanvim",
-    version = "^6",
+    version = "^7",
     ft = { "rust" },
     event = "BufReadPre",
   },
@@ -94,11 +106,28 @@ require("lazy").setup {
       require("hlsearch").setup()
     end,
   },
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && bun install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
+  "linrongbin16/lsp-progress.nvim",
   "folke/snacks.nvim",
   "folke/trouble.nvim",
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+  },
   { "glepnir/nerdicons.nvim", cmd = "NerdIcons" },
   -- theme start
-  { "catppuccin/nvim", name = "catppuccin" },
   { "neanias/everforest-nvim", lazy = false, priority = 1000 },
   "limitLiu/zephyr-nvim",
   "RRethy/vim-illuminate",

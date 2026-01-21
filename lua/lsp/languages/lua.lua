@@ -9,5 +9,4 @@ local opts = {
     common.keybinding(buf)
   end,
 }
-require("neodev").setup { lspconfig = opts }
 return opts

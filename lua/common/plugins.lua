@@ -11,7 +11,7 @@ require("lazy").setup {
       "nvim-neotest/nvim-nio",
     },
   },
-
+  { "LunarVim/bigfile.nvim" },
   {
     "wojciech-kulik/xcodebuild.nvim",
     dependencies = {
@@ -89,6 +89,9 @@ require("lazy").setup {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
     },
+  },
+  {
+    "nvim-pack/nvim-spectre",
   },
   {
     "glepnir/lspsaga.nvim",

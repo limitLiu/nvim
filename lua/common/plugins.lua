@@ -39,9 +39,8 @@ require("lazy").setup {
     },
   },
   {
-    "nvim-treesitter/nvim-treesitter",
+    "romus204/tree-sitter-manager.nvim",
     branch = "main",
-    build = ":TSUpdate",
   },
   "kyazdani42/nvim-tree.lua",
   {

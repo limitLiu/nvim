@@ -1,7 +1,7 @@
 require "plugins.lualine"
 require "plugins.nvim-tree"
 require "plugins.bufferline"
-require "plugins.nvim-treesitter"
+require "plugins.tree-sitter-manager"
 require "plugins.comment"
 require "plugins.which-key"
 require "plugins.nvim-autopairs"

@@ -106,8 +106,8 @@ wk.add {
   },
   {
     "<localleader>mt",
-    "<cmd>Markview splitToggle<cr>",
-    desc = "Toggles preview for buffer",
+    "<cmd>TypstPreview<cr>",
+    desc = "Typst Preview",
   },
   {
     "<localleader>mp",

@@ -15,6 +15,7 @@ local servers = {
   cssls = require "lsp.languages.css",
   wgsl_analyzer = require "lsp.languages.zig",
   glsl_analyzer = require "lsp.languages.zig",
+  tinymist = require "lsp.languages.typst",
 }
 
 for key, config in pairs(servers) do

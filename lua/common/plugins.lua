@@ -42,6 +42,11 @@ require("lazy").setup {
     "romus204/tree-sitter-manager.nvim",
     branch = "main",
   },
+  {
+    "chomosuke/typst-preview.nvim",
+    ft = "typst",
+    version = "1.*",
+  },
   "kyazdani42/nvim-tree.lua",
   {
     "akinsho/bufferline.nvim",
@@ -110,7 +115,7 @@ require("lazy").setup {
   },
   {
     "OXY2DEV/markview.nvim",
-    lazy = false,
+    ft = { "markdown", "typst" },
   },
   {
     "iamcco/markdown-preview.nvim",

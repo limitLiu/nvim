@@ -85,6 +85,10 @@ M.map_lsp = function(buf)
   buf("n", "<leader>lc", "<cmd>Lspsaga code_action<CR>", opt)
 end
 
+M.map_flutter_tools = function(buf)
+  buf("n", "<leader>ac", "<cmd>Telescope flutter commands<CR>", opt)
+end
+
 M.map_xcodebuild = function(buf)
   buf("n", "<localleader>ss", "<cmd>XcodebuildSetup<cr>", opt)
   buf("n", "<localleader>sb", "<cmd>XcodebuildBuild<cr>", opt)

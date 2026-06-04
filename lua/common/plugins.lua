@@ -126,6 +126,13 @@ require("lazy").setup {
     end,
     ft = { "markdown" },
   },
+  {
+    "nvim-flutter/flutter-tools.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
   "linrongbin16/lsp-progress.nvim",
   "folke/snacks.nvim",
   "folke/trouble.nvim",

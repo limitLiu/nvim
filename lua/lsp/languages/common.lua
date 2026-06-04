@@ -14,6 +14,15 @@ M.map_xcodebuild = function(buf)
   require("common.keybindings").map_xcodebuild(buf_set_map)
 end
 
+M.flutterKeybinding = function(buf)
+  local function buf_set_map(...)
+    vim.api.nvim_buf_set_keymap(buf, ...)
+  end
+  local keybindings = require "common.keybindings"
+  keybindings.map_lsp(buf_set_map)
+  keybindings.map_flutter_tools(buf_set_map)
+end
+
 M.disableFormat = function(client)
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false

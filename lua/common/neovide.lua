@@ -1,2 +1,3 @@
-vim.g.neovide_input_macos_option_is_meta = true
-vim.g.neovide_cursor_vfx_mode = "wireframe"
+vim.g.neovide_input_macos_option_key_is_meta = "only_left"
+-- wireframe, ripple, sonicboom, railgun, pixiedust
+vim.g.neovide_cursor_vfx_mode = "pixiedust"

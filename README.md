@@ -1,6 +1,6 @@
 # nvim config
 
-**NeoVim v11+**
+**NeoVim v12+**
 
 ## Must be configured
 

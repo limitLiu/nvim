@@ -16,6 +16,7 @@ local servers = {
   wgsl_analyzer = require "lsp.languages.zig",
   glsl_analyzer = require "lsp.languages.zig",
   tinymist = require "lsp.languages.typst",
+  gdscript = require "lsp.languages.gdscript",
 }
 
 for key, config in pairs(servers) do

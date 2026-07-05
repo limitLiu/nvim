@@ -14,10 +14,14 @@ require("conform").setup {
     typescript = { "prettier", stop_after_first = true },
     typescriptreact = { "prettier", stop_after_first = true },
     javascript = { "prettier", stop_after_first = true },
+    gdscript = { "gdscript-formatter" },
   },
   formatters = {
     rustfmt = {
       options = { default_edition = "2024" },
+    },
+    ["gdscript-formatter"] = {
+      append_args = { "--use-spaces", "--indent-size", "2" },
     },
   },
   format_on_save = {

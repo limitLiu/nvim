@@ -54,19 +54,9 @@ local function on_attach(bufnr)
   vim.keymap.set("n", "-", api.tree.change_root_to_parent, opts "Up")
   vim.keymap.set("n", "a", api.fs.create, opts "Create")
   vim.keymap.set("n", "bmv", api.marks.bulk.move, opts "Move Bookmarked")
-  vim.keymap.set(
-    "n",
-    "B",
-    api.tree.toggle_no_buffer_filter,
-    opts "Toggle No Buffer"
-  )
+  vim.keymap.set("n", "B", api.filter.no_buffer.toggle, opts "Toggle No Buffer")
   vim.keymap.set("n", "c", api.fs.copy.node, opts "Copy")
-  vim.keymap.set(
-    "n",
-    "C",
-    api.tree.toggle_git_clean_filter,
-    opts "Toggle Git Clean"
-  )
+  vim.keymap.set("n", "C", api.filter.git.clean.toggle, opts "Toggle Git Clean")
   vim.keymap.set("n", "[c", api.node.navigate.git.prev, opts "Prev Git")
   vim.keymap.set("n", "]c", api.node.navigate.git.next, opts "Next Git")
   vim.keymap.set("n", "d", api.fs.remove, opts "Delete")
@@ -85,8 +75,8 @@ local function on_attach(bufnr)
     api.node.navigate.diagnostics.prev,
     opts "Prev Diagnostic"
   )
-  vim.keymap.set("n", "F", api.live_filter.clear, opts "Clean Filter")
-  vim.keymap.set("n", "f", api.live_filter.start, opts "Filter")
+  vim.keymap.set("n", "F", api.filter.live.clear, opts "Clean Filter")
+  vim.keymap.set("n", "f", api.filter.live.clear, opts "Filter")
   vim.keymap.set("n", "g?", api.tree.toggle_help, opts "Help")
   vim.keymap.set(
     "n",
@@ -94,16 +84,11 @@ local function on_attach(bufnr)
     api.fs.copy.absolute_path,
     opts "Copy Absolute Path"
   )
-  vim.keymap.set(
-    "n",
-    "H",
-    api.tree.toggle_hidden_filter,
-    opts "Toggle Dotfiles"
-  )
+  vim.keymap.set("n", "H", api.filter.dotfiles.toggle, opts "Toggle Dotfiles")
   vim.keymap.set(
     "n",
     "I",
-    api.tree.toggle_gitignore_filter,
+    api.filter.git.ignored.toggle,
     opts "Toggle Git Ignore"
   )
   vim.keymap.set("n", "J", api.node.navigate.sibling.last, opts "Last Sibling")
@@ -128,20 +113,14 @@ local function on_attach(bufnr)
   vim.keymap.set("n", "R", api.tree.reload, opts "Refresh")
   vim.keymap.set("n", "s", api.node.run.system, opts "Run System")
   vim.keymap.set("n", "S", api.tree.search_node, opts "Search")
-  vim.keymap.set("n", "U", api.tree.toggle_custom_filter, opts "Toggle Hidden")
+  vim.keymap.set("n", "U", api.filter.custom.toggle, opts "Toggle Hidden")
   vim.keymap.set("n", "W", api.tree.collapse_all, opts "Collapse")
   vim.keymap.set("n", "x", api.fs.cut, opts "Cut")
   vim.keymap.set("n", "y", api.fs.copy.filename, opts "Copy Name")
   vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts "Copy Relative Path")
   vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts "Open")
   vim.keymap.set("n", "<2-RightMouse>", api.tree.change_root_to_node, opts "CD")
-
-  vim.keymap.set(
-    "n",
-    ".",
-    api.tree.toggle_hidden_filter,
-    opts "Toggle Dotfiles"
-  )
+  vim.keymap.set("n", ".", api.filter.dotfiles.toggle, opts "Toggle Dotfiles")
 end
 
 if ok then

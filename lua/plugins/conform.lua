@@ -15,6 +15,7 @@ require("conform").setup {
     typescriptreact = { "prettier", stop_after_first = true },
     javascript = { "prettier", stop_after_first = true },
     gdscript = { "gdscript-formatter" },
+    kotlin = { "ktfmt" },
   },
   formatters = {
     rustfmt = {
@@ -22,6 +23,9 @@ require("conform").setup {
     },
     ["gdscript-formatter"] = {
       append_args = { "--use-spaces", "--indent-size", "2" },
+    },
+    ktfmt = {
+      append_args = { "--google-style" },
     },
   },
   format_on_save = {

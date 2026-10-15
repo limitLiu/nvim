@@ -13,3 +13,5 @@ end
 
 -- vim.opt.rtp = vim.opt.rtp ^ lazy_path
 vim.opt.rtp:prepend(lazy_path)
+
+_G["current_os"] = vim.uv.os_uname().sysname

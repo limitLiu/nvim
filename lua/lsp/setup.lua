@@ -17,6 +17,7 @@ local servers = {
   glsl_analyzer = require "lsp.languages.zig",
   tinymist = require "lsp.languages.typst",
   gdscript = require "lsp.languages.gdscript",
+  kotlin_lsp = require "lsp.languages.zig",
 }
 
 for key, config in pairs(servers) do
